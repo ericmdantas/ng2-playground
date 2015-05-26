@@ -10,35 +10,37 @@ if (typeof __decorate !== "function") __decorate = function (decorators, target,
 if (typeof __metadata !== "function") __metadata = function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { ComponentAnnotation as Component, ViewAnnotation as View } from "angular2/angular2";
-import { NgFor, NgIf } from "angular2/directives";
-import { Validators, formDirectives, FormBuilder } from "angular2/forms";
-export let Todo = class {
-    constructor(fb) {
+var angular2_1 = require("angular2/angular2");
+var directives_1 = require("angular2/directives");
+var forms_1 = require("angular2/forms");
+var Todo = (function () {
+    function Todo(fb) {
         this.todos = [];
         this.todoForm = fb.group({
-            message: ["", Validators.required]
+            message: ["", forms_1.Validators.required]
         });
     }
-    add(message) {
+    Todo.prototype.add = function (message) {
         this.todos.push({ id: Date.now(), value: message });
-    }
-    remove(id) {
-        this.todos.forEach((t, i) => {
+    };
+    Todo.prototype.remove = function (id) {
+        var _this = this;
+        this.todos.forEach(function (t, i) {
             if (t.id === id) {
-                this.todos.splice(1, i);
+                _this.todos.splice(1, i);
                 return;
             }
         });
-    }
-    clear() {
+    };
+    Todo.prototype.clear = function () {
         this.todos.length = 0;
-    }
-};
-Object.defineProperty(Todo, "name", { value: "Todo", configurable: true });
-Todo = __decorate([
-    Component({ selector: 'todo', appInjector: [FormBuilder] }),
-    View({ templateUrl: 'todo.html', directives: [NgFor, NgIf, formDirectives] }), 
-    __metadata('design:paramtypes', [(typeof FormBuilder !== 'undefined' && FormBuilder) || Object])
-], Todo);
+    };
+    Todo = __decorate([
+        angular2_1.ComponentAnnotation({ selector: 'todo', appInjector: [forms_1.FormBuilder] }),
+        angular2_1.ViewAnnotation({ templateUrl: 'todo.html', directives: [directives_1.NgFor, directives_1.NgIf, forms_1.formDirectives] }), 
+        __metadata('design:paramtypes', [(typeof FormBuilder !== 'undefined' && FormBuilder) || Object])
+    ], Todo);
+    return Todo;
+})();
+exports.Todo = Todo;
 //# sourceMappingURL=todo.js.map

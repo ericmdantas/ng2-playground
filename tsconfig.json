@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "removeComments": true,
     "emitDecoratorMetadata": true,
-    "declaration": false,
+    "declaration": true,
     "noImplicitAny": false,
     "watch": true,
     "sourceMap": true,

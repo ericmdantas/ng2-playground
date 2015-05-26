@@ -1,5 +1,5 @@
 /// <reference path="../typings/tsd.d.ts" />
-import { bootstrap } from "angular2/angular2";
-import { Todo } from "./todo";
-bootstrap(Todo);
+var angular2_1 = require("angular2/angular2");
+var todo_1 = require("./todo");
+angular2_1.bootstrap(todo_1.Todo);
 //# sourceMappingURL=app.js.map
