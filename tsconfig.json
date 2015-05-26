@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "declaration": false,
+    "noImplicitAny": false,
+    "watch": true,
+    "sourceMap": true,
+    "listFiles": true
+  },
+  "files": ["src/app.ts", "src/todo.ts"]
+}
