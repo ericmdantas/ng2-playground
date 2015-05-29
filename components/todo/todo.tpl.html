@@ -1,1 +1,15 @@
-<div>todo {{title}}</div>
+<div>
+    <form [control-group]="todoForm" onsubmit="return false;">
+        <input type="text"
+               #todomessage
+               control="message"
+               (keyup.enter)="add(todomessage.value)"
+               style="width: 100%; padding: 3px; font-size: 17px; box-sizing: border-box;"
+               placeholder="what do you have to do? [press enter to submit]"
+               autofocus />
+
+        <p *ng-for="#t of todos; #i=index;"
+           (click)="remove(t.id)"
+           style="cursor: pointer;">{{i}}: {{t.value}}</p>
+    </form>
+</div>
