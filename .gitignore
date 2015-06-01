@@ -1,5 +1,6 @@
 .idea
 node_modules
-npm-debug.log
-dist
-jspm_packages
+main.js
+components/*.js
+components/**/*.js
+

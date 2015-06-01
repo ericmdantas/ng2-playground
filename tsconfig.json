@@ -1,13 +1,16 @@
 {
-  "compilerOptions": {
-    "target": "es5",
-    "removeComments": true,
-    "emitDecoratorMetadata": true,
-    "declaration": true,
-    "noImplicitAny": false,
+  "compilerOptions":
+  {
+    "module": "commonjs",
     "watch": true,
-    "sourceMap": true,
-    "listFiles": true
+    "target": "es5",
+    "emitDecoratorMetadata": true
   },
-  "files": ["src/app.ts", "src/todo.ts"]
+  "files": [
+    "index.ts",
+    "./common/directives/important-text.ts",
+    "./common/directives/logger.ts",
+    "./common/directives/uppercase.ts",
+    "./todo/components/todo.ts"
+  ]
 }
