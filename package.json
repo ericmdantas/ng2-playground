@@ -13,9 +13,12 @@
     "es6-module-loader": "^0.16.6",
     "systemjs": "^0.16.11",
     "traceur": "0.0.89"
+<<<<<<< HEAD
   },
   "dependencies": {
     "angular2": "^2.0.0-alpha.25",
     "reflect-metadata": "^0.1.0"
+=======
+>>>>>>> f9b1ae659404aa098f14444bdec2cb32235b0163
   }
 }
