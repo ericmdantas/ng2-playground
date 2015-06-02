@@ -7,14 +7,6 @@
     "emitDecoratorMetadata": true
   },
   "files": [
-    "index.ts",
-
-    "./common/directives/important-text.directive.ts",
-    "./common/directives/logger.directive.ts",
-    "./common/directives/uppercase.directive.ts",
-    "./common/directives/mouse-enter.directive.ts",
-    "./common/services/logger.service.ts",
-
-    "./todo/components/todo.ts"
+    "index.ts"
   ]
 }

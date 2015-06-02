@@ -1,11 +1,11 @@
 /// <reference path="../../typings/angular2/angular2.d.ts" />
 
-import {ElementRef, Directive} from 'angular2/angular2';
+import {Directive} from 'angular2/angular2';
 import {LoggerService} from '../services/logger.service';
-import {Inject} from 'angular2/di';
 
 @Directive({
     selector: '[logger]',
+    hostInjector: [LoggerService],
     hostListeners: {
         'click': 'log()',
         'keyup.enter': 'log()'
@@ -14,8 +14,10 @@ import {Inject} from 'angular2/di';
 export class Logger {
     logger: LoggerService;
 
-    constructor(@Inject(LoggerService) l: LoggerService) {
+    constructor(l: LoggerService) {
         this.logger = l;
+
+        console.log(l)
     }
 
     log() {
