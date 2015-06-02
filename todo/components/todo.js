@@ -16,6 +16,7 @@ var directives_1 = require('angular2/directives');
 var important_text_directive_1 = require('../../common/directives/important-text.directive');
 var uppercase_directive_1 = require('../../common/directives/uppercase.directive');
 var logger_directive_1 = require('../../common/directives/logger.directive');
+var mouse_enter_directive_1 = require('../../common/directives/mouse-enter.directive');
 var Todo = (function () {
     function Todo() {
         this.title = 'todo!';
@@ -44,7 +45,7 @@ var Todo = (function () {
         }),
         angular2_1.View({
             templateUrl: 'todo/components/todo.html',
-            directives: [directives_1.NgFor, forms_1.formDirectives, important_text_directive_1.ImportantText, uppercase_directive_1.Uppercase, logger_directive_1.Logger]
+            directives: [directives_1.NgFor, forms_1.formDirectives, important_text_directive_1.ImportantText, uppercase_directive_1.Uppercase, logger_directive_1.Logger, mouse_enter_directive_1.MouseEnter]
         }), 
         __metadata('design:paramtypes', [])
     ], Todo);

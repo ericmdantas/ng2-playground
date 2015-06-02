@@ -14,26 +14,21 @@ if (typeof __param !== "function") __param = function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 var angular2_1 = require('angular2/angular2');
-var logger_service_1 = require('../services/logger.service');
 var di_1 = require('angular2/di');
-var Logger = (function () {
-    function Logger(l) {
-        this.logger = l;
+var MouseEnter = (function () {
+    function MouseEnter(el) {
+        el.domElement.addEventListener('mouseenter', function (_) { return console.log("hover em " + el.domElement.innerText); });
     }
-    Logger.prototype.log = function () {
-        this.logger.log();
-    };
-    Logger = __decorate([
-        angular2_1.Directive({
-            selector: '[logger]',
-            hostListeners: {
-                'click': 'log()',
-                'keyup.enter': 'log()'
-            }
+    MouseEnter = __decorate([
+        angular2_1.Component({
+            selector: 'mouse-goes-here'
         }),
-        __param(0, di_1.Inject(logger_service_1.LoggerService)), 
-        __metadata('design:paramtypes', [logger_service_1.LoggerService])
-    ], Logger);
-    return Logger;
+        angular2_1.View({
+            template: "<span class=\"moar-info\">*mouse over me</span>"
+        }),
+        __param(0, di_1.Inject(angular2_1.ElementRef)), 
+        __metadata('design:paramtypes', [(typeof ElementRef !== 'undefined' && ElementRef) || Object])
+    ], MouseEnter);
+    return MouseEnter;
 })();
-exports.Logger = Logger;
+exports.MouseEnter = MouseEnter;

@@ -4,6 +4,7 @@ body {
     border: 1px solid #ddd;
     padding: 15px;
     font-size: 17px;
+    position: relative;
 }
 
 input {
@@ -33,6 +34,14 @@ ul li {
     cursor: pointer;
 }
 
+.moar-info {
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+}
 
 .overflow-hidden {
     overflow: hidden;

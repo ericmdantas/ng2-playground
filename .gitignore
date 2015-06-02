@@ -1,6 +1,2 @@
 .idea
 node_modules
-main.js
-components/*.js
-components/**/*.js
-

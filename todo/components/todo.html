@@ -1,4 +1,4 @@
-<div >
+<div class="todo-container">
     <form class="overflow-hidden"
           onsubmit="return false;"
           [control-group]="todoForm">
@@ -18,6 +18,8 @@
             logger
             (click)="add(tmessage);"
             [disabled]="!todoForm.valid">+</button>
+
+    <mouse-goes-here></mouse-goes-here>
     </form>
 
     <ul>

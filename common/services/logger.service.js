@@ -10,30 +10,17 @@ if (typeof __decorate !== "function") __decorate = function (decorators, target,
 if (typeof __metadata !== "function") __metadata = function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-if (typeof __param !== "function") __param = function (paramIndex, decorator) {
-    return function (target, key) { decorator(target, key, paramIndex); }
-};
-var angular2_1 = require('angular2/angular2');
-var logger_service_1 = require('../services/logger.service');
 var di_1 = require('angular2/di');
-var Logger = (function () {
-    function Logger(l) {
-        this.logger = l;
+var LoggerService = (function () {
+    function LoggerService() {
     }
-    Logger.prototype.log = function () {
-        this.logger.log();
+    LoggerService.prototype.log = function () {
+        console.log("I log stuff! It's " + new Date());
     };
-    Logger = __decorate([
-        angular2_1.Directive({
-            selector: '[logger]',
-            hostListeners: {
-                'click': 'log()',
-                'keyup.enter': 'log()'
-            }
-        }),
-        __param(0, di_1.Inject(logger_service_1.LoggerService)), 
-        __metadata('design:paramtypes', [logger_service_1.LoggerService])
-    ], Logger);
-    return Logger;
+    LoggerService = __decorate([
+        di_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], LoggerService);
+    return LoggerService;
 })();
-exports.Logger = Logger;
+exports.LoggerService = LoggerService;

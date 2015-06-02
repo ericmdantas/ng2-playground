@@ -7,6 +7,7 @@ import {NgFor} from 'angular2/directives';
 import {ImportantText} from '../../common/directives/important-text.directive';
 import {Uppercase} from '../../common/directives/uppercase.directive';
 import {Logger} from '../../common/directives/logger.directive';
+import {MouseEnter} from '../../common/directives/mouse-enter.directive';
 
 interface ITodoList {
     message: string;
@@ -19,7 +20,7 @@ interface ITodoList {
 })
 @View({
     templateUrl: 'todo/components/todo.html',
-    directives: [NgFor, formDirectives, ImportantText, Uppercase, Logger]
+    directives: [NgFor, formDirectives, ImportantText, Uppercase, Logger, MouseEnter]
 })
 export class Todo {
     title: string = 'todo!';

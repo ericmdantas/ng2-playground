@@ -620,8 +620,3 @@ declare module "angular2/di" {
    */
    function bind(token: any): any;
 }
-
-declare module "angular2/annotations"{
-   function Parent():(target: any) => any;
-   function Ancestor():(target: any) => any;
-}
