@@ -15,7 +15,6 @@ var logger_service_1 = require('../services/logger.service');
 var Logger = (function () {
     function Logger(l) {
         this.logger = l;
-        console.log(l);
     }
     Logger.prototype.log = function () {
         this.logger.log();

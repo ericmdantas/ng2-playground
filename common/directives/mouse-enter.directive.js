@@ -17,14 +17,14 @@ var angular2_1 = require('angular2/angular2');
 var di_1 = require('angular2/di');
 var MouseEnter = (function () {
     function MouseEnter(el) {
-        el.domElement.addEventListener('mouseenter', function (_) { return console.log("hover em " + el.domElement.innerText); });
+        el.domElement.addEventListener('mouseenter', function (_) { return console.log("you hovered me: " + el.domElement.innerText + " at " + new Date()); });
     }
     MouseEnter = __decorate([
         angular2_1.Component({
             selector: 'mouse-goes-here'
         }),
         angular2_1.View({
-            template: "<span class=\"moar-info\">*mouse over me</span>"
+            template: "<span class=\"moar-info\">*mouse over me and check the console</span>"
         }),
         __param(0, di_1.Inject(angular2_1.ElementRef)), 
         __metadata('design:paramtypes', [(typeof ElementRef !== 'undefined' && ElementRef) || Object])

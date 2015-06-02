@@ -7,12 +7,12 @@ import {Inject} from 'angular2/di';
     selector: 'mouse-goes-here'
 })
 @View({
-    template: `<span class="moar-info">*mouse over me</span>`
+    template: `<span class="moar-info">*mouse over me and check the console</span>`
 })
 export class MouseEnter {
     el: ElementRef;
 
     constructor(@Inject(ElementRef) el: ElementRef) {
-        el.domElement.addEventListener('mouseenter', _ => console.log(`hover em ${el.domElement.innerText}`));
+        el.domElement.addEventListener('mouseenter', _ => console.log(`you hovered me: ${el.domElement.innerText} at ${new Date()}`));
     }
 }

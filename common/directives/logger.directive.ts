@@ -16,8 +16,6 @@ export class Logger {
 
     constructor(l: LoggerService) {
         this.logger = l;
-
-        console.log(l)
     }
 
     log() {
