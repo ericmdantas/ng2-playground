@@ -1,4 +1,4 @@
-/// <reference path="../../typings/angular2/angular2.d.ts" />
+/// <reference path="../../typings/tsd.d.ts" />
 
 import {ElementRef, Component, View} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
@@ -14,5 +14,7 @@ export class MouseEnter {
 
     constructor(@Inject(ElementRef) el: ElementRef) {
         el.domElement.addEventListener('mouseenter', _ => console.log(`you hovered me: ${el.domElement.innerText} at ${new Date()}`));
+        el.domElement.addEventListener('click', ev => console.log(`don't ${ev.type} me!`));
+        el.domElement.addEventListener('dblclick', ev => console.log(`don't ${ev.type} me!`));
     }
 }

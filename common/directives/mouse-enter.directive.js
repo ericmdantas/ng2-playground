@@ -1,4 +1,4 @@
-/// <reference path="../../typings/angular2/angular2.d.ts" />
+/// <reference path="../../typings/tsd.d.ts" />
 if (typeof __decorate !== "function") __decorate = function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -18,6 +18,8 @@ var di_1 = require('angular2/di');
 var MouseEnter = (function () {
     function MouseEnter(el) {
         el.domElement.addEventListener('mouseenter', function (_) { return console.log("you hovered me: " + el.domElement.innerText + " at " + new Date()); });
+        el.domElement.addEventListener('click', function (ev) { return console.log("don't " + ev.type + " me!"); });
+        el.domElement.addEventListener('dblclick', function (ev) { return console.log("don't " + ev.type + " me!"); });
     }
     MouseEnter = __decorate([
         angular2_1.Component({
