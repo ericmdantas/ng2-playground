@@ -10,6 +10,7 @@ import {Logger} from '../../common/directives/logger.directive';
 import {MouseEnter} from '../../common/directives/mouse-enter.directive';
 import {RandomMessage} from '../../common/services/randomizer.service';
 import {TodoService} from '../../common/services/todo.service';
+import {Bad} from '../../common/directives/bad-words.directive';
 
 interface ITodoList {
     message: string;
@@ -22,7 +23,7 @@ interface ITodoList {
 })
 @View({
     templateUrl: 'todo/components/todo.html',
-    directives: [NgFor, formDirectives, ImportantText, Uppercase, Logger, MouseEnter]
+    directives: [NgFor, formDirectives, ImportantText, Uppercase, Logger, MouseEnter, Bad]
 })
 export class Todo {
     title: string = 'todo!';
@@ -60,5 +61,9 @@ export class Todo {
                         return this.todoList.splice(1, i);
             });
         });
+    }
+
+    uWotM8(info:{msg: string}) {
+        console.log(info.msg);
     }
 }
