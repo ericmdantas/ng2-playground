@@ -22,9 +22,8 @@ var Bad = (function () {
     Bad.prototype.badWordFound = function (ev) {
         var _val = ev.target.value;
         var _msg = 'u cool';
-        if (_val.indexOf('shiiiet') > -1) {
+        if (_val.indexOf('shiiiet') > -1)
             _msg = "u wot m8 - dont u " + _val + " me, bruh";
-        }
         this.badWord.next({ msg: _msg });
     };
     Bad = __decorate([

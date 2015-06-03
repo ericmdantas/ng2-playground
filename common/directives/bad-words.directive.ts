@@ -23,9 +23,7 @@ export class Bad {
         let _msg = 'u cool';
 
         if (_val.indexOf('shiiiet') > -1)
-        {
             _msg = `u wot m8 - dont u ${_val} me, bruh`;
-        }
 
         this.badWord.next({msg: _msg});
     }
