@@ -11,6 +11,7 @@ import {MouseEnter} from '../../common/directives/mouse-enter.directive';
 import {RandomMessage} from '../../common/services/randomizer.service';
 import {TodoService} from '../../common/services/todo.service';
 import {Bad} from '../../common/directives/bad-words.directive';
+import {NextColor} from '../../common/directives/next-color.directive';
 
 interface ITodoList {
     message: string;
@@ -23,7 +24,7 @@ interface ITodoList {
 })
 @View({
     templateUrl: 'todo/components/todo.html',
-    directives: [NgFor, formDirectives, ImportantText, Uppercase, Logger, MouseEnter, Bad]
+    directives: [NgFor, formDirectives, ImportantText, Uppercase, Logger, MouseEnter, Bad, NextColor]
 })
 export class Todo {
     title: string = 'todo!';
@@ -32,12 +33,14 @@ export class Todo {
     todoList: Array<ITodoList>;
     todoForm: ControlGroup;
     ts: TodoService;
+    titleColor: string;
 
     constructor(@Inject(FormBuilder) fb: FormBuilder, r: RandomMessage, ts: TodoService) {
         this.message = '';
         this.id = 0;
         this.todoList = [];
         this.ts = ts;
+        this.titleColor = '';
 
         this.todoForm = fb.group({
             "message": [r.randomIt(), Validators.required]
@@ -65,5 +68,9 @@ export class Todo {
 
     uWotM8(info:{msg: string}) {
         console.log(info.msg);
+    }
+
+    onNextColor(color) {
+        this.titleColor = color;
     }
 }
