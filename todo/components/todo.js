@@ -23,6 +23,7 @@ var logger_directive_1 = require('../../common/directives/logger.directive');
 var mouse_enter_directive_1 = require('../../common/directives/mouse-enter.directive');
 var randomizer_service_1 = require('../../common/services/randomizer.service');
 var todo_service_1 = require('../../common/services/todo.service');
+var service_b_1 = require('../../common/services/service_b');
 var bad_words_directive_1 = require('../../common/directives/bad-words.directive');
 var Todo = (function () {
     function Todo(fb, r, ts) {
@@ -60,7 +61,7 @@ var Todo = (function () {
     Todo = __decorate([
         angular2_1.Component({
             selector: 'todo',
-            appInjector: [forms_1.FormBuilder, randomizer_service_1.RandomMessage, todo_service_1.TodoService]
+            appInjector: [forms_1.FormBuilder, randomizer_service_1.RandomMessage, todo_service_1.TodoService, service_b_1.ServiceB]
         }),
         angular2_1.View({
             templateUrl: 'todo/components/todo.html',

@@ -10,6 +10,7 @@ import {Logger} from '../../common/directives/logger.directive';
 import {MouseEnter} from '../../common/directives/mouse-enter.directive';
 import {RandomMessage} from '../../common/services/randomizer.service';
 import {TodoService} from '../../common/services/todo.service';
+import {ServiceB} from '../../common/services/service_b';
 import {Bad} from '../../common/directives/bad-words.directive';
 
 interface ITodoList {
@@ -19,7 +20,7 @@ interface ITodoList {
 
 @Component({
     selector: 'todo',
-    appInjector: [FormBuilder, RandomMessage, TodoService]
+    appInjector: [FormBuilder, RandomMessage, TodoService, ServiceB]
 })
 @View({
     templateUrl: 'todo/components/todo.html',
