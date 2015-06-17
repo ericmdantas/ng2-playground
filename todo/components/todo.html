@@ -3,7 +3,7 @@
           onsubmit="return false;"
           [control-group]="todoForm">
 
-        <h1 align="center" important-text uppercase>{{title}}</h1>
+        <h1 align="center" important-text uppercase [style.color]="titleColor">{{title}}</h1>
 
     <input type="text"
            logger
@@ -18,7 +18,8 @@
     <button type="button"
             logger
             (click)="add(tmessage);"
-            [disabled]="!todoForm.valid">+</button>
+            [disabled]="!todoForm.valid"
+            nc (next-color)="onNextColor($event)">+</button>
 
     <mouse-goes-here></mouse-goes-here>
     </form>

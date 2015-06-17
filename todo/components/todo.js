@@ -25,6 +25,7 @@ var randomizer_service_1 = require('../../common/services/randomizer.service');
 var todo_service_1 = require('../../common/services/todo.service');
 var service_b_1 = require('../../common/services/service_b');
 var bad_words_directive_1 = require('../../common/directives/bad-words.directive');
+var next_color_directive_1 = require('../../common/directives/next-color.directive');
 var Todo = (function () {
     function Todo(fb, r, ts) {
         this.title = 'todo!';
@@ -32,6 +33,7 @@ var Todo = (function () {
         this.id = 0;
         this.todoList = [];
         this.ts = ts;
+        this.titleColor = '';
         this.todoForm = fb.group({
             "message": [r.randomIt(), forms_1.Validators.required]
         });
@@ -58,6 +60,9 @@ var Todo = (function () {
     Todo.prototype.uWotM8 = function (info) {
         console.log(info.msg);
     };
+    Todo.prototype.onNextColor = function (color) {
+        this.titleColor = color;
+    };
     Todo = __decorate([
         angular2_1.Component({
             selector: 'todo',
@@ -65,7 +70,7 @@ var Todo = (function () {
         }),
         angular2_1.View({
             templateUrl: 'todo/components/todo.html',
-            directives: [directives_1.NgFor, forms_1.formDirectives, important_text_directive_1.ImportantText, uppercase_directive_1.Uppercase, logger_directive_1.Logger, mouse_enter_directive_1.MouseEnter, bad_words_directive_1.Bad]
+            directives: [directives_1.NgFor, forms_1.formDirectives, important_text_directive_1.ImportantText, uppercase_directive_1.Uppercase, logger_directive_1.Logger, mouse_enter_directive_1.MouseEnter, bad_words_directive_1.Bad, next_color_directive_1.NextColor]
         }),
         __param(0, di_1.Inject(forms_1.FormBuilder)), 
         __metadata('design:paramtypes', [(typeof FormBuilder !== 'undefined' && FormBuilder) || Object, randomizer_service_1.RandomMessage, todo_service_1.TodoService])
