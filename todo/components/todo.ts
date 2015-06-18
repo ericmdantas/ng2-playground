@@ -9,7 +9,7 @@ import {Uppercase} from '../../common/directives/uppercase.directive';
 import {Logger} from '../../common/directives/logger.directive';
 import {MouseEnter} from '../../common/directives/mouse-enter.directive';
 import {RandomMessage} from '../../common/services/randomizer.service';
-import {TodoService} from '../../common/services/todo.service';
+import {TodoDAO} from '../../todo/services/todo_dao';
 import {ServiceB} from '../../common/services/service_b';
 import {Bad} from '../../common/directives/bad-words.directive';
 import {NextColor} from '../../common/directives/next-color.directive';
@@ -21,7 +21,7 @@ interface ITodoList {
 
 @Component({
     selector: 'todo',
-    appInjector: [FormBuilder, RandomMessage, TodoService, ServiceB]
+    appInjector: [FormBuilder, RandomMessage, TodoDAO, ServiceB]
 })
 @View({
     templateUrl: 'todo/components/todo.html',
@@ -33,10 +33,10 @@ export class Todo {
     id: number;
     todoList: Array<ITodoList>;
     todoForm: ControlGroup;
-    ts: TodoService;
+    ts: TodoDAO;
     titleColor: string;
 
-    constructor(@Inject(FormBuilder) fb: FormBuilder, r: RandomMessage, ts: TodoService) {
+    constructor(@Inject(FormBuilder) fb: FormBuilder, r: RandomMessage, ts: TodoDAO) {
         this.message = '';
         this.id = 0;
         this.todoList = [];
@@ -55,7 +55,7 @@ export class Todo {
             .then(r => this.todoList.push({message: r, id: Date.now()}));
     }
 
-    remove(id:number) {
+    remove(id:string) {
         this
             .ts
             .remove(id)
