@@ -46,6 +46,8 @@ export class Todo {
         this.todoForm = fb.group({
             "message": [r.randomIt(), Validators.required]
         });
+
+        this.ts.getAll().subscribe(res => this.todoList = res.json());
     }
 
     add(info:{value:string}) {

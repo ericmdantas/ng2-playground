@@ -28,6 +28,7 @@ var bad_words_directive_1 = require('../../common/directives/bad-words.directive
 var next_color_directive_1 = require('../../common/directives/next-color.directive');
 var Todo = (function () {
     function Todo(fb, r, ts) {
+        var _this = this;
         this.title = 'todo!';
         this.message = '';
         this.id = 0;
@@ -37,6 +38,7 @@ var Todo = (function () {
         this.todoForm = fb.group({
             "message": [r.randomIt(), forms_1.Validators.required]
         });
+        this.ts.getAll().subscribe(function (res) { return _this.todoList = res.json(); });
     }
     Todo.prototype.add = function (info) {
         var _this = this;

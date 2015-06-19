@@ -19,9 +19,10 @@ var async_1 = require('angular2/src/facade/async');
 var TodoDAO = (function () {
     function TodoDAO(http) {
         this.http = http;
-        var _r = this.http('./todos.json').map(function (res) { return res.json(); });
-        console.log(_r);
     }
+    TodoDAO.prototype.getAll = function () {
+        return this.http('/todos');
+    };
     TodoDAO.prototype.add = function (info) {
         return new async_1.Promise(function (res, rej) { return res(info); });
     };

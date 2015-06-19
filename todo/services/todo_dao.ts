@@ -11,9 +11,10 @@ export class TodoDAO {
     constructor(@Inject(HttpFactory) http:IHttp) {
         this.http = http;
 
-        var _r = this.http('./todos.json').map(res => res.json());
+    }
 
-        console.log(_r);
+    getAll():Rx.Observable {
+        return this.http('/todos');
     }
 
     add(info:string) {
