@@ -7,8 +7,8 @@ import {Inject} from 'angular2/di';
     selector: '[bad]',
     events: ['badWord'],
     hostInjector: [EventEmitter],
-    hostListeners: {
-        input: 'badWordFound($event)'
+    host: {
+        '(input)': 'badWordFound($event)'
     }
 })
 export class Bad {

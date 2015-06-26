@@ -31,8 +31,8 @@ var Bad = (function () {
             selector: '[bad]',
             events: ['badWord'],
             hostInjector: [angular2_1.EventEmitter],
-            hostListeners: {
-                input: 'badWordFound($event)'
+            host: {
+                '(input)': 'badWordFound($event)'
             }
         }),
         __param(0, di_1.Inject(angular2_1.EventEmitter)), 

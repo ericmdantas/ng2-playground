@@ -17,9 +17,9 @@ var angular2_1 = require('angular2/angular2');
 var di_1 = require('angular2/di');
 var MouseEnter = (function () {
     function MouseEnter(el) {
-        el.domElement.addEventListener('mouseenter', function (_) { return console.log("you hovered me: " + el.domElement.innerText + " at " + new Date()); });
-        el.domElement.addEventListener('click', function (ev) { return console.log("don't " + ev.type + " me!"); });
-        el.domElement.addEventListener('dblclick', function (ev) { return console.log("don't " + ev.type + " me!"); });
+        el.nativeElement.addEventListener('mouseenter', function (_) { return console.log("you hovered me: " + el.domElement.innerText + " at " + new Date()); });
+        el.nativeElement.addEventListener('click', function (ev) { return console.log("don't " + ev.type + " me!"); });
+        el.nativeElement.addEventListener('dblclick', function (ev) { return console.log("don't " + ev.type + " me!"); });
     }
     MouseEnter = __decorate([
         angular2_1.Component({
