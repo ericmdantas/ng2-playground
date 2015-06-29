@@ -14,7 +14,7 @@ import {ServiceB} from '../../common/services/service_b';
 import {Bad} from '../../common/directives/bad-words.directive';
 import {NextColor} from '../../common/directives/next-color.directive';
 
-interface ITodoList {
+type ITodoList = {
     message: string;
     id: number;
 }
