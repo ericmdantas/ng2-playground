@@ -45,14 +45,14 @@ var Todo = (function () {
         this
             .ts
             .add(info.value)
-            .then(function (r) { return _this.todoList.push({ message: r, id: Date.now() }); });
+            .subscribe(function (r) { return _this.todoList.push({ message: r, id: Date.now() }); });
     };
     Todo.prototype.remove = function (id) {
         var _this = this;
         this
             .ts
             .remove(id)
-            .then(function (r) {
+            .subscribe(function (r) {
             _this.todoList.forEach(function (t, i) {
                 if (t.id === r)
                     return _this.todoList.splice(1, i);

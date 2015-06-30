@@ -1,27 +1,25 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {HttpFactory} from 'angular2/src/http/http';
-import {IHttp} from 'angular2/src/http/interfaces';
 import {Inject} from 'angular2/angular2';
-import {Promise} from 'angular2/src/facade/async';
+import {Observable} from 'angular2/angular2';
+import {Http} from 'angular2/angular2';
 
 export class TodoDAO {
-    http: IHttp;
+    http: Http;
 
-    constructor(@Inject(HttpFactory) http:IHttp) {
+    constructor(@Inject(Http) http:Http) {
         this.http = http;
-
     }
 
-    getAll():Rx.Observable {
-        return this.http('/todos');
+    getAll():Observable {
+        return this.http.get('/todos');
     }
 
-    add(info:string) {
-        return new Promise((res, rej) => res(info));
+    add(info:string):Observable {
+        return this.http.post('/api/todos', info);
     }
 
-    remove(info:string) {
-        return new Promise((res, rej) => res(info));
+    remove(id:string):Observable {
+        return this.http.delete('/api/todos/'+id);
     }
 }

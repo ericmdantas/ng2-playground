@@ -13,25 +13,24 @@ if (typeof __metadata !== "function") __metadata = function (k, v) {
 if (typeof __param !== "function") __param = function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var http_1 = require('angular2/src/http/http');
 var angular2_1 = require('angular2/angular2');
-var async_1 = require('angular2/src/facade/async');
+var angular2_2 = require('angular2/angular2');
 var TodoDAO = (function () {
     function TodoDAO(http) {
         this.http = http;
     }
     TodoDAO.prototype.getAll = function () {
-        return this.http('/todos');
+        return this.http.get('/todos');
     };
     TodoDAO.prototype.add = function (info) {
-        return new async_1.Promise(function (res, rej) { return res(info); });
+        return this.http.post('/api/todos', info);
     };
-    TodoDAO.prototype.remove = function (info) {
-        return new async_1.Promise(function (res, rej) { return res(info); });
+    TodoDAO.prototype.remove = function (id) {
+        return this.http.delete('/api/todos/' + id);
     };
     TodoDAO = __decorate([
-        __param(0, angular2_1.Inject(http_1.HttpFactory)), 
-        __metadata('design:paramtypes', [(typeof IHttp !== 'undefined' && IHttp) || Object])
+        __param(0, angular2_1.Inject(angular2_2.Http)), 
+        __metadata('design:paramtypes', [(typeof Http !== 'undefined' && Http) || Object])
     ], TodoDAO);
     return TodoDAO;
 })();

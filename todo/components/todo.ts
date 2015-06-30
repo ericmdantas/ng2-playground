@@ -54,14 +54,14 @@ export class Todo {
         this
             .ts
             .add(info.value)
-            .then(r => this.todoList.push({message: r, id: Date.now()}));
+            .subscribe(r => this.todoList.push({message: r, id: Date.now()}));
     }
 
     remove(id:string) {
         this
             .ts
             .remove(id)
-            .then(r => {
+            .subscribe(r => {
                 this.todoList.forEach((t, i) => {
                     if (t.id === r)
                         return this.todoList.splice(1, i);
