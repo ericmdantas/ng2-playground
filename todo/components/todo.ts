@@ -13,6 +13,9 @@ import {TodoDAO} from '../../todo/services/todo_dao';
 import {ServiceB} from '../../common/services/service_b';
 import {Bad} from '../../common/directives/bad-words.directive';
 import {NextColor} from '../../common/directives/next-color.directive';
+import {SomethingCapitalized} from '../../common/directives/something-capitalized';
+import {ActionDirective} from '../../common/directives/action-directive';
+import {Adder} from '../../common/directives/adder';
 
 type ITodoList = {
     message: string;
@@ -21,14 +24,15 @@ type ITodoList = {
 
 @Component({
     selector: 'todo',
-    viewInjector: [FormBuilder, RandomMessage, TodoDAO, ServiceB]
+    appInjector: [FormBuilder, RandomMessage, TodoDAO, ServiceB]
 })
 @View({
     templateUrl: 'todo/components/todo.html',
-    directives: [NgFor, formDirectives, ImportantText, Uppercase, Logger, MouseEnter, Bad, NextColor]
+    directives: [NgFor, formDirectives, ImportantText, Uppercase, Logger, MouseEnter, Bad, NextColor, SomethingCapitalized, Adder]
 })
 export class Todo {
     title: string = 'todo!';
+    someText: string = 'someText';
     message: string;
     id: number;
     todoList: Array<ITodoList>;
@@ -54,7 +58,7 @@ export class Todo {
         this
             .ts
             .add(info.value)
-            .subscribe(r => this.todoList.push({message: r, id: Date.now()}));
+            .subscribe(r => this.todoList.push({message: info.value, id: Date.now()}));
     }
 
     remove(id:string) {
@@ -75,5 +79,9 @@ export class Todo {
 
     onNextColor(color) {
         this.titleColor = color;
+    }
+
+    execAction() {
+        console.log('exec action from component');
     }
 }

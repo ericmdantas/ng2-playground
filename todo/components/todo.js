@@ -26,10 +26,13 @@ var todo_dao_1 = require('../../todo/services/todo_dao');
 var service_b_1 = require('../../common/services/service_b');
 var bad_words_directive_1 = require('../../common/directives/bad-words.directive');
 var next_color_directive_1 = require('../../common/directives/next-color.directive');
+var something_capitalized_1 = require('../../common/directives/something-capitalized');
+var adder_1 = require('../../common/directives/adder');
 var Todo = (function () {
     function Todo(fb, r, ts) {
         var _this = this;
         this.title = 'todo!';
+        this.someText = 'someText';
         this.message = '';
         this.id = 0;
         this.todoList = [];
@@ -45,7 +48,7 @@ var Todo = (function () {
         this
             .ts
             .add(info.value)
-            .subscribe(function (r) { return _this.todoList.push({ message: r, id: Date.now() }); });
+            .subscribe(function (r) { return _this.todoList.push({ message: info.value, id: Date.now() }); });
     };
     Todo.prototype.remove = function (id) {
         var _this = this;
@@ -65,6 +68,9 @@ var Todo = (function () {
     Todo.prototype.onNextColor = function (color) {
         this.titleColor = color;
     };
+    Todo.prototype.execAction = function () {
+        console.log('exec action from component');
+    };
     Todo = __decorate([
         angular2_1.Component({
             selector: 'todo',
@@ -72,7 +78,7 @@ var Todo = (function () {
         }),
         angular2_1.View({
             templateUrl: 'todo/components/todo.html',
-            directives: [directives_1.NgFor, forms_1.formDirectives, important_text_directive_1.ImportantText, uppercase_directive_1.Uppercase, logger_directive_1.Logger, mouse_enter_directive_1.MouseEnter, bad_words_directive_1.Bad, next_color_directive_1.NextColor]
+            directives: [directives_1.NgFor, forms_1.formDirectives, important_text_directive_1.ImportantText, uppercase_directive_1.Uppercase, logger_directive_1.Logger, mouse_enter_directive_1.MouseEnter, bad_words_directive_1.Bad, next_color_directive_1.NextColor, something_capitalized_1.SomethingCapitalized, adder_1.Adder]
         }),
         __param(0, di_1.Inject(forms_1.FormBuilder)), 
         __metadata('design:paramtypes', [(typeof FormBuilder !== 'undefined' && FormBuilder) || Object, randomizer_service_1.RandomMessage, todo_dao_1.TodoDAO])

@@ -15,17 +15,15 @@
            placeholder="what do you have todo?"
            autofocus/>
 
-    <button type="button"
-            logger
-            (click)="add(tmessage);"
-            [disabled]="!todoForm.valid"
-            nc (next-color)="onNextColor($event)">+</button>
+    <adder todoForm="todoForm"></adder>
 
     <mouse-goes-here></mouse-goes-here>
     </form>
 
-    <ul>
+    <ul action="execAction()">
         <li *ng-for="#t of todoList; #i = index;"
             (click)="remove(t.id);">{{i}}: {{t.message}}</li>
     </ul>
+
+    <something-capitalized text="someText"></something-capitalized>
 </div>
