@@ -3,13 +3,13 @@ import {Stuff} from '../app/components/stuff_type';
 
 @Component({
     selector: 'card',
-    properties: ['stuffList: sl']
+    properties: ['stuffList']
 })
 @View({
     template: `
     <div class="card"
-         *ng-for="#stuff of sl"
-         (click)="remove(stuff.createdAt)">
+         *ng-for="#stuff of stuffList"
+         (click)="app.remove(stuff.createdAt)">
         <p>{{stuff.info}}</p>
         <p class="created-at">{{stuff.createdAt}}</p>
     </div>
@@ -18,9 +18,5 @@ import {Stuff} from '../app/components/stuff_type';
 })
 
 export class Card {
-    sl: List<Object>;
-
-    constructor() {
-        console.log(this.sl);
-    }
+    stuffList: List<Object>;
 }

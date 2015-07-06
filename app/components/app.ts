@@ -45,4 +45,8 @@ export class App {
                this.stuffCount--;
             });
     }
+
+    onComplete() {
+        console.log('a');
+    }
 }

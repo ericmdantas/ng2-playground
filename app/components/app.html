@@ -15,8 +15,7 @@
 <br><br>
 
 <div class="container container-styled">
-
     <p class="text-center" *ng-if="!stuffList.length">Nothing to see here.</p>
 
-    <card stuff-list="stuffList"></card>
+    <card [stuff-list]="stuffList"></card>
 </div>
