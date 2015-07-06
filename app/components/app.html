@@ -1,0 +1,27 @@
+<div class="container">
+    <form onsubmit="return false;"
+          [ng-form-model]="stuffForm">
+
+        <input type="text"
+               [class.error]="!stuffForm.valid"
+               (keyup.enter)="add()"
+               ng-control="info"
+               autofocus/>
+
+        <small>There are this much stuff: {{stuffCount}}</small>
+    </form>
+</div>
+
+<br><br>
+
+<div class="container container-styled">
+
+    <p class="text-center" *ng-if="!stuffList.length">Nothing to see here.</p>
+
+    <div class="card"
+         *ng-for="#stuff of stuffList"
+         (click)="remove(stuff.createdAt)">
+        <p>{{stuff.info}}</p>
+        <p class="created-at">{{stuff.createdAt}}</p>
+    </div>
+</div>

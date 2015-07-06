@@ -17,6 +17,7 @@
   "dependencies": {
     "angular2": "^2.0.0-alpha.25",
     "express": "^4.12.4",
-    "reflect-metadata": "^0.1.0"
+    "reflect-metadata": "^0.1.0",
+    "rx": "^2.5.3"
   }
 }
