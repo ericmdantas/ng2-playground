@@ -3,6 +3,7 @@ import {Inject} from 'angular2/di';
 import {FormBuilder, Validators, ControlGroup, formDirectives} from 'angular2/forms';
 import {AppService} from './app_service';
 import {Stuff} from './stuff_type';
+import {Card} from '../common/card';
 
 @Component({
   selector: 'app',
@@ -10,7 +11,7 @@ import {Stuff} from './stuff_type';
 })
 @View({
     templateUrl: 'app/components/app.html',
-    directives: [formDirectives, NgFor, NgIf]
+    directives: [formDirectives, NgIf, Card]
 })
 export class App {
     stuffList: List<Stuff>;
@@ -36,7 +37,7 @@ export class App {
         });
     }
 
-    remove(date: Date) {
+    remove(date: Date):void {
         this.service
             .remove(this.stuffList, date)
             .subscribe(list => {

@@ -18,10 +18,5 @@
 
     <p class="text-center" *ng-if="!stuffList.length">Nothing to see here.</p>
 
-    <div class="card"
-         *ng-for="#stuff of stuffList"
-         (click)="remove(stuff.createdAt)">
-        <p>{{stuff.info}}</p>
-        <p class="created-at">{{stuff.createdAt}}</p>
-    </div>
+    <card stuff-list="stuffList"></card>
 </div>

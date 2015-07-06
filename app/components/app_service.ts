@@ -3,7 +3,6 @@ import {Stuff} from 'stuff_type';
 export class AppService {
     add(info: string):Rx.Observable {
         return Rx.Observable.create(observer => {
-            debugger;
             observer.onNext(info);
             observer.onCompleted();
         });
