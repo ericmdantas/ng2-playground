@@ -1,4 +1,4 @@
-import {Component, View, Renderer} from 'angular2/angular2';
+import {Component, View, Renderer, ElementRef} from 'angular2/angular2';
 import {Inject} from 'angular2/angular2';
 
 @Component({
@@ -6,19 +6,24 @@ import {Inject} from 'angular2/angular2';
 })
 @View({
     template: `
-        <div id="trash-can" (drop)="dropped($event)" (dragover)="allowDrop($event)">
-        </div>
+        <div id="trash-can" (drop)="dropped($event)" (dragover)="dragginOver($event)"></div>
     `
 })
 
 export class TrashCan {
+    el: ElementRef;
     renderer: Renderer;
 
-    constructor(@Inject(Renderer) re: Renderer) {
+    constructor(@Inject(ElementRef) el: ElementRef, @Inject(Renderer) re: Renderer) {
         this.renderer = re;
+        this.el = el;
     }
 
-    allowDrop(ev) {
+    dragginOver(ev) {
+        document.getElementById('trash-can').style.border = '3px dashed yellow';
+
+        console.log('dragging over')
+
         ev.preventDefault();
     }
 
