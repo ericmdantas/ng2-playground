@@ -3,6 +3,7 @@ import {Inject} from 'angular2/di';
 import {FormBuilder, Validators, ControlGroup, formDirectives} from 'angular2/forms';
 import {AppService} from './app_service';
 import {Stuff} from './stuff_type';
+import {TrashCan} from '../common/trash_can';
 import {Card} from '../common/card';
 
 @Component({
@@ -11,7 +12,7 @@ import {Card} from '../common/card';
 })
 @View({
     templateUrl: 'app/components/app.html',
-    directives: [formDirectives, NgIf, Card]
+    directives: [formDirectives, NgIf, Card, TrashCan]
 })
 export class App {
     stuffList: List<Stuff>;
