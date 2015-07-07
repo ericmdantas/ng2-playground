@@ -11,7 +11,7 @@ import {YouCanDragThis} from './you_can_drag_this';
     template: `
     <div class="card"
          *ng-for="#stuff of stuffList"
-         you-can-drag-this>
+         you-can-drag-this [date]="stuff.createdAt">
 
              <span class="close"
                    (click)="remove(stuff.createdAt)">x</span>
