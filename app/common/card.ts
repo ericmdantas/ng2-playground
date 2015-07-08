@@ -1,11 +1,13 @@
-import {Component, View, NgFor} from 'angular2/angular2';
+import {Component, View, NgFor, EventEmitter} from 'angular2/angular2';
 import {Stuff} from '../app/components/stuff_type';
 import {Inject} from 'angular2/di';
 import {YouCanDragThis} from './you_can_drag_this';
 
 @Component({
     selector: 'card',
-    properties: ['stuffList']
+    properties: ['stuffList'],
+    events: ['stuffRemoved'],
+    appInjector: [EventEmitter]
 })
 @View({
     template: `
@@ -16,7 +18,7 @@ import {YouCanDragThis} from './you_can_drag_this';
              <button class="mdl-button mdl-js-button mdl-button--accent close"
                      type="button"
                      (click)="remove(stuff.createdAt)">
-                          <i class="material-icons">close</i>
+                          <i class="material-icons">remove</i>
              </button>
 
             <p>{{stuff.info}}</p>
@@ -28,4 +30,13 @@ import {YouCanDragThis} from './you_can_drag_this';
 
 export class Card {
     stuffList: List<Object>;
+    stuffRemoved: EventEmitter;
+
+    constructor(@Inject(EventEmitter) ee: EventEmitter) {
+        this.stuffRemoved = ee;
+    }
+
+    remove(date: Date) {
+        this.stuffRemoved.next(date);
+    }
 }

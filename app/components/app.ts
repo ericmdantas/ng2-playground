@@ -46,4 +46,8 @@ export class App {
                this.stuffCount--;
             });
     }
+
+    somethingDropped(date: Date) {
+        this.remove(date);
+    }
 }

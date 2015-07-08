@@ -34,7 +34,7 @@ export class YouCanDragThis {
 
             ev.dataTransfer.setData("stuff", this.date);
 
-            console.log('dragging...')
+            console.log('dragging stuff...')
         });
 
         _nativeEl.addEventListener('dragend', (ev) => {
@@ -42,7 +42,7 @@ export class YouCanDragThis {
             _nativeEl.style.color = this.dropStyle.color;
             _nativeEl.style.opacity = this.dropStyle.opacity;
 
-            console.log('ended')
+            console.log('ended dragging');
         });
     }
 }

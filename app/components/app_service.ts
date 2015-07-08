@@ -10,7 +10,7 @@ export class AppService {
 
     remove(list: List<Stuff>, date: Date):Rx.Observable {
         list.forEach((stuff, index) => {
-            if (stuff.createdAt === date) {
+            if (stuff.createdAt == date) {
                 list.splice(index, 1);
                 return;
             }
