@@ -19,16 +19,6 @@
     width: 100%;
 }
 
-.container input {
-    width: 100%;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-left-width: 3px;
-    font-size: 20px;
-    color: #666;
-    box-sizing: border-box;
-}
-
 .card {
     padding: 1em;
     padding-top: 0;
@@ -58,16 +48,6 @@
     position: absolute;
     top: 0;
     right: 0;
-    padding: .5em 1em;
-    background-color: transparent;
-    color: red;
-    transition: all .5s;
-    cursor: pointer;
-}
-
-.card .close:hover {
-    background-color: red;
-    color: #fff;
 }
 
 .card:hover {
@@ -77,11 +57,15 @@
 }
 
 .container .error {
-    border: 1px solid red;
+    border-bottom: 1px solid red;
 }
 
 .text-center {
     text-align: center;
+}
+
+.right {
+    float: right;
 }
 
 #trash-can {
@@ -97,6 +81,7 @@ body {
     font-size: 17px;
     font-family: Helvetica;
     color: #777;
+    height: 100%;
 }
 
 input,

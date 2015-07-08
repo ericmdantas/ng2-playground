@@ -1,23 +1,43 @@
-<div class="container">
-    <form onsubmit="return false;"
-          [ng-form-model]="stuffForm">
+<div class="mdl-layout mdl-js-layout">
+    <div class="mdl-layout__content">
+        <div class="page-content">
+            <div class="container">
+                <form onsubmit="return false;"
+                      [ng-form-model]="stuffForm">
 
-        <input type="text"
-               [class.error]="!stuffForm.valid"
-               (keyup.enter)="add()"
-               ng-control="info"
-               autofocus/>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input type="text"
+                               class="mdl-textfield__input"
+                               [class.error]="!stuffForm.valid"
+                               (keyup.enter)="add()"
+                               ng-control="info"
+                               autofocus />
 
-        <small>There are this much stuff: {{stuffCount}}</small>
-    </form>
+                        <div class="right">
+                            <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored"
+                                    type="button"
+                                    [disabled]="!stuffForm.valid"
+                                    (click)="add()">
+                                ADD
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <br>
+                    <small>There are this much stuff: {{stuffCount}}</small>
+                </form>
+            </div>
+
+            <br><br>
+
+            <div class=" container container-styled">
+                <p class="text-center" *ng-if="!stuffList.length">Nothing to see here.</p>
+
+                <card (^click)="remove(date)" [stuff-list]="stuffList"></card>
+            </div>
+
+            <trash-can></trash-can>
+        </div>
+    </div>
 </div>
-
-<br><br>
-
-<div class="container container-styled">
-    <p class="text-center" *ng-if="!stuffList.length">Nothing to see here.</p>
-
-    <card (^click)="remove(date)" [stuff-list]="stuffList"></card>
-</div>
-
-<trash-can></trash-can>

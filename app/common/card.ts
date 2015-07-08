@@ -13,8 +13,12 @@ import {YouCanDragThis} from './you_can_drag_this';
          *ng-for="#stuff of stuffList"
          you-can-drag-this [date]="stuff.createdAt">
 
-             <span class="close"
-                   (click)="remove(stuff.createdAt)">x</span>
+             <button class="mdl-button mdl-js-button mdl-button--accent close"
+                     type="button"
+                     (click)="remove(stuff.createdAt)">
+                          <i class="material-icons">close</i>
+             </button>
+
             <p>{{stuff.info}}</p>
             <p class="created-at">{{stuff.createdAt}}</p>
     </div>
