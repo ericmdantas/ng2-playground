@@ -7,7 +7,7 @@ import {YouCanDragThis} from './you_can_drag_this';
     selector: 'card',
     properties: ['stuffList'],
     events: ['stuffRemoved'],
-    appInjector: [EventEmitter]
+    viewInjector: [EventEmitter]
 })
 @View({
     template: `

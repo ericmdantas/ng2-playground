@@ -8,7 +8,7 @@ import {Card} from '../common/card';
 
 @Component({
   selector: 'app',
-  appInjector: [FormBuilder, AppService]
+  viewInjector: [FormBuilder, AppService]
 })
 @View({
     templateUrl: 'app/components/app.html',

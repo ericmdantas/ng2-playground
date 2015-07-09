@@ -4,7 +4,7 @@ import {Inject} from 'angular2/angular2';
 @Component({
     selector: 'trash-can',
     events: ['droppedLikeItsHot'],
-    appInjector: [EventEmitter]
+    viewInjector: [EventEmitter]
 })
 @View({
     template: `
