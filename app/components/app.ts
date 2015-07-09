@@ -12,13 +12,15 @@ import {Card} from '../common/card';
 })
 @View({
     templateUrl: 'app/components/app.html',
-    directives: [formDirectives, NgIf, Card, TrashCan]
+    directives: [formDirectives, NgIf, Card, TrashCan],
+    styleUrls: ['app/components/app.css']
 })
 export class App {
     stuffList: List<Stuff>;
     stuffForm: ControlGroup;
     service: AppService;
     stuffCount: int = 0;
+    subTitle: string = `There are this much stuff: `;
 
     constructor(@Inject(FormBuilder) fb: FormBuilder, appService: AppService) {
         this.stuffForm = fb.group({
@@ -43,7 +45,8 @@ export class App {
             .remove(this.stuffList, date)
             .subscribe(list => {
                this.stuffList = list;
-               this.stuffCount--;
+               if (this.stuffCount)
+                   this.stuffCount--;
             });
     }
 
