@@ -18,7 +18,7 @@ import {YouCanDragThis} from './you_can_drag_this';
              <button class="mdl-button mdl-js-button mdl-button--accent close"
                      type="button"
                      (click)="remove(stuff.createdAt)">
-                          <i class="material-icons">remove</i>
+                          <i class="material-icons">close</i>
              </button>
 
             <p>{{stuff.info}}</p>
