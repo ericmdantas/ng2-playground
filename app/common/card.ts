@@ -1,3 +1,5 @@
+/// <reference path="../../typings/tsd.d.ts" />
+
 import {Component, View, NgFor, EventEmitter} from 'angular2/angular2';
 import {Stuff} from '../app/components/stuff_type';
 import {Inject} from 'angular2/di';

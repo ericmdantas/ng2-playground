@@ -1,3 +1,5 @@
+/// <reference path="../../typings/tsd.d.ts" />
+
 import {Component, View, Renderer, ElementRef, EventEmitter} from 'angular2/angular2';
 import {Inject} from 'angular2/angular2';
 
@@ -8,7 +10,11 @@ import {Inject} from 'angular2/angular2';
 })
 @View({
     template: `
-        <div id="trash-can" (drop)="dropped($event)" (dragover)="dragginOver($event)" (dragend)="dragginEnd()"></div>
+        <div id="trash-can"
+             (drop)="dropped($event)"
+             (dragover)="dragginOver($event)"
+             (dragend)="dragginEnd()">
+        </div>
     `
 })
 
