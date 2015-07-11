@@ -1,0 +1,10 @@
+nav {
+    position: absolute;
+    left: 45%;
+    top: 0;
+}
+
+a {
+    color: skyblue;
+    text-decoration: underline;
+}
