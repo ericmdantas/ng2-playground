@@ -14,7 +14,7 @@ import {Ng2} from './ng2';
 @View({
     templateUrl: `app/components/ng2.html`,
     styleUrls: ['app/components/ng2.css'],
-    directives: [formDirectives, NgIf, Card, TrashCan],
+    directives: [formDirectives, NgIf, Card, TrashCan]
 })
 
 export class Ng2 {
