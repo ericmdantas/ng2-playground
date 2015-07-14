@@ -1,30 +1,31 @@
+/// <reference path="../../../typings/tsd.d.ts" />
+
 import {Component, View, NgFor, NgIf} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {FormBuilder, Validators, ControlGroup, formDirectives} from 'angular2/forms';
-import {AppService} from './app_service';
-import {Stuff} from './stuff_type';
-import {TrashCan} from '../common/trash_can';
-import {Card} from '../common/card';
-import {Ng2} from './ng2';
+import {StuffService} from '../services/stuff_service';
+import {Stuff} from '../types/stuff_type';
+import {TrashCan} from '../../common/trash_can';
+import {Card} from '../../common/card';
 
 @Component({
-    selector: 'ng2',
-    viewInjector: [FormBuilder, AppService]
+    selector: 'stuff',
+    viewInjector: [FormBuilder, StuffService]
 })
 @View({
-    templateUrl: `app/components/ng2.html`,
-    styleUrls: ['app/components/ng2.css'],
+    templateUrl: `app/stuff/components/stuff.html`,
+    styleUrls: ['app/stuff/components/stuff.css'],
     directives: [formDirectives, NgIf, Card, TrashCan]
 })
 
-export class Ng2 {
+export class Stuff {
     stuffList: List<Stuff>;
     stuffForm: ControlGroup;
     service: AppService;
     stuffCount: int = 0;
     subTitle: string = `There are this much stuff: `;
 
-    constructor(@Inject(FormBuilder) fb: FormBuilder, appService: AppService) {
+    constructor(@Inject(FormBuilder) fb: FormBuilder, appService: StuffService) {
         this.stuffForm = fb.group({
             "info": ["something", Validators.required]
         });

@@ -1,6 +1,6 @@
 import {Stuff} from 'stuff_type';
 
-export class AppService {
+export class StuffService {
     add(info: string):Rx.Observable {
         return Rx.Observable.create(observer => {
             observer.onNext(info);
