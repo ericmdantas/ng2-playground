@@ -19,5 +19,7 @@ import {Main} from './main';
 ])
 
 export class App {
-
+    constructor() {
+        console.log('main routes initialized');
+    }
 }
