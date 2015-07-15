@@ -7,6 +7,7 @@ import {StuffService} from '../services/stuff_service';
 import {Stuff} from '../types/stuff_type';
 import {TrashCan} from '../../common/trash_can';
 import {Card} from '../../common/card';
+import {IStuffCmp} from 'app/common/interfaces';
 
 @Component({
     selector: 'stuff',
@@ -18,34 +19,34 @@ import {Card} from '../../common/card';
     directives: [formDirectives, NgIf, Card, TrashCan]
 })
 
-export class Stuff {
+export class Stuff implements IStuffCmp {
     stuffList: List<Stuff>;
     stuffForm: ControlGroup;
-    service: AppService;
+    service: StuffService;
     stuffCount: int = 0;
     subTitle: string = `There are this much stuff: `;
 
-    constructor(@Inject(FormBuilder) fb: FormBuilder, appService: StuffService) {
+    constructor(@Inject(FormBuilder) fb: FormBuilder, stuffService: StuffService) {
         this.stuffForm = fb.group({
             "info": ["something", Validators.required]
         });
 
-        this.service = appService;
+        this.service = stuffService;
         this.stuffList = [];
     }
 
-    add():void {
+    add(info:string):void {
         this.service
-            .add(this.stuffForm.value.info)
+            .add(info)
             .subscribe(res => {
                 this.stuffList.push({info: res, createdAt: Date.now()});
                 this.stuffCount++;
         });
     }
 
-    remove(date: Date):void {
+    remove(id:string|number):void {
         this.service
-            .remove(this.stuffList, date)
+            .remove(this.stuffList, id)
             .subscribe(list => {
                this.stuffList = list;
                if (this.stuffCount)
@@ -53,7 +54,7 @@ export class Stuff {
             });
     }
 
-    somethingDropped(date: Date) {
-        this.remove(date);
+    somethingDropped(id: string|number) {
+        this.remove(id);
     }
 }

@@ -1,16 +1,17 @@
 import {Stuff} from 'stuff_type';
+import {IStuffService} from 'app/common/interfaces';
 
-export class StuffService {
-    add(info: string):Rx.Observable {
+export class StuffService implements IStuffService {
+    add(info:string):Rx.Observable {
         return Rx.Observable.create(observer => {
             observer.onNext(info);
             observer.onCompleted();
         });
     }
 
-    remove(list: List<Stuff>, date: Date):Rx.Observable {
+    remove(list: List<Stuff>, id:string|number):Rx.Observable {
         list.forEach((stuff, index) => {
-            if (stuff.createdAt == date) {
+            if (stuff.createdAt == id) {
                 list.splice(index, 1);
                 return;
             }
