@@ -7,6 +7,7 @@
 
                     <div class="mdl-textfield mdl-js-textfield">
                         <input type="text"
+                               #info
                                class="mdl-textfield__input"
                                [class.error]="!stuffForm.valid"
                                ng-control="info"
@@ -17,7 +18,7 @@
                                     type="submit"
                                     id="adder"
                                     [disabled]="!stuffForm.valid"
-                                    (click)="add()">
+                                    (click)="add(info.value)">
                                 ADD
                             </button>
                         </div>

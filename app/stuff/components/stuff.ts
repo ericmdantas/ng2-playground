@@ -1,6 +1,6 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
-import {Component, View, NgFor, NgIf} from 'angular2/angular2';
+import {Component, View, NgFor, NgIf, EventEmitter} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {FormBuilder, Validators, ControlGroup, formDirectives} from 'angular2/forms';
 import {StuffService} from '../services/stuff_service';
@@ -11,7 +11,8 @@ import {IStuffCmp} from 'app/common/interfaces';
 
 @Component({
     selector: 'stuff',
-    viewInjector: [FormBuilder, StuffService]
+    viewInjector: [FormBuilder, StuffService, EventEmitter],
+    events: ['ded']
 })
 @View({
     templateUrl: `app/stuff/components/stuff.html`,
@@ -25,14 +26,16 @@ export class Stuff implements IStuffCmp {
     service: StuffService;
     stuffCount: int = 0;
     subTitle: string = `There are this much stuff: `;
+    ded: EventEmitter;
 
-    constructor(@Inject(FormBuilder) fb: FormBuilder, stuffService: StuffService) {
+    constructor(@Inject(FormBuilder) fb: FormBuilder, @Inject(EventEmitter) ded: EventEmitter, stuffService: StuffService) {
         this.stuffForm = fb.group({
             "info": ["something", Validators.required]
         });
 
         this.service = stuffService;
         this.stuffList = [];
+        this.ded = ded;
     }
 
     add(info:string):void {
@@ -51,6 +54,8 @@ export class Stuff implements IStuffCmp {
                this.stuffList = list;
                if (this.stuffCount)
                    this.stuffCount--;
+
+               this.ded.next({a: id});
             });
     }
 

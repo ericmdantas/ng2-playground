@@ -5,6 +5,10 @@ export interface IStuffCmp {
     remove(id:string|number):void;
 }
 
+export interface IDeadStuffCmp {
+    remove(id:string|number):void;
+}
+
 export interface IStuffService {
     add(info:string):Rx.Observable;
     remove(list: List<Object>, id:number|string):Rx.Observable;
