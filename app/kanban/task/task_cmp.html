@@ -1,5 +1,22 @@
 <div>
-    <p>task_cmp</p>
-    <p id="task-info">{{description}}</p>
-    <p id="task-owner">{{owner}}</p>
+    <form [ng-form-model]="taskForm"
+          onsubmit="return false;">
+        <label>description</label>
+        <input type="text"
+               ng-control="description"/>
+
+        <label>owner</label>
+        <input type="text"
+               ng-control="owner"/>
+
+        <button type="button"
+                (click)="add(taskForm.value.description, taskForm.value.owner)">btn</button>
+
+        <hr>
+
+        <task-container (task-moved)="taskMovedHandler()"
+                        (task-removed)="taskRemovedHandler($event)"
+                        [container-title]=" 'Stopped' "
+                        [task-list]="taskList"></task-container>
+    </form>
 </div>

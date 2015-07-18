@@ -4,6 +4,8 @@ import {TaskType} from './task_type';
 
 export class TaskService {
     add(task: TaskType):Rx.Observable {
+        task.id = Date.now();
+
         return Rx.Observable.create(o => {
            o.onNext(task);
            o.onCompleted();
