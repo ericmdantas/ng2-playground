@@ -23,7 +23,8 @@ export class TaskCmp {
     taskForm: ControlGroup;
     service: TaskService;
 
-    constructor(@Inject(TaskModel) taskModel: TaskModel, @Inject(TaskService) ts: TaskService) {
+    @Inject(TaskModel, TaskService)
+    constructor(taskModel: TaskModel, ts: TaskService) {
         this.service = ts;
         this.taskForm = taskModel.form;
     }

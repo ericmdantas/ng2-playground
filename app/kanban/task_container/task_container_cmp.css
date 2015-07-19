@@ -1,3 +1,30 @@
+.task_container {
+    display: inline-flex;
+    width: 33%;
+}
+
+.task_separation {
+    flex: 1;
+}
+
 .hand {
     cursor: pointer;
+}
+
+.task_title {
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+    background-color: gray;
+    color: #fff;
+}
+
+.task {
+    background-color: #f1f2f3;
+    padding: 15px;
+    position: relative;
+}
+
+.task:hover {
+    background-color: #ddd;
 }

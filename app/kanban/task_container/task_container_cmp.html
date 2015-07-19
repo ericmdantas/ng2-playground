@@ -1,15 +1,18 @@
 <div class="task_container">
-    <p>{{containerTitle}}</p>
+    <div class="task_separation">
+        <p class="task_title">{{containerTitle | uppercase}}</p>
 
-    <div>
+        <div>
 
-        <div class="hand"
-             (click)="removed(task.id)"
-             *ng-for="#task of taskList;">
-            <p>{{task.description}}</p>
-            <p>for {{task.owner}}</p>
+            <div class="hand task"
+                 (click)="removed(task.id)"
+                 *ng-for="#task of taskList;">
+                    <remover></remover>
+                    <p>{{task.description}}</p>
+                    <p>for {{task.owner}}</p>
+            </div>
+
+            <span>{{taskList.length}} are open</span>
         </div>
-
-        <span>{{taskList.length}} are open</span>
     </div>
 </div>

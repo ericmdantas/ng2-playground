@@ -16,7 +16,20 @@
 
         <task-container (task-moved)="taskMovedHandler()"
                         (task-removed)="taskRemovedHandler($event)"
+                        (^task-deleted-by-the-remover)="taskRemovedHandler($event)"
                         [container-title]=" 'Stopped' "
+                        [task-list]="taskList"></task-container>
+
+        <task-container (task-moved)="taskMovedHandler()"
+                        (task-removed)="taskRemovedHandler($event)"
+                        (^task-deleted-by-the-remover)="taskRemovedHandler($event)"
+                        [container-title]=" 'Running' "
+                        [task-list]="taskList"></task-container>
+
+        <task-container (task-moved)="taskMovedHandler()"
+                        (task-removed)="taskRemovedHandler($event)"
+                        (^task-deleted-by-the-remover)="taskRemovedHandler($event)"
+                        [container-title]=" 'Finished' "
                         [task-list]="taskList"></task-container>
     </form>
 </div>
