@@ -1,23 +1,28 @@
 /// <reference path="../typings/tsd.d.ts" />
 
 import {Component, View, bootstrap} from 'angular2/angular2';
-import {TaskCmp} from 'app/kanban/task/task_cmp';
-import {TheRemover} from 'app/kanban/common/the_remover';
-import {formInjectables} from 'angular2/forms';
+import {ProductCmp} from './products/product_cmp';
+import {ProductFactoryCmp} from './products_factory/products_factory_cmp';
+import {CartCmp} from './cart/cart_cmp';
 
 @Component({
     selector: 'app'
 })
 @View({
     template: `
-        <task-cmp></task-cmp>
+        <cart></cart>
+        <product></product>
     `
 })
 
 export class App {
     constructor() {
-        console.log('App initialized.');
+        console.log('App initialized');
     }
 }
 
-bootstrap(TaskCmp, [formInjectables]);
+Promise.all([
+    bootstrap(ProductCmp),
+    bootstrap(CartCmp),
+    bootstrap(CartCmp),
+]).catch(console.error);
