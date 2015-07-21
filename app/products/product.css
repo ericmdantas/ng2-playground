@@ -1,0 +1,11 @@
+#products {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+.product {
+    border-bottom: 1px solid #eee;
+    padding: .5em;
+    margin: .3em;
+    width: 250px;
+}

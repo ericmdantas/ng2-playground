@@ -30,7 +30,7 @@ export class ProductFactoryCmp {
         });
     }
 
-    add(name: string, price: string, description?: string) {
+    add(name: string, price: string, description?: string):void {
         this.productAdded.next({name: name, price: price, description: description});
     }
 }

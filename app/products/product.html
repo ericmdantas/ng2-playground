@@ -1,5 +1,20 @@
 <div id="products_container">
-    <h3>product name</h3>
-    <h4>product price</h4>
-    <h5>product description</h5>
+    <div id="products_factory">
+        <products-factory (product-added)="productAddedSomewhere($event)"></products-factory>
+    </div>
+
+    <div id="products">
+       <div class="product"
+            *ng-for="#p of productList">
+           <p [inner-text]="p.name"></p>
+           <p [inner-text]="p.price"></p>
+           <p [inner-text]="p.description"></p>
+           <button type="button"
+                   (click)="addToCart(p)">add to cart</button>
+
+           <button type="button"
+                   (click)="removeFromList(p.id)">remove from list</button>
+       </div>
+    </div>
+
 </div>
