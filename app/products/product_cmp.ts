@@ -1,10 +1,13 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View} from 'angular2/angular2';
+import {Component, View, EventEmitter} from 'angular2/angular2';
+import {Inject} from 'angular2/angular2';
 import {ProductType} from './product_type';
 
 @Component({
-    selector: 'product'
+    selector: 'product',
+    events: ['productAdded'],
+    viewInjector: [EventEmitter]
 })
 @View({
     templateUrl: 'app/products/product.html',
@@ -12,9 +15,16 @@ import {ProductType} from './product_type';
 })
 
 export class ProductCmp {
+    productAdded: EventEmitter;
     product: ProductType;
 
-    constructor() {
-        console.log('product init');
+    constructor(@Inject(EventEmitter) ee: EventEmitter) {
+        this.productAdded = ee;
+        this.productAdded.toRx().subscribe(s => {
+            console.log(s)
+        },
+        e => {
+            console.log(e)
+        })
     }
 }

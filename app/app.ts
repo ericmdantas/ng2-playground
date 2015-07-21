@@ -11,7 +11,8 @@ import {CartCmp} from './cart/cart_cmp';
 @View({
     template: `
         <cart></cart>
-        <product></product>
+        <products-factory (product-added)="product.opa($event)"></products-factory>
+        <product #product></product>
     `
 })
 
@@ -24,5 +25,5 @@ export class App {
 Promise.all([
     bootstrap(ProductCmp),
     bootstrap(CartCmp),
-    bootstrap(CartCmp),
+    bootstrap(ProductFactoryCmp),
 ]).catch(console.error);

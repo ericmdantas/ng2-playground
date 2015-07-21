@@ -11,7 +11,13 @@ import {Component, View} from 'angular2/angular2';
 })
 
 export class CartCmp {
+    itemsCount: number = 0;
+
     constructor() {
         console.log('cart init');
+    }
+
+    addItem() {
+        this.itemsCount++;
     }
 }
