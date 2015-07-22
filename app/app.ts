@@ -10,7 +10,7 @@ import {CartCmp} from './cart/cart_cmp';
 @View({
     template: `
         <cart #cart></cart>
-        <product #product (add-to-cart)="cart.addItem()"></product>
+        <product (add-to-cart)="cart.addItem()"></product>
     `
 })
 
@@ -21,6 +21,6 @@ export class App {
 }
 
 Promise.all([
-    bootstrap(ProductCmp),
-    bootstrap(CartCmp)
+    bootstrap(CartCmp),
+    bootstrap(ProductCmp)
 ]).catch(console.error);
