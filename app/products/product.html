@@ -1,4 +1,5 @@
 <div id="products_container">
+
     <div id="products_factory">
         <products-factory (product-added)="productAddedSomewhere($event)"></products-factory>
     </div>
@@ -14,6 +15,10 @@
 
            <button type="button"
                    (click)="removeFromList(p.id)">remove from list</button>
+       </div>
+
+       <div *ng-if="!productList.length">
+           <h1 align="center">No products available</h1>
        </div>
     </div>
 

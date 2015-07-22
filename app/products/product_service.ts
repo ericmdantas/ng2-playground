@@ -11,16 +11,9 @@ export class ProductService {
         });
     }
 
-    remove(id:number, productList: List<ProductType>):Rx.Observable {
-        productList
-            .forEach((p, i) => {
-               if (p.id === id) {
-                   return productList.splice(i, 1);
-               }
-            });
-
+    remove(id:number):Rx.Observable {
         return Rx.Observable.create(o => {
-           o.onNext(productList);
+           o.onNext(id);
            o.onCompleted();
         });
     }
