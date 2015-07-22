@@ -39,7 +39,7 @@ export class ProductCmp {
             });
     }
 
-    addToCart(product: ProductType) {
+    addToCartHandler(product: ProductType) {
         this.addToCart.next(product);
     }
 

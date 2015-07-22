@@ -9,8 +9,8 @@ import {CartCmp} from './cart/cart_cmp';
 })
 @View({
     template: `
-        <cart></cart>
-        <product></product>
+        <cart #cart></cart>
+        <product #product (add-to-cart)="cart.addItem()"></product>
     `
 })
 
