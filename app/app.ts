@@ -3,6 +3,7 @@
 import {Component, View, bootstrap} from 'angular2/angular2';
 import {ProductCmp} from './products/product_cmp';
 import {CartCmp} from './cart/cart_cmp';
+import {FooterCmp} from './footer/footer_cmp';
 
 @Component({
     selector: 'app'
@@ -11,6 +12,7 @@ import {CartCmp} from './cart/cart_cmp';
     template: `
         <cart #cart></cart>
         <product (add-to-cart)="cart.addItem()"></product>
+        <footer></footer>
     `
 })
 
@@ -22,5 +24,6 @@ export class App {
 
 Promise.all([
     bootstrap(CartCmp),
-    bootstrap(ProductCmp)
+    bootstrap(ProductCmp),
+    bootstrap(FooterCmp)
 ]).catch(console.error);
