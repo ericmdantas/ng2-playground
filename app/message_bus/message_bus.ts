@@ -1,14 +1,26 @@
 import {IMessageBus} from './interfaces';
 
 export class MessageBus implements IMessageBus {
-    eventQueue: Array = [];
     listeners: Array = [];
 
-    public dispatch(event: string, info?: any):void {
-        console.log(`dispatched ${event} with ${info}`);
+    private _log(...args) {
+        console.log(`${args}`);
     }
 
-    public listen(event: string):void {
-        console.log(`listened ${event}`);
+    public dispatch(event: string, info?: any):void {
+        this._log(event, info);
+
+        this.listeners
+            .forEach((l) => {
+                if (l.event === event) {
+                    l.cb(info);
+                }
+            });
+    }
+
+    public listen(event: string, callback: (...args) => any):void {
+        this._log(event);
+
+        this.listeners.push({event: event, cb: callback});
     }
 }
