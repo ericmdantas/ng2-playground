@@ -2,9 +2,11 @@
 
 import {Component, View, EventEmitter} from 'angular2/angular2';
 import {Inject} from 'angular2/angular2';
+import {IMessageBus} from '../message_bus/interfaces';
 
 @Component({
-    selector: 'cart'
+    selector: 'cart',
+    properties: ['messageBus']
 })
 @View({
     templateUrl: 'app/cart/cart.html',
@@ -13,9 +15,12 @@ import {Inject} from 'angular2/angular2';
 
 export class CartCmp {
     itemsCount: number = 0;
+    mb: IMessageBus;
 
     constructor() {
         console.log('cart init');
+
+        this.mb.listen('addProductToCart', this.addItem);
     }
 
     addItem() {

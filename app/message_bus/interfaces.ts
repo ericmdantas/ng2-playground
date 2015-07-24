@@ -1,7 +1,4 @@
-export interface IDispatchEvent {
+export interface IMessageBus {
     dispatch: (eventName: string, info: any) => void;
-}
-
-export interface IListenEvent {
     listen: (eventName: string, callback: Function) => void;
 }

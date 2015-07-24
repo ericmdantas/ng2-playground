@@ -6,9 +6,11 @@ import {Inject} from 'angular2/angular2';
 import {ProductType} from './product_type';
 import {ProductFactoryCmp} from '../products_factory/products_factory_cmp';
 import {ProductService} from './product_service';
+import {IMessageBus} from '../message_bus/interfaces';
 
 @Component({
     selector: 'product',
+    properties: ['messageBus'],
     events: ['addToCart'],
     viewInjector: [ProductService, EventEmitter]
 })
@@ -20,6 +22,7 @@ import {ProductService} from './product_service';
 
 @Inject(ProductService, EventEmitter)
 export class ProductCmp {
+    mb: IMessageBus;
     product: ProductType;
     productList: List<ProductType> = [];
     productService: ProductService;
@@ -40,7 +43,7 @@ export class ProductCmp {
     }
 
     addToCartHandler(product: ProductType) {
-        this.addToCart.next(product);
+        this.mb.dispatch('addProductToCart', product);
     }
 
     removeFromList(id: number) {
