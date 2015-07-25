@@ -3,10 +3,10 @@
 import {Component, View, EventEmitter} from 'angular2/angular2';
 import {Inject} from 'angular2/angular2';
 import {IMessageBus} from '../message_bus/interfaces';
+import {MessageBus} from '../message_bus/message_bus';
 
 @Component({
-    selector: 'cart',
-    properties: ['messageBus']
+    selector: 'cart'
 })
 @View({
     templateUrl: 'app/cart/cart.html',
@@ -20,10 +20,12 @@ export class CartCmp {
     constructor() {
         console.log('cart init');
 
-        this.mb.listen('addProductToCart', this.addItem);
+        this.mb = MessageBus;
+
+        this.mb.listen("cart", this.addItem);
     }
 
     addItem() {
-        this.itemsCount++;
+        this.itemsCount = 1;
     }
 }

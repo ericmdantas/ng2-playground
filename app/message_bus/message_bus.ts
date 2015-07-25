@@ -1,26 +1,31 @@
+/// <reference path="../../typings/tsd.d.ts" />
+
+import * as Rx from 'rx';
 import {IMessageBus} from './interfaces';
+import {Inject} from './interfaces';
 
 export class MessageBus implements IMessageBus {
-    listeners: Array = [];
+    static listeners: Array = [];
+    static _observable: Rx.IObservable = Rx.Observable;
 
-    private _log(...args) {
+    static _log(...args) {
         console.log(`${args}`);
     }
 
-    public dispatch(event: string, info?: any):void {
-        this._log(event, info);
+    public static dispatch(event:string, info?: any):void {
+        this._log(event);
 
-        this.listeners
+         this.listeners
             .forEach((l) => {
-                if (l.event === event) {
-                    l.cb(info);
-                }
+               if (l.event === event) {
+                   l.cb(info);
+               }
             });
     }
 
-    public listen(event: string, callback: (...args) => any):void {
+    public static listen(event:string, cb: (any) => any):void {
         this._log(event);
 
-        this.listeners.push({event: event, cb: callback});
+        this.listeners.push({event: event, cb: cb});
     }
 }
