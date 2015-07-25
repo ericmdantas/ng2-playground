@@ -1,4 +1,6 @@
 <div id="cart_container">
-    <h3>cart</h3>
-    <h5>{{itemsCount}}</h5>
+    <h4>cart ({{itemsCount}})</h4>
+    <button type="button"
+            [hidden]="!itemsCount"
+            (click)="removeItem()">remove item</button>
 </div>

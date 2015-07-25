@@ -40,7 +40,7 @@ export class ProductCmp {
     }
 
     addToCartHandler(product: ProductType) {
-        this.mb.dispatch("cart", product);
+        this.mb.dispatch("cart:add", product);
     }
 
     removeFromList(id: number) {
