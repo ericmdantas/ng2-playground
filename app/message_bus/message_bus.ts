@@ -5,13 +5,7 @@ import {IMessageBus} from './interfaces';
 export class MessageBus implements IMessageBus {
     static listeners: Array = [];
 
-    static _log(...args) {
-        console.log(`${args}`);
-    }
-
     public static dispatch(event:string, info?: any):void {
-        this._log(event);
-
          this.listeners
             .forEach((l) => {
                if (l.event === event) {
@@ -21,8 +15,6 @@ export class MessageBus implements IMessageBus {
     }
 
     public static listen(event:string, cb: (any) => any):void {
-        this._log(event);
-
         this.listeners.push({event: event, cb: cb});
     }
 }

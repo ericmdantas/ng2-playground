@@ -11,7 +11,7 @@ import {FooterCmp} from './footer/footer_cmp';
 @View({
     template: `
         <cart></cart>
-        <product></product>
+        <product (^click)="bubbledClick()" (^product-added)="bubbledProductAdded()"></product>
         <footer></footer>
     `
 })
@@ -19,6 +19,14 @@ import {FooterCmp} from './footer/footer_cmp';
 export class App {
     constructor() {
         console.log('App initialized');
+    }
+
+    bubbledClick() {
+        console.log('click bubbled correcly!');
+    }
+
+    bubbledProductAdded() {
+        console.log('product-added bubbled correcly - not working, doe');
     }
 }
 
