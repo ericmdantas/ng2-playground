@@ -2,7 +2,7 @@
 
 import {Component, View, EventEmitter, bootstrap} from 'angular2/angular2';
 import {NgFor, NgIf} from 'angular2/directives';
-import {Inject} from 'angular2/angular2';
+import {Inject} from 'angular2/di';
 import {ProductType} from './product_type';
 import {ProductFactoryCmp} from '../products_factory/products_factory_cmp';
 import {ProductService} from './product_service';

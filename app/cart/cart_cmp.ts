@@ -1,7 +1,7 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
 import {Component, View} from 'angular2/angular2';
-import {Inject} from 'angular2/angular2';
+import {Inject} from 'angular2/di';
 import {IMessageBus} from '../message_bus/interfaces';
 import {MessageBus} from '../message_bus/message_bus';
 import {NgZone} from 'angular2/src/core/zone/ng_zone';
