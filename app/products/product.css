@@ -8,4 +8,11 @@
     padding: .5em;
     margin: .3em;
     width: 250px;
+    font-size: 17px;
+}
+
+button {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    padding: .5em;
 }
