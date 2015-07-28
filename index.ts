@@ -2,5 +2,6 @@
 
 import {bootstrap} from 'angular2/angular2';
 import {App} from 'app/app';
+import {routerInjectables} from 'angular2/router';
 
-bootstrap(App);
+bootstrap(App, [routerInjectables]);
