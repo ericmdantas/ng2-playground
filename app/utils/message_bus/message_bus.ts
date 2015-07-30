@@ -15,19 +15,24 @@ export type MessageBusType = {
 
 export class MessageBus implements IMessageBus {
     listeners: MessageBusType[] = [];
+    nz: NgZone;
 
-    dispatch(event: string, info?: any):void {
+    constructor() {
+        this.nz = new NgZone({enableLongStacktrace: true});
+    }
+
+    public dispatch(event: string, info?: any):void {
         this.listeners
             .forEach((l, i) => {
                 if (l.event === event) {
-                    NgZone.run(() => {
+                    this.nz.run(() => {
                         l.cb(info);
                     });
                 }
             });
     }
 
-    listen(event: string, cb: Function):void {
+    public listen(event: string, cb: Function):void {
         this.listeners.push({event, cb});
     }
 }
