@@ -1,0 +1,10 @@
+.player {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    top: 15px;
+    left: 300px;
+    border-radius: 100%;
+    background-color: lime;
+    cursor: pointer;
+}

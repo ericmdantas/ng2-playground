@@ -1,3 +1,7 @@
+/// <reference path="../../../typings/tsd.d.ts" />
+
+import {NgZone} from 'angular2/src/core/zone/ng_zone';
+
 export interface IMessageBus {
     listeners: MessageBusType[];
     dispatch: (event: string, info?: any) => any;
@@ -16,7 +20,9 @@ export class MessageBus implements IMessageBus {
         this.listeners
             .forEach((l, i) => {
                 if (l.event === event) {
-                    l.cb(info);
+                    NgZone.run(() => {
+                        l.cb(info);
+                    });
                 }
             });
     }

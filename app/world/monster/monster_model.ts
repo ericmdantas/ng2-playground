@@ -1,14 +1,13 @@
 import {IFight} from '../being/being';
 
-export type PlayerType = {
+export type MonsterType = {
     name: string;
     hp: number;
     mana: number;
 }
 
-
-export class PlayerModel implements IFight {
-    _name: string = '_eric';
+export class MonsterModel implements IFight {
+    _name: string = '_m1';
     _hp: number = 999;
     _mana: number = 999;
 
@@ -40,7 +39,7 @@ export class PlayerModel implements IFight {
         // attack
     }
 
-    defend(): number {
+    defend():number {
         // defend
         return 0;
     }
