@@ -1,11 +1,12 @@
-/// <reference path="../../../typings/tsd.d.ts" />
+/// <reference path="../../../../typings/tsd.d.ts" />
 
 import {Directive, ElementRef, EventEmitter} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 
 @Directive({
     selector: '[got-hit]',
-    events: ['gotHitEvent']
+    events: ['gotHitEvent'],
+    hostInjector: [EventEmitter]
 })
 
 export class GotHitDirective {

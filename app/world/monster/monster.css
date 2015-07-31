@@ -2,8 +2,8 @@
     height: 40px;
     width: 40px;
     position: absolute;
-    top: 35px;
-    left: 500px;
+    top: 10px;
+    right: 130px;
     border-radius: 100%;
     background-color: red;
     cursor: pointer;

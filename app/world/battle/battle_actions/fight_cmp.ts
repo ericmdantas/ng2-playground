@@ -1,40 +1,29 @@
-/// <reference path="../../../typings/tsd.d.ts" />
+/// <reference path="../../../../typings/tsd.d.ts" />
 
 import {Component, View, EventEmitter} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 
 @Component({
     selector: 'fight',
-    events: ['fight']
+    events: ['fightEvent'],
+    viewInjector: [EventEmitter]
 })
 @View({
     template: `
         <button type=button
                 (click)="fightHandler()"
                 class="btn btn-fight">fight!</button>
-    `,
-    styles: `
-        button {
-            background-color: #fff;
-            color: red;
-        }
-
-        button:hover,
-        button:active {
-            background-color: red;
-            color: #fff;
-        }
     `
 })
 
 export class FightCmp {
-    fight: EventEmitter;
+    fightEvent: EventEmitter;
 
     constructor(@Inject(EventEmitter) ee: EventEmitter) {
-        this.fight = ee;
+        this.fightEvent = ee;
     }
 
     public fightHandler() {
-        this.fight.next({});
+        this.fightEvent.next({});
     }
 }
