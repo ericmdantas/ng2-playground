@@ -1,9 +1,6 @@
 /// <refernce path="../../../../typings/tsd.d.ts" />
 
 import {Component, View, bootstrap} from 'angular2/angular2';
-import {bind} from 'angular2/di';
-import {ShadowDomStrategy} from 'angular2/src/render/dom/shadow_dom/shadow_dom_strategy';
-import {NativeShadowDomStrategy} from 'angular2/src/render/dom/shadow_dom/native_shadow_dom_strategy';
 import {PlayerCmp, MonsterCmp, FightCmp} from 'app/world/world';
 
 @Component({
@@ -21,9 +18,9 @@ export class BattleAreaCmp {
     }
 }
 
-Promise.all( [bootstrap(PlayerCmp, [bind(ShadowDomStrategy).toClass(NativeShadowDomStrategy)]),
-              bootstrap(MonsterCmp, [bind(ShadowDomStrategy).toClass(NativeShadowDomStrategy)]),
-              bootstrap(FightCmp, [bind(ShadowDomStrategy).toClass(NativeShadowDomStrategy)]) ])
+Promise.all( [bootstrap(PlayerCmp),
+              bootstrap(MonsterCmp),
+              bootstrap(FightCmp) ])
        .then(() => {
             console.log('player and monster bootstraped correctly');
        })

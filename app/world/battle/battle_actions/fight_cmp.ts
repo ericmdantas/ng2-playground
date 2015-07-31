@@ -23,7 +23,7 @@ export class FightCmp {
         this.fightEvent = ee;
     }
 
-    public fightHandler() {
+    fightHandler() {
         this.fightEvent.next({});
     }
 }

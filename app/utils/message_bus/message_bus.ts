@@ -15,10 +15,9 @@ export type MessageBusType = {
 
 export class MessageBus implements IMessageBus {
     listeners: MessageBusType[] = [];
-    nz: NgZone;
+    nz: NgZone = new NgZone({enableLongStacktrace: true});
 
     constructor() {
-        this.nz = new NgZone({enableLongStacktrace: true});
     }
 
     public dispatch(event: string, info?: any):void {

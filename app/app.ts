@@ -1,9 +1,6 @@
 /// <reference path="../typings/tsd.d.ts" />
 
 import {Component, View, bootstrap} from 'angular2/angular2';
-import {bind} from 'angular2/di';
-import {ShadowDomStrategy} from 'angular2/src/render/dom/shadow_dom/shadow_dom_strategy';
-import {NativeShadowDomStrategy} from 'angular2/src/render/dom/shadow_dom/native_shadow_dom_strategy';
 import {BattleAreaCmp} from 'app/world/world';
 
 @Component({
@@ -21,7 +18,7 @@ export class App {
     }
 }
 
-Promise.all( [bootstrap(BattleAreaCmp, [bind(ShadowDomStrategy).toClass(NativeShadowDomStrategy)])] )
+Promise.all( [bootstrap(BattleAreaCmp)] )
        .then(() => {
             console.log('battle_area boostraped correctly');
        })
