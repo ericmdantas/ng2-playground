@@ -10,7 +10,7 @@ import {Inject} from 'angular2/di';
 })
 @View({
     template: `
-        <button type=button
+        <button type="button"
                 (click)="fightHandler()"
                 class="btn btn-fight">fight!</button>
     `
@@ -23,7 +23,7 @@ export class FightCmp {
         this.fightEvent = ee;
     }
 
-    fightHandler() {
+    fightHandler():void {
         this.fightEvent.next({});
     }
 }

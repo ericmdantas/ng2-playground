@@ -1,4 +1,4 @@
-/// <refernce path="../../../../typings/tsd.d.ts" />
+/// <reference path="../../../../typings/tsd.d.ts" />
 
 import {Component, View, bootstrap} from 'angular2/angular2';
 import {PlayerCmp, MonsterCmp, FightCmp} from 'app/world/world';
@@ -25,6 +25,6 @@ Promise.all( [bootstrap(PlayerCmp),
             console.log('player and monster bootstraped correctly');
        })
        .catch((error) => {
-            console.log(`error bootstraping: ${error}`);
+            console.log(`error bootstraping battle_areas components: ${error}`);
        });
 
