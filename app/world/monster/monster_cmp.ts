@@ -2,7 +2,7 @@
 
 import {Component, View} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
-import {MonsterModel} from 'app/world/world';
+import {MonsterModel} from 'app/world/monster/monster';
 
 @Component({
     selector: 'monster'
@@ -13,7 +13,7 @@ import {MonsterModel} from 'app/world/world';
 })
 
 export class MonsterCmp {
-    monster: MonstesModel;
+    monster: MonsterModel;
 
     constructor() {
         console.log('monster_cmp init');

@@ -1,0 +1,11 @@
+#log {
+    position: absolute;
+    top: 320px;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid gray;
+}
+
+#log .title {
+    text-align: center;
+}

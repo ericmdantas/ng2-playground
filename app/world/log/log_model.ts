@@ -1,8 +1,13 @@
 export class LogModel {
-    _infos: any[] = [];
+    private _infos: any[] = [];
+    private _title: string = 'logs';
 
     constructor() {
 
+    }
+
+    get title() {
+        return this._title;
     }
 
     get infos(): any[] {

@@ -12,6 +12,8 @@ import {StatsModel} from 'app/world/stats/stats_model';
 })
 
 export class StatsCmp {
+    title: string = 'Stats';
+
     constructor() {
         console.log('stats_cmp init');
     }

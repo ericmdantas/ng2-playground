@@ -2,7 +2,7 @@
 
 import {Component, View} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
-import {PlayerModel} from 'app/world/world';
+import {PlayerModel} from 'app/world/player/player';
 
 @Component({
     selector: 'player'

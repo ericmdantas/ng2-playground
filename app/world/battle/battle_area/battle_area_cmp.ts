@@ -1,7 +1,10 @@
 /// <reference path="../../../../typings/tsd.d.ts" />
 
 import {Component, View, bootstrap} from 'angular2/angular2';
-import {PlayerCmp, MonsterCmp, FightCmp} from 'app/world/world';
+import {PlayerCmp, MonsterCmp} from 'app/world/world';
+import {FightCmp, GotHitDirective} from 'app/world/battle/battle';
+import {StatsCmp} from 'app/world/stats/stats';
+import {LogCmp} from 'app/world/log/log';
 
 @Component({
     selector: 'battle-area'
@@ -9,7 +12,7 @@ import {PlayerCmp, MonsterCmp, FightCmp} from 'app/world/world';
 @View({
     templateUrl: 'app/world/battle/battle_area/battle_area.html',
     styleUrls: ['app/world/battle/battle_area/battle_area.css'],
-    directives: [PlayerCmp, MonsterCmp, FightCmp]
+    directives: [PlayerCmp, MonsterCmp, GotHitDirective, FightCmp, LogCmp]
 })
 
 export class BattleAreaCmp {
@@ -20,7 +23,8 @@ export class BattleAreaCmp {
 
 Promise.all( [bootstrap(PlayerCmp),
               bootstrap(MonsterCmp),
-              bootstrap(FightCmp) ])
+              bootstrap(LogCmp),
+              bootstrap(FightCmp)] )
        .then(() => {
             console.log('player and monster bootstraped correctly');
        })
