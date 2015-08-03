@@ -1,18 +1,20 @@
 export class StatsModel {
-    _deaths: number = 0;
-    _monstersKilled: number = 0;
-    _totalHitDelivered: number = 0;
-    _totalHitReceived: number = 0;
+    private _deaths: number = 0;
+    private _monstersKilled: number = 0;
+    private _totalHitDelivered: number = 0;
+    private _totalHitReceived: number = 0;
+    private _maxHitDelivered: number = 0;
+    private _maxHitReceived: number = 0;
 
     constructor() {
 
     }
 
-    get deaths() {
+    get playerDeaths() {
         return this._deaths;
     }
 
-    set deaths(num: number) {
+    set playerDeaths(num: number) {
         this._deaths = num;
     }
 
@@ -24,35 +26,35 @@ export class StatsModel {
         this._monstersKilled = num;
     }
 
-    get totalHitDelivered() {
+    get totalHitsDelivered() {
         return this._totalHitDelivered;
     }
 
-    set totalHitDelivered(num: number) {
+    set totalHitsDelivered(num: number) {
         this._totalHitDelivered = num;
     }
 
-    get totalHitReceived() {
+    get totalHitsReceived() {
         return this._totalHitReceived;
     }
 
-    set totalHitReceived(num: number) {
+    set totalHitsReceived(num: number) {
         this._totalHitReceived = num;
     }
 
-    dead() {
-        this.deaths++;
+    get maxHitDelivered() {
+        return this._maxHitDelivered;
     }
 
-    monsterKilled() {
-        this.monstersKilled++;
+    set maxHitDelivered(num: number):void {
+        this._maxHitDelivered = num;
     }
 
-    deliverHit(hit: number) {
-        this.totalHitDelivered+=hit;
+    get maxHitReceived() {
+        return this._maxHitReceived;
     }
 
-    receiveHit(hit: number) {
-        this.totalHitReceived+=hit;
+    set maxHitReceived(num: number):void {
+        this._maxHitReceived = num;
     }
 }

@@ -3,7 +3,7 @@
 import {Component, View} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {MonsterModel} from 'app/world/monster/monster';
-import {MessageBus, FIGHT_STARTED, FIGHT_ENDED, SOMEONE_GOT_HIT} from 'app/utils/utils';
+import {MessageBus, FIGHT_STARTED, FIGHT_ENDED, SOMEONE_GOT_HIT, MAX_HIT, DELAY_PER_HIT} from 'app/utils/utils';
 
 @Component({
     selector: 'monster',
@@ -29,7 +29,7 @@ export class MonsterCmp {
     onFightStarted() {
 
         var _id = setInterval((_) => {
-            var _hit = Math.floor(Math.random() * 99);
+            var _hit = Math.floor(Math.random() * MAX_HIT);
             this.monster.hp -= _hit;
 
             this.mb.dispatch(SOMEONE_GOT_HIT, `${this.monster.name} got hit with ${_hit}!`);
@@ -39,6 +39,6 @@ export class MonsterCmp {
                 clearInterval(_id);
             }
 
-        }, 999);
+        }, DELAY_PER_HIT);
     }
 }
