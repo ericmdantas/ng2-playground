@@ -4,7 +4,7 @@ import {Component, View} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {NgFor} from 'angular2/directives';
 import {LogModel} from 'app/world/log/log';
-import {FIGHT_STARTED, MessageBus} from 'app/utils/utils';
+import {FIGHT_STARTED, FIGHT_ENDED, SOMEONE_GOT_HIT, MessageBus} from 'app/utils/utils';
 
 @Component({
     selector: 'log'
@@ -24,14 +24,24 @@ export class LogCmp {
         console.log('log_cmp init');
 
         this.mb.listen(FIGHT_STARTED, this.log.bind(this));
+        this.mb.listen(SOMEONE_GOT_HIT, this.log.bind(this));
+        this.mb.listen(FIGHT_ENDED, this.logEnd.bind(this));
     }
 
-    log(info):void {
+    log(info:string):void {
         console.log('logging');
 
         if (!this.logs.length)
             this.logs.push({message: 'fight started!'});
         else
             this.logs.push({message: info});
+    }
+
+    logEnd() {
+        this.logs.push({message: 'fight ended!'});
+    }
+
+    clear() {
+        this.logs.length = 0;
     }
 }

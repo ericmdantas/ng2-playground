@@ -1,5 +1,10 @@
 <div id="log">
-    <p class="title" [inner-text]="title"></p>
+    <div>
+        <p class="title" [inner-text]="title"></p>
+        <button type="button"
+            (click)="clear()">clear</button>
+    </div>
+
     <div *ng-for="#lllog of logs;">
         <p [inner-text]="lllog.message"></p>
     </div>

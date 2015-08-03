@@ -44,4 +44,8 @@ export class PlayerModel implements IFight {
         // defend
         return 0;
     }
+
+    isAlive(): boolean {
+        return (this.hp > 0);
+    }
 }

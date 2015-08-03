@@ -3,7 +3,7 @@
 import {Component, View, EventEmitter} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {MessageBus} from 'app/utils/utils';
-import {FIGHT_STARTED} from 'app/utils/utils';
+import {FIGHT_STARTED, FIGHT_ENDED} from 'app/utils/utils';
 
 @Component({
     selector: 'fight',
@@ -13,6 +13,7 @@ import {FIGHT_STARTED} from 'app/utils/utils';
     template: `
         <button type="button"
                 (click)="fightHandler()"
+                [disabled]="btnDisabled"
                 class="btn btn-fight">fight!</button>
     `,
     styles: [`
@@ -41,14 +42,23 @@ import {FIGHT_STARTED} from 'app/utils/utils';
 
 export class FightCmp {
     mb: MessageBus = MessageBus;
-    FIGHT_STARTED_EVENT: string = FIGHT_STARTED;
+    btnDisabled: boolean = false;
 
     constructor() {
+        this.mb.listen(FIGHT_ENDED, this.onFightEnded.bind(this));
     }
 
     fightHandler():void {
-        console.log(`dispatching ${this.FIGHT_STARTED_EVENT}`);
+        console.log(`dispatching ${FIGHT_STARTED}`);
 
-        this.mb.dispatch(this.FIGHT_STARTED_EVENT);
+        this.mb.dispatch(FIGHT_STARTED);
+
+        this.btnDisabled = true;
+    }
+
+    onFightEnded():void {
+        console.log('fight ended')
+
+        this.btnDisabled = false;
     }
 }
