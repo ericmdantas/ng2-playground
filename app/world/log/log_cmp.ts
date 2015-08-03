@@ -4,10 +4,10 @@ import {Component, View} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {NgFor} from 'angular2/directives';
 import {LogModel} from 'app/world/log/log';
+import {FIGHT_STARTED, MessageBus} from 'app/utils/utils';
 
 @Component({
-    selector: 'log',
-    viewInjector: [LogModel]
+    selector: 'log'
 })
 @View({
     templateUrl: 'app/world/log/log.html',
@@ -16,12 +16,22 @@ import {LogModel} from 'app/world/log/log';
 })
 
 export class LogCmp {
-    l: LogModel;
-    logs: List<LogModel> = [];
+    title: string = 'logs';
+    logs: any[] = [];
+    mb: MessageBus = MessageBus;
 
-    constructor(@Inject(LogModel) l: LogModel) {
+    constructor() {
         console.log('log_cmp init');
 
-        this.l = l;
+        this.mb.listen(FIGHT_STARTED, this.log.bind(this));
+    }
+
+    log(info):void {
+        console.log('logging');
+
+        if (!this.logs.length)
+            this.logs.push({message: 'fight started!'});
+        else
+            this.logs.push({message: info});
     }
 }

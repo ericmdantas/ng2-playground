@@ -2,10 +2,11 @@
 
 import {Component, View, EventEmitter} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
+import {MessageBus} from 'app/utils/utils';
+import {FIGHT_STARTED} from 'app/utils/utils';
 
 @Component({
     selector: 'fight',
-    events: ['fightEvent'],
     viewInjector: [EventEmitter]
 })
 @View({
@@ -39,14 +40,15 @@ import {Inject} from 'angular2/di';
 })
 
 export class FightCmp {
-    fightEvent: EventEmitter;
+    mb: MessageBus = MessageBus;
+    FIGHT_STARTED_EVENT: string = FIGHT_STARTED;
 
-    constructor(@Inject(EventEmitter) ee: EventEmitter) {
-        this.fightEvent = ee;
+    constructor() {
     }
 
     fightHandler():void {
-        console.log('ayooooo silver!')
-        this.fightEvent.next({});
+        console.log(`dispatching ${this.FIGHT_STARTED_EVENT}`);
+
+        this.mb.dispatch(this.FIGHT_STARTED_EVENT);
     }
 }

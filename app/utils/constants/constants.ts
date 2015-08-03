@@ -1,0 +1,1 @@
+export const FIGHT_STARTED = 'fight_started_event';

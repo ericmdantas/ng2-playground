@@ -1,4 +1,9 @@
-.player {
+#player-info {
+    max-width: 100px;
+    float: left;
+}
+
+#player-shape {
     height: 40px;
     width: 40px;
     position: absolute;

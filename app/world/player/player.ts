@@ -1,2 +1,2 @@
-export * from './player_cmp';
 export * from './player_model';
+export * from './player_cmp';

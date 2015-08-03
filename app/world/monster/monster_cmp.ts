@@ -5,7 +5,8 @@ import {Inject} from 'angular2/di';
 import {MonsterModel} from 'app/world/monster/monster';
 
 @Component({
-    selector: 'monster'
+    selector: 'monster',
+    viewInjector: [MonsterModel]
 })
 @View({
     templateUrl: 'app/world/monster/monster.html',
@@ -15,7 +16,9 @@ import {MonsterModel} from 'app/world/monster/monster';
 export class MonsterCmp {
     monster: MonsterModel;
 
-    constructor() {
+    constructor(@Inject(MonsterModel) mm: MonsterModel) {
         console.log('monster_cmp init');
+
+        this.monster = mm;
     }
 }

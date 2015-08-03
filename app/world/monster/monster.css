@@ -1,4 +1,12 @@
-.monster {
+#monster_info {
+    float: right;
+}
+
+#monster_info p {
+    text-align: right;
+}
+
+#monster_shape {
     height: 40px;
     width: 40px;
     position: absolute;
