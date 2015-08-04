@@ -8,7 +8,7 @@ import {MessageBus, PLAYER_GOT_HIT, MONSTER_GOT_HIT} from 'app/utils/utils';
 
 @Component({
     selector: 'stats',
-    viewInjector: [MessageBus]
+    viewInjector: [StatsModel]
 })
 @View({
     templateUrl: 'app/world/stats/stats.html',

@@ -7,8 +7,7 @@ import {LogModel} from 'app/world/log/log';
 import {FIGHT_STARTED, FIGHT_ENDED, SOMEONE_GOT_HIT, MessageBus} from 'app/utils/utils';
 
 @Component({
-    selector: 'log',
-    viewInjector: [MessageBus]
+    selector: 'log'
 })
 @View({
     templateUrl: 'app/world/log/log.html',
@@ -19,7 +18,7 @@ import {FIGHT_STARTED, FIGHT_ENDED, SOMEONE_GOT_HIT, MessageBus} from 'app/utils
 export class LogCmp {
     title: string = 'logs';
     logs: any[] = [];
-    mb: MessageBus = MessageBus;
+    mb: MessageBus;
 
     constructor() {
         console.log('log_cmp init');

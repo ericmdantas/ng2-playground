@@ -1,12 +1,10 @@
 /// <reference path="../../../../typings/tsd.d.ts" />
 
 import {Component, View, bootstrap} from 'angular2/angular2';
-import {bind} from 'angular2/di';
 import {PlayerCmp, MonsterCmp} from 'app/world/world';
 import {FightCmp, GotHitDirective} from 'app/world/battle/battle';
 import {StatsCmp} from 'app/world/stats/stats';
 import {LogCmp} from 'app/world/log/log';
-import {MessageBus} from 'app/utils/utils';
 
 @Component({
     selector: 'battle-area'
@@ -23,10 +21,10 @@ export class BattleAreaCmp {
     }
 }
 
-Promise.all( [bootstrap(PlayerCmp, [bind(MessageBus).toFactory(() => MessageBus.getInstance())]),
-              bootstrap(MonsterCmp, [bind(MessageBus).toFactory(() => MessageBus.getInstance())]),
-              bootstrap(LogCmp, [bind(MessageBus).toFactory(() => MessageBus.getInstance())]),
-              bootstrap(FightCmp, [bind(MessageBus).toFactory(() => MessageBus.getInstance())])] )
+Promise.all( [bootstrap(PlayerCmp),
+              bootstrap(MonsterCmp),
+              bootstrap(LogCmp),
+              bootstrap(FightCmp)] )
        .then(() => {
             console.log('player and monster bootstraped correctly');
        })
