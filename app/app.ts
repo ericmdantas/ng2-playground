@@ -1,8 +1,10 @@
 /// <reference path="../typings/tsd.d.ts" />
 
 import {Component, View, bootstrap} from 'angular2/angular2';
+import {bind} from 'angular2/di';
 import {BattleAreaCmp} from 'app/world/world';
 import {StatsCmp} from 'app/world/stats/stats';
+import {MessageBus} from 'app/utils/utils';
 
 @Component({
     selector: 'app'

@@ -2,12 +2,11 @@
 
 import {Component, View, EventEmitter} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
-import {MessageBus} from 'app/utils/utils';
-import {FIGHT_STARTED, FIGHT_ENDED} from 'app/utils/utils';
+import {MessageBus, FIGHT_STARTED, FIGHT_ENDED} from 'app/utils/utils';
 
 @Component({
     selector: 'fight',
-    viewInjector: [EventEmitter]
+    viewInjector: [EventEmitter, MessageBus]
 })
 @View({
     template: `
@@ -41,10 +40,12 @@ import {FIGHT_STARTED, FIGHT_ENDED} from 'app/utils/utils';
 })
 
 export class FightCmp {
-    mb: MessageBus = MessageBus;
+    mb: MessageBus;
     btnDisabled: boolean = false;
 
     constructor() {
+        this.mb = MessageBus.getInstance();
+
         this.mb.listen(FIGHT_ENDED, this.onFightEnded.bind(this));
     }
 

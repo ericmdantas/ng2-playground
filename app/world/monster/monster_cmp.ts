@@ -7,7 +7,7 @@ import {MessageBus, FIGHT_STARTED, FIGHT_ENDED, SOMEONE_GOT_HIT, MAX_HIT, DELAY_
 
 @Component({
     selector: 'monster',
-    viewInjector: [MonsterModel]
+    viewInjector: [MonsterModel, MessageBus]
 })
 @View({
     templateUrl: 'app/world/monster/monster.html',
@@ -20,6 +20,8 @@ export class MonsterCmp {
 
     constructor(@Inject(MonsterModel) mm: MonsterModel) {
         console.log('monster_cmp init');
+
+        this.mb = MessageBus.getInstance();
 
         this.monster = mm;
 

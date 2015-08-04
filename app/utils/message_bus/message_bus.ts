@@ -1,7 +1,5 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
-import {NgZone} from 'angular2/src/core/zone/ng_zone';
-
 export interface IMessageBus {
     listeners: MessageBusType[];
     dispatch: (event: string, info?: any) => any;
@@ -14,13 +12,26 @@ export type MessageBusType = {
 };
 
 export class MessageBus implements IMessageBus {
-    static listeners: MessageBusType[] = [];
-    nz: NgZone = new NgZone({enableLongStacktrace: true});
+    private static _canCreate: boolean = false;
+    private static _instance: MessageBus;
+
+    listeners: MessageBusType[] = [];
 
     constructor() {
+        if (!MessageBus._canCreate) {
+            throw new Error('Use MessageBus.getInstance() instead.');
+        }
     }
 
-    public static dispatch(event: string, info?: any):void {
+    public static getInstance():MessageBus {
+        MessageBus._canCreate = true;
+        MessageBus._instance = MessageBus._instance || new MessageBus();
+        MessageBus._canCreate = false;
+
+        return MessageBus._instance;
+    }
+
+    public dispatch(event: string, info?: any):void {
         this.listeners
             .forEach((l, i) => {
                 if (l.event === event) {
@@ -29,7 +40,7 @@ export class MessageBus implements IMessageBus {
             });
     }
 
-    public static listen(event: string, cb: Function):void {
+    public listen(event: string, cb: Function):void {
         this.listeners.push({event, cb});
     }
 }
