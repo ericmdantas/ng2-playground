@@ -7,4 +7,6 @@ import {MessageBus} from 'app/utils/utils';
 import {routerInjectables} from 'angular2/router';
 
 bootstrap(App, [ routerInjectables,
-                 bind(MessageBus).toFactory(() => MessageBus.getInstance()) ]);
+                 bind(MessageBus).toFactory(() => MessageBus.getInstance()) ])
+    .then(() => console.log('success bootstraping index'))
+    .catch((error) => console.log('error bootstraping index ${error}'));

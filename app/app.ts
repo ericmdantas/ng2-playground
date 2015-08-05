@@ -23,11 +23,11 @@ export class App {
 }
 
 Promise.all( [bootstrap(BattleAreaCmp),
-              bootstrap(StatsCmp )
+              bootstrap(StatsCmp)
        .then(() => {
-            console.log('battle_area boostraped correctly');
+            console.log('app boostraped correctly');
        })
        .catch((error) => {
-            console.log(`error bootstraping: ${error}`)
+            console.log(`error bootstraping app: ${error}`)
        });
 

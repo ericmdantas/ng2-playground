@@ -2,10 +2,12 @@
 
 import {Component, View, EventEmitter} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
+import {IFight} from 'app/world/being/being';
 import {MessageBus, FIGHT_STARTED, FIGHT_ENDED} from 'app/utils/utils';
 
 @Component({
     selector: 'fight',
+    properties: ['p', 'm'],
     viewInjector: [EventEmitter, MessageBus]
 })
 @View({
@@ -13,7 +15,7 @@ import {MessageBus, FIGHT_STARTED, FIGHT_ENDED} from 'app/utils/utils';
         <button type="button"
                 (click)="fightHandler()"
                 [disabled]="btnDisabled"
-                class="btn btn-fight">fight</button>
+                class="btn btn-fight">fight!</button>
     `,
     styles: [`
         button {
@@ -42,6 +44,8 @@ import {MessageBus, FIGHT_STARTED, FIGHT_ENDED} from 'app/utils/utils';
 export class FightCmp {
     mb: MessageBus;
     btnDisabled: boolean = false;
+    p: IFight;
+    m: IFight;
 
     constructor() {
         this.mb = MessageBus.getInstance();
