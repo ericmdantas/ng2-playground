@@ -48,4 +48,8 @@ export class PlayerModel implements IFight {
     isAlive(): boolean {
         return (this.hp > 0);
     }
+
+    ressurrect():void {
+        this.hp = 999;
+    }
 }

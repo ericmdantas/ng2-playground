@@ -7,6 +7,7 @@ import {MessageBus, FIGHT_STARTED, FIGHT_ENDED, SOMEONE_GOT_HIT, MAX_HIT, DELAY_
 
 @Component({
     selector: 'monster',
+    properties: ['m'],
     viewInjector: [MonsterModel, MessageBus]
 })
 @View({
@@ -15,32 +16,12 @@ import {MessageBus, FIGHT_STARTED, FIGHT_ENDED, SOMEONE_GOT_HIT, MAX_HIT, DELAY_
 })
 
 export class MonsterCmp {
-    monster: MonsterModel;
+    m: MonsterModel;
     mb: MessageBus = MessageBus;
 
     constructor(@Inject(MonsterModel) mm: MonsterModel) {
         console.log('monster_cmp init');
-
-        this.mb = MessageBus.getInstance();
-
-        this.monster = mm;
-
-        this.mb.listen(FIGHT_STARTED, this.onFightStarted.bind(this));
     }
 
-    onFightStarted() {
 
-        var _id = setInterval((_) => {
-            var _hit = Math.floor(Math.random() * MAX_HIT);
-            this.monster.hp -= _hit;
-
-            this.mb.dispatch(SOMEONE_GOT_HIT, `${this.monster.name} got hit with ${_hit}!`);
-
-            if (!this.monster.isAlive()) {
-                this.mb.dispatch(FIGHT_ENDED);
-                clearInterval(_id);
-            }
-
-        }, DELAY_PER_HIT);
-    }
 }

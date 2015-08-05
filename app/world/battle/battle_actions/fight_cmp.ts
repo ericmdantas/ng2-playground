@@ -13,7 +13,7 @@ import {MessageBus, FIGHT_STARTED, FIGHT_ENDED} from 'app/utils/utils';
         <button type="button"
                 (click)="fightHandler()"
                 [disabled]="btnDisabled"
-                class="btn btn-fight">fight!</button>
+                class="btn btn-fight">fight</button>
     `,
     styles: [`
         button {

@@ -4,7 +4,7 @@ import {Component, View} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {NgFor} from 'angular2/directives';
 import {StatsModel} from 'app/world/stats/stats_model';
-import {MessageBus, PLAYER_GOT_HIT, MONSTER_GOT_HIT} from 'app/utils/utils';
+import {MessageBus, PLAYER_GOT_HIT, MONSTER_GOT_HIT, PLAYER_DIED, MONSTER_DIED} from 'app/utils/utils';
 
 @Component({
     selector: 'stats',
@@ -29,6 +29,9 @@ export class StatsCmp {
 
         this.mb.listen(PLAYER_GOT_HIT, this.updateStuff.bind(this));
         this.mb.listen(MONSTER_GOT_HIT, this.updateStuff.bind(this));
+
+        this.mb.listen(PLAYER_DIED, this.updateStuff.bind(this));
+        this.mb.listen(MONSTER_DIED, this.updateStuff.bind(this));
     }
 
     updateStuff(info: Object):void {

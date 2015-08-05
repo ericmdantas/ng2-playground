@@ -6,6 +6,7 @@ import {PlayerModel} from 'app/world/player/player';
 
 @Component({
     selector: 'player',
+    properties: ['p'],
     viewInjector: [PlayerModel]
 })
 @View({
@@ -14,11 +15,9 @@ import {PlayerModel} from 'app/world/player/player';
 })
 
 export class PlayerCmp {
-    player: PlayerModel;
+    p: PlayerModel;
 
     constructor(@Inject(PlayerModel) p: PlayerModel) {
         console.log('player_cmp init');
-
-        this.player = p;
     }
 }
