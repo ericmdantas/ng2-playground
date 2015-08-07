@@ -4,7 +4,6 @@ import {Component, View} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {NgFor} from 'angular2/directives';
 import {StatsModel, StatService} from 'app/world/stats/stats';
-import {NgZone} from 'angular2/src/core/zone/ng_zone';
 import {MessageBus, PLAYER_GOT_HIT, MONSTER_GOT_HIT, PLAYER_DIED, MONSTER_DIED} from 'app/utils/utils';
 
 @Component({
@@ -22,7 +21,7 @@ export class StatsCmp {
     stats: StatsModel;
     statsService: StatService;
     mb: MessageBus;
-    zone: NgZone = new NgZone({enableLongStackTrace: true});
+    zone = zone;
 
     constructor(@Inject(StatsModel) stats: StatsModel, @Inject(StatService) ss: StatService) {
         console.log('stats_cmp init');
