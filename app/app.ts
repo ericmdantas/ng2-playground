@@ -23,7 +23,7 @@ export class App {
 }
 
 Promise.all( [bootstrap(BattleAreaCmp),
-              bootstrap(StatsCmp)
+              bootstrap(StatsCmp)] )
        .then(() => {
             console.log('app boostraped correctly');
        })
