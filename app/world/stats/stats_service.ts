@@ -7,9 +7,6 @@ import {EventEmitter} from 'angular2/angular2';
 export class StatService {
     ee: EventEmitter = new EventEmitter;
 
-    constructor() {
-    }
-
     playerGotHit(stats: StatsModel, hit:number):void {
         stats.maxHitReceived = (stats.maxHitReceived < hit) ? hit : stats.maxHitReceived;
         stats.totalHitsReceived += hit;
