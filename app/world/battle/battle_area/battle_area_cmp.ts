@@ -8,7 +8,7 @@ import {FightCmp, GotHitDirective} from 'app/world/battle/battle';
 import {StatsCmp} from 'app/world/stats/stats';
 import {RessurrectCmp} from 'app/world/battle/battle_actions/battle_actions';
 import {LogCmp} from 'app/world/log/log';
-import {MessageBus, FIGHT_STARTED, FIGHT_ENDED, SOMEONE_GOT_HIT, MAX_HIT, DELAY_PER_HIT} from 'app/utils/utils';
+import {MessageBus, PLAYER_DIED, MONSTER_DIED, PLAYER_GOT_HIT, MONSTER_GOT_HIT, FIGHT_STARTED, FIGHT_ENDED, SOMEONE_GOT_HIT, MAX_HIT, DELAY_PER_HIT} from 'app/utils/utils';
 
 
 @Component({
@@ -47,10 +47,12 @@ export class BattleAreaCmp {
                 this.monster.hp -= _hit;
 
                 this.mb.dispatch(SOMEONE_GOT_HIT, `${this.monster.name} got hit with ${_hit}!`);
+                this.mb.dispatch(MONSTER_GOT_HIT, _hit);
 
                 if (!this.monster.isAlive()) {
                     this.monster.hp = 0;
                     this.mb.dispatch(FIGHT_ENDED);
+                    this.mb.dispatch(MONSTER_DIED);
                     clearInterval(_id);
                 }
             }
@@ -58,10 +60,12 @@ export class BattleAreaCmp {
                 this.player.hp -= _hit;
 
                 this.mb.dispatch(SOMEONE_GOT_HIT, `${this.player.name} got hit with ${_hit}!`);
+                this.mb.dispatch(PLAYER_GOT_HIT, _hit);
 
                 if (!this.player.isAlive()) {
                     this.player.hp = 0;
                     this.mb.dispatch(FIGHT_ENDED);
+                    this.mb.dispatch(PLAYER_DIED);
                     clearInterval(_id);
                 }
             }

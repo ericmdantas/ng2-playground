@@ -4,6 +4,7 @@ import {Component, View} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {NgFor} from 'angular2/directives';
 import {StatsModel, StatService} from 'app/world/stats/stats';
+import {NgZone} from 'angular2/src/core/zone/ng_zone';
 import {MessageBus, PLAYER_GOT_HIT, MONSTER_GOT_HIT, PLAYER_DIED, MONSTER_DIED} from 'app/utils/utils';
 
 @Component({
@@ -18,16 +19,17 @@ import {MessageBus, PLAYER_GOT_HIT, MONSTER_GOT_HIT, PLAYER_DIED, MONSTER_DIED} 
 
 export class StatsCmp {
     title: string = 'Stats';
-    stat: StatsModel;
-    statService: StatService;
+    stats: StatsModel;
+    statsService: StatService;
     mb: MessageBus;
+    zone: NgZone = new NgZone({enableLongStackTrace: true});
 
-    constructor(@Inject(StatsModel) stat: StatsModel, @Inject(StatService) ss: StatService) {
+    constructor(@Inject(StatsModel) stats: StatsModel, @Inject(StatService) ss: StatService) {
         console.log('stats_cmp init');
 
-        this.stat = stat;
+        this.stats = stats;
+        this.statsService = ss;
         this.mb = MessageBus.getInstance();
-        this.statService = ss;
 
         this.mb.listen(PLAYER_GOT_HIT, this.playerGotHit.bind(this));
         this.mb.listen(MONSTER_GOT_HIT, this.monsterGotHit.bind(this));
@@ -37,18 +39,22 @@ export class StatsCmp {
     }
 
     playerGotHit(hit:number):void {
-        this.statService.playerGotHit(this.stat, hit);
+        this.zone.run(() => this.statsService.playerGotHit(this.stats, hit));
     }
 
     monsterGotHit(hit:number):void {
-        this.statService.monsterGotHit(this.stat, hit);
+        this.zone.run(() => this.statsService.monsterGotHit(this.stats, hit));
     }
 
     playerDied():void {
-        this.statService.playerKilled();
+        this.zone.run(() => this.statsService.playerKilled(this.stats));
     }
 
     monsterDied():void {
-        this.statService.monsterKilled();
+        this.zone.run(() => this.statsService.monsterKilled(this.stats));
+    }
+
+    clear() {
+        this.stats = new StatsModel();
     }
 }

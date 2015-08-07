@@ -10,7 +10,7 @@ export class StatsModel {
 
     }
 
-    get playerDeaths() {
+    get playerDeaths():number {
         return this._deaths;
     }
 
@@ -18,7 +18,7 @@ export class StatsModel {
         this._deaths = num;
     }
 
-    get monstersKilled() {
+    get monstersKilled():number {
         return this._monstersKilled;
     }
 
@@ -26,7 +26,7 @@ export class StatsModel {
         this._monstersKilled = num;
     }
 
-    get totalHitsDelivered() {
+    get totalHitsDelivered():number {
         return this._totalHitDelivered;
     }
 
@@ -34,7 +34,7 @@ export class StatsModel {
         this._totalHitDelivered = num;
     }
 
-    get totalHitsReceived() {
+    get totalHitsReceived():number {
         return this._totalHitReceived;
     }
 
@@ -42,11 +42,11 @@ export class StatsModel {
         this._totalHitReceived = num;
     }
 
-    get maxHitDelivered() {
+    get maxHitDelivered():number {
         return this._maxHitDelivered;
     }
 
-    set maxHitDelivered(num: number):void {
+    set maxHitDelivered(num: number) {
         this._maxHitDelivered = num;
     }
 
@@ -54,7 +54,7 @@ export class StatsModel {
         return this._maxHitReceived;
     }
 
-    set maxHitReceived(num: number):void {
+    set maxHitReceived(num: number) {
         this._maxHitReceived = num;
     }
 }
