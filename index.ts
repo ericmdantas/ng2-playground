@@ -1,12 +1,8 @@
 /// <reference path="typings/tsd.d.ts" />
 
 import {bootstrap} from 'angular2/angular2';
-import {bind} from 'angular2/di';
-import {App} from 'app/app';
-import {MessageBus} from 'app/utils/utils';
-import {routerInjectables} from 'angular2/router';
+import {AppCmp} from 'app/app';
 
-bootstrap(App, [ routerInjectables,
-                 bind(MessageBus).toFactory(() => MessageBus.getInstance()) ])
+bootstrap(AppCmp)
     .then(() => console.log('success bootstraping index'))
-    .catch((error) => console.log('error bootstraping index ${error}'));
+    .catch((error) => console.log(`error bootstraping index ${error}`));

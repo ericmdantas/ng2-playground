@@ -1,33 +1,54 @@
 /// <reference path="../typings/tsd.d.ts" />
 
-import {Component, View, bootstrap} from 'angular2/angular2';
-import {bind} from 'angular2/di';
-import {BattleAreaCmp} from 'app/world/world';
-import {StatsCmp} from 'app/world/stats/stats';
-import {MessageBus} from 'app/utils/utils';
+import {Component, View} from 'angular2/angular2';
+import {Inject} from 'angular2/di';
+import {Xtorage} from 'app/utils/xtorage';
 
 @Component({
     selector: 'app'
 })
 @View({
     template: `
-    <battle-area></battle-area>
-    <stats></stats>
-    `
-})
+        <h1>app</h1>
+        <button type="button"
+                (click)="something()">smh</button>
 
-export class App {
+        <p [inner-text]="counter"
+           [class.something-even]="isEven()"
+           [class.something-odd]="isOdd()"></p>
+    `,
+    styles: [`
+        .something-even {
+            color: red
+        }
+
+        .something-odd {
+            color: blue;
+        }
+    `]
+})
+export class AppCmp {
+    counter: number = 0;
+    storage: Xtorage = new Xtorage();
+
     constructor() {
-        console.log('app init');
+    }
+
+    isEven() {
+        return this.counter % 2 !== 0;
+    }
+
+    isOdd() {
+        return this.counter % 2 === 0;
+    }
+
+    something() {
+        this.counter++;
+
+        this.storage.save('k', this.counter);
+    }
+
+    onInit() {
+        console.log(this.storage);
     }
 }
-
-Promise.all( [bootstrap(BattleAreaCmp),
-              bootstrap(StatsCmp)] )
-       .then(() => {
-            console.log('app boostraped correctly');
-       })
-       .catch((error) => {
-            console.log(`error bootstraping app: ${error}`)
-       });
-
