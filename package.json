@@ -9,15 +9,12 @@
   },
   "author": "Eric Mendes Dantas",
   "license": "ISC",
-  "devDependencies": {
-    "es6-module-loader": "^0.16.6",
-    "systemjs": "^0.16.11",
-    "traceur": "0.0.89"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "angular2": "^2.0.0-alpha.25",
-    "express": "^4.12.4",
+    "es6-module-loader": "^0.17.5",
     "reflect-metadata": "^0.1.0",
-    "rx": "^2.5.3"
+    "rx": "^2.5.3",
+    "systemjs": "^0.18.9",
+    "traceur": "0.0.91"
   }
 }

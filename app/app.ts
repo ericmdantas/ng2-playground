@@ -2,7 +2,7 @@
 
 import {Component, View, Directive, ElementRef, EventEmitter, LifecycleEvent} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
-import {Xtorage} from 'app/utils/xtorage';
+import {Xtorage} from 'app/utils/xtorage.js';
 
 @Directive({
     selector: '[checker]',
