@@ -1,1 +1,1 @@
-export * from './dashboard_cmp';
+export * from './dashboard_cmp.js';

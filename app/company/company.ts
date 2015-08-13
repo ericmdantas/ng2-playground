@@ -1,3 +1,3 @@
-export * from './company_model';
-export * from './company_service';
-export * from './company_cmp';
+export * from './company_model.js';
+export * from './company_service.js';
+export * from './company_cmp.js';

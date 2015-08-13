@@ -1,0 +1,16 @@
+header {
+  background-color: #f1f2f3;
+  margin-top: 0;
+  padding: 15px;
+}
+
+.link {
+  margin-right: 30px;
+  cursor: pointer;
+  transition: all .2s;
+  padding: 15px 10px;
+}
+
+.link:active {
+  background-color: #ddd;
+}
