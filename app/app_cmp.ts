@@ -13,12 +13,11 @@ import {HeaderCmp} from 'app/header/header_cmp.js';
 @View({
     template: `
       <h-header></h-header>
-      <div class="container">
+      <main>
         <h1>app</h1>
-        <main>
-          <router-outlet></router-outlet>
-          </main>
-      </div>      
+        <router-outlet></router-outlet>
+      </main>
+      </div>
     `,
     directives: [RouterOutlet, HeaderCmp]
 })

@@ -15,4 +15,20 @@ export class CompanyModel {
   get name() {
     return this._name;
   }
+
+  set employees(es: EmployeeModel[]) {
+    this._employees = es;
+  }
+
+  get employees():EmployeeModel[] {
+    return this._employees;
+  }
+
+  addEmployee(employee: EmployeeModel):void {
+    this._employees.push(employee);
+  }
+
+  removeEmployee(employee: EmployeeModel) {
+    this._employees.splice(this._employees.indexOf(employee));
+  }
 }
