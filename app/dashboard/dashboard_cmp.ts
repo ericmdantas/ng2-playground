@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, LifecycleEvent, NgFor} from 'angular2/angular2';
 
 @Component({
   selector: 'dashboard',
