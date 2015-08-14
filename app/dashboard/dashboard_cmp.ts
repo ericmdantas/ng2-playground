@@ -1,9 +1,10 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View} from 'angular2/angular2';
+import {Component, View, LifecycleEvent} from 'angular2/angular2';
 
 @Component({
-  selector: 'dashboard'
+  selector: 'dashboard',
+  lifecycle: [LifecycleEvent.onInit]
 })
 @View({
   templateUrl: 'app/dashboard/dashboard.html',
@@ -11,5 +12,7 @@ import {Component, View} from 'angular2/angular2';
 })
 
 export class DashboardCmp {
-
+  onInit() {
+    console.log('dashboard init');
+  }
 }

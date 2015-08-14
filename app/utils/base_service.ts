@@ -10,7 +10,7 @@ export class BaseService {
       });
     }
 
-    remove(id:number):Observable<any> {
+    remove(id:number|string):Observable<any> {
       return Observable.create(o => {
         o.onNext(id);
         o.onCompleted();

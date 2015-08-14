@@ -1,12 +1,13 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View} from 'angular2/angular2';
+import {Component, View, LifecycleEvent} from 'angular2/angular2';
 import {Inject} from 'angular2/angular2';
 import {CompanyModel} from 'app/company/company_model.js';
 
 @Component({
   selector: 'company',
-  viewBindings: [CompanyModel]
+  viewBindings: [CompanyModel],
+  lifecycle: [LifecycleEvent.onInit]
 })
 @View({
   templateUrl: 'app/company/company.html',
@@ -18,5 +19,9 @@ export class CompanyCmp {
 
   constructor(@Inject(CompanyModel) c: CompanyModel) {
     this.company = c;
+  }
+
+  onInit() {
+    console.log('company init');
   }
 }
