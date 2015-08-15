@@ -1,6 +1,7 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
 import {Component, View, LifecycleEvent} from 'angular2/angular2';
+import {ActivateDirective} from 'app/common/activate.js';
 import {RouterLink} from 'angular2/router';
 
 @Component({
@@ -10,7 +11,7 @@ import {RouterLink} from 'angular2/router';
 @View({
     templateUrl: 'app/header/header.html',
     styleUrls: ['app/header/header.css'],
-    directives: [RouterLink]
+    directives: [RouterLink, ActivateDirective]
 })
 
 export class HeaderCmp {

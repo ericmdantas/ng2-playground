@@ -1,1 +1,35 @@
-<h1>employee</h1>
+<h1>employee form</h1>
+
+<div>
+  <form-toggle>
+
+    <form [ng-form-model]="employeeForm" class="pos-relative">
+        <input type="text"
+               ng-control="name" />
+
+        <input type="text"
+               ng-control="age" />
+
+        <input type="text"
+               ng-control="salary" />
+
+        <button type="button"
+                class="btn-add"
+                [disabled]="!employeeForm.valid"
+                (click)="addEmployeeHandler(employeeForm.value);">add</button>
+    </form>
+
+  </form-toggle>
+</div>
+
+<h1>employee list</h1>
+
+<div>
+  <div class="card col-6"
+       *ng-for="#e of employeeList;">
+
+       <p [inner-text]="e.name"></p>
+       <p [inner-text]="e.age"></p>
+       <p [inner-text]="e.salary"></p>
+  </div>
+</div>

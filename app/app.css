@@ -1,5 +1,67 @@
+.pos-relative {
+  position: relative;
+}
+
+.btn-add {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  background-color: transparent;
+  border-radius: 100%;
+  padding: 17px 15px;
+  font-weight: bold;
+  outline: 0;
+  cursor: pointer;
+  transition: all .2s;
+  border: 2px solid steelblue;
+}
+
+.btn-add:active {
+  background-color: steelblue;
+  color: #fff;
+  border-color: skyblue;
+}
+
+.btn-add:disabled {
+  cursor: auto;
+  border-color: #ddd;
+}
+
+.col-6 {
+  width: 50%;
+  float: left;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.activated {
+  background-color: gray;
+}
+
 main {
   padding: 0 15px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+form {
+  padding-bottom: 50px;
+}
+
+input {
+  padding: 5px;
+  outline: 0;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  font-size: 17px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 30px;
+  transition: all .15s;
+}
+
+input:focus {
+  border-bottom-color: steelblue;
 }
 
 body {

@@ -15,7 +15,6 @@ import {HeaderCmp} from 'app/header/header_cmp.js';
     template: `
       <h-header></h-header>
       <main>
-        <h1>app</h1>
         <router-outlet></router-outlet>
       </main>
       </div>
