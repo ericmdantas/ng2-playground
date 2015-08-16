@@ -1,1 +1,19 @@
-<h1>company</h1>
+<div>
+  <h2>company form</h2>
+
+  
+</div>
+
+<div>
+  <h2>company info</h2>
+  <p>Name:
+    <span [inner-text]="company.name"></span>
+  </p>
+  <div *ng-for="#e of employees;">
+    <card>
+      <p [inner-text]="e.name"></p>
+      <p [inner-text]="e.age"></p>
+      <p [inner-text]="e.salary"></p>
+    </card>
+  </div>
+</div>

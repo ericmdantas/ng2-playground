@@ -5,7 +5,7 @@ export class CompanyModel {
   _employees: EmployeeModel[] = [];
 
   constructor() {
-      this.name = 'C';
+      this.name = 'Name of The Company LTDA';
   }
 
   set name(s:string) {
