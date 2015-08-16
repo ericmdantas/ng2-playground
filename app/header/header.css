@@ -2,6 +2,7 @@ header {
   background-color: #f1f2f3;
   margin-top: 0;
   padding: 15px;
+  overflow: hidden;
 }
 
 .link {

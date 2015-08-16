@@ -4,7 +4,9 @@ import {Component, View, bootstrap, LifecycleEvent, NgFor, FormBuilder, ControlG
 import {Inject} from 'angular2/di';
 import {EmployeeModel} from 'app/employees/employee_model.js';
 import {EmployeeService} from 'app/employees/employee_service.js';
-import {FormToggleCmp} from 'app/common/../common/form_toggle_cmp.js';
+import {FormToggleCmp} from 'app/common/form_toggle_cmp.js';
+import {CardCmp} from 'app/common/card_cmp.js';
+import {RemovableCmp} from 'app/common/removable_cmp.js';
 
 @Component({
   selector: 'employee',
@@ -14,7 +16,7 @@ import {FormToggleCmp} from 'app/common/../common/form_toggle_cmp.js';
 @View({
   templateUrl: 'app/employees/employee.html',
   styleUrls: ['app/employees/employee.css'],
-  directives: [NgFor, formDirectives]
+  directives: [NgFor, formDirectives, CardCmp, RemovableCmp]
 })
 
 export class EmployeeCmp {
@@ -28,9 +30,9 @@ export class EmployeeCmp {
     this.employeeService = es;
 
     this.employeeForm = fb.group({
-      "name": ["", Validators.required],
-      "age": ["18", Validators.required],
-      "salary": ["0", Validators.required]
+      "name": [this.employee.name, Validators.required],
+      "age": [this.employee.age, Validators.required],
+      "salary": [this.employee.salary, Validators.required]
     })
   }
 
@@ -43,6 +45,19 @@ export class EmployeeCmp {
         .add(employee)
         .subscribe(emp => {
           this.employeeList.push(emp);
+        });
+  }
+
+  removeEmployeeHandler(id) {
+    this.employeeService
+        .remove(id)
+        .subscribe(id => {
+          this.employeeList
+              .forEach((emp, i) => {
+                if (emp.id === id) {
+                  return this.employeeList.splice(i, 1);
+                }
+              });
         });
   }
 }

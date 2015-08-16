@@ -25,11 +25,25 @@
 <h1>employee list</h1>
 
 <div>
-  <div class="card col-6"
-       *ng-for="#e of employeeList;">
+  <div>
+    <div *ng-for="#e of employeeList;">
+      <card [hidden]="!employeeList.length">
+        <removable [info-id]="e.id" (removed)="removeEmployeeHandler($event);"></removable>
 
-       <p [inner-text]="e.name"></p>
-       <p [inner-text]="e.age"></p>
-       <p [inner-text]="e.salary"></p>
-  </div>
+        <p>
+          Name
+          <span [inner-text]="e.name"></span>
+        </p>
+
+        <p>
+          Age
+          <span [inner-text]="e.age"></span>
+        </p>
+
+        <p>
+          Salary
+          <span [inner-text]="e.salary"></span>
+        </p>
+      </card>
+    </div>
 </div>

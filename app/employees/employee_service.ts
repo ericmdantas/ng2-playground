@@ -6,6 +6,8 @@ export class EmployeeService {
     _key: string = 'employee';
 
     add(info:any):Observable<any> {
+      info.id = Date.now();
+
       return Observable.create(o => {
         this._xtorage.save(this._key, info);
         o.onNext(info);

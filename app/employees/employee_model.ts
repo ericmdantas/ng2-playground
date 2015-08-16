@@ -4,7 +4,7 @@ export class EmployeeModel {
   _salary: number;
 
   constructor() {
-    this.name = '';
+    this.name = 'eric';
     this.age = 18;
     this.salary = 1000;
   }
