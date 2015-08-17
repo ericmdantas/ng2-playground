@@ -1,7 +1,23 @@
 <div>
   <h2>company form</h2>
 
-  
+  <form [ng-form-model]="companyForm">
+      <input type="text"
+             ng-control="company.name" />
+
+      <div *ng-for="#e of company.employees">
+        <p>Employees</p>
+
+        <card>
+          <add-stuff [info]="e.id"></add-stuff>
+
+          <p [inner-text]="e.name"></p>
+          <p [inner-text]="e.age"></p>
+          <p [inner-text]="e.salary"></p>
+        </card>
+      </div>
+  </form>
+
 </div>
 
 <div>
@@ -9,7 +25,7 @@
   <p>Name:
     <span [inner-text]="company.name"></span>
   </p>
-  <div *ng-for="#e of employees;">
+  <div *ng-for="#e of company.employees;">
     <card>
       <p [inner-text]="e.name"></p>
       <p [inner-text]="e.age"></p>

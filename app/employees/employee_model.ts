@@ -2,11 +2,13 @@ export class EmployeeModel {
   _name: string;
   _age: number;
   _salary: number;
+  _id: number;
 
   constructor() {
     this.name = 'eric';
     this.age = 18;
     this.salary = 1000;
+    this.id = Date.now();
   }
 
   set name(n:string) {
@@ -31,5 +33,13 @@ export class EmployeeModel {
 
   get salary() {
     return this._salary;
+  }
+
+  set id(id: number) {
+    this._id = id;
+  }
+
+  get id():number {
+    return this._id;
   }
 }
