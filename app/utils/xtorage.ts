@@ -1,145 +1,155 @@
-"use strict";
+export type StorageOptions = {
+  storage: string;
+  unique: boolean
+}
 
-//TODO: make it work (including tests) without the 'module something {' wrapper
+export interface IParseStorage {
+  _toStringifiedJSON(info:any):any
+  _fromStringifiedJSON(info:any):any
+  _parseOptions(opts:Object):StorageOptions
+}
 
-//module xtorage {
+export interface IAddStorage {
+  save(key:string, info: any, opts?:StorageOptions):void;
+  saveInFirstPosition(key:string, info: any, opts?:StorageOptions):void;
+  saveInLastPosition(key:string, info: any, opts?:StorageOptions):void;
+}
 
-    export type StorageOptions = {storage: string;}
+export interface IGetStorage {
+  get(key:string, opts?:StorageOptions):any
+  getFirst(key:string, opts?:StorageOptions):any
+  getLast(key:string, opts?:StorageOptions):any
+}
 
-    export interface IParseStorage {
-        _toStringifiedJSON(info:any):any
-        _fromStringifiedJSON(info:any):any
-        _parseOptions(opts:Object):StorageOptions
+export interface IRemoveStorage {
+  remove(key:string, opts?:StorageOptions):void;
+  removeFirst(key:string, opts?:StorageOptions):void;
+  removeLast(key:string, opts?:StorageOptions):void;
+  removeAll(opts?:StorageOptions):void;
+}
+
+export class Xtorage implements IAddStorage, IGetStorage, IRemoveStorage, IParseStorage {
+  private _storage:string;
+  private _unique:boolean;
+
+  constructor({st, unique}: {st?: string, unique?: boolean} = {st: 'localStorage', unique: false}) {
+    this._storage = st;
+    this._unique = unique;
+  }
+
+  set storage(storage: string) {
+    this._storage = storage;
+  }
+
+  get storage():string {
+    return this._storage
+  }
+
+  set unique(unique: boolean) {
+    this._unique = unique;
+  }
+
+  get unique():boolean {
+    return this._unique;
+  }
+
+  _toStringifiedJSON(info:any):any {
+    if (typeof info !== "object")
+    return info;
+
+    return JSON.stringify(info);
+  }
+
+  _fromStringifiedJSON(info:any):any {
+    try {
+      return JSON.parse(info);
     }
-
-    export interface IAddStorage {
-        save(key:string, info: any, opts?:StorageOptions):void;
-        saveInFirstPosition(key:string, info: any, opts?:StorageOptions):void;
-        saveInLastPosition(key:string, info: any, opts?:StorageOptions):void;
+    catch(e) {
+      return info;
     }
+  }
 
-    export interface IGetStorage {
-        get(key:string, opts?:StorageOptions):any
-        getFirst(key:string, opts?:StorageOptions):any
-        getLast(key:string, opts?:StorageOptions):any
-    }
+  _parseOptions(opt:StorageOptions = {storage: 'localStorage', unique: false}):StorageOptions {
+    return opt;
+  }
 
-    export interface IRemoveStorage {
-        remove(key:string, opts?:StorageOptions):void;
-        removeFirst(key:string, opts?:StorageOptions):void;
-        removeLast(key:string, opts?:StorageOptions):void;
-        removeAll(opts?:StorageOptions):void;
-    }
+  save(key:string, info: any, opt?:StorageOptions):void {
+    var _opt = this._parseOptions(opt);
 
+    window[_opt.storage].setItem(key, this._toStringifiedJSON(info));
+  }
 
-    export class Xtorage implements IAddStorage, IGetStorage, IRemoveStorage, IParseStorage {
-        storage:string;
-        unique:boolean;
+  private _saveInArray(key:string, info:any, method:string, opt?:StorageOptions):void {
+    var _info = this.get(key, opt) || [];
 
-        constructor(st:string = 'localStorage', unique:boolean = false) {
-            this.storage = st;
-            this.unique = unique;
-        }
+    if (!(_info instanceof Array)) return;
 
-        _toStringifiedJSON(info:any):any {
-            if (typeof info !== "object")
-                return info;
+    _info[method](info);
 
-            return JSON.stringify(info);
-        }
+    this.save(key, _info, opt);
+  }
 
-        _fromStringifiedJSON(info:any):any {
-            try {
-                return JSON.parse(info);
-            }
-            catch(e) {
-                return info;
-            }
-        }
+  saveInFirstPosition(key:string, info: any, opt?:StorageOptions):void {
+    this._saveInArray(key, info, "unshift", opt);
+  }
 
-        _parseOptions(opt:StorageOptions = {storage: 'localStorage'}):StorageOptions {
-            return opt;
-        }
+  saveInLastPosition(key:string, info: any, opt?:StorageOptions):void {
+    this._saveInArray(key, info, "push", opt);
+  }
 
-        save(key:string, info: any, opt?:StorageOptions):void {
-            var _opt = this._parseOptions(opt);
+  get(key:string, opt?:StorageOptions):any {
+    var _opt = this._parseOptions(opt);
+    var _info = window[_opt.storage].getItem(key);
 
-            window[_opt.storage].setItem(key, this._toStringifiedJSON(info));
-        }
+    return this._fromStringifiedJSON(_info);
+  }
 
-        private _saveInArray(key:string, info:any, method:string, opt?:StorageOptions):void {
-            var _info = this.get(key, opt);
+  private _getFromArray(key, position:number|string, opt?:StorageOptions):void {
+    var _info = this.get(key, opt);
+    var _position;
 
-            if (!(_info instanceof Array)) return;
+    if (!(_info instanceof Array) || !_info.length) return;
 
-            _info[method](info);
+    _position = typeof position === "number" ? position : _info.length - 1;
 
-            this.save(key, _info, opt);
-        }
+    return _info[_position];
+  }
 
-        saveInFirstPosition(key:string, info: any, opt?:StorageOptions):void {
-            this._saveInArray(key, info, "unshift", opt);
-        }
+  getFirst(key:string, opt?:StorageOptions):any {
+    return this._getFromArray(key, 0, opt);
+  }
 
-        saveInLastPosition(key:string, info: any, opt?:StorageOptions):void {
-            this._saveInArray(key, info, "push", opt);
-        }
+  getLast(key:string, opt?:StorageOptions):any {
+    return this._getFromArray(key, "last", opt);
+  }
 
+  remove(key:string, opt?:StorageOptions):void {
+    var _opt = this._parseOptions(opt);
 
-        get(key:string, opt?:StorageOptions):any {
-            var _opt = this._parseOptions(opt);
-            var _info = window[_opt.storage].getItem(key);
+    window[_opt.storage].removeItem(key);
+  }
 
-            return this._fromStringifiedJSON(_info);
-        }
+  private _removeFromArray(key:string, method:string,opt?:StorageOptions):void {
+    var _info = this.get(key, opt);
 
-        private _getFromArray(key, position:number|string, opt?:StorageOptions):void {
-            var _info = this.get(key, opt);
-            var _position;
+    if (!(_info instanceof Array)) return;
 
-            if (!(_info instanceof Array) || !_info.length) return;
+    _info[method]();
 
-            _position = typeof position === "number" ? position : _info.length - 1;
+    this.save(key, _info, opt);
+  }
 
-            return _info[_position];
-        }
+  removeFirst(key:string, opt?:StorageOptions):void {
+    this._removeFromArray(key, "shift", opt);
+  }
 
-        getFirst(key:string, opt?:StorageOptions):any {
-            return this._getFromArray(key, 0, opt);
-        }
+  removeLast(key:string, opt?:StorageOptions):void {
+    this._removeFromArray(key, "pop", opt);
+  }
 
-        getLast(key:string, opt?:StorageOptions):any {
-            return this._getFromArray(key, "last", opt);
-        }
+  removeAll(opt?:StorageOptions):void {
+    var _opt = this._parseOptions(opt);
 
-        remove(key:string, opt?:StorageOptions):void {
-            var _opt = this._parseOptions(opt);
-
-            window[_opt.storage].removeItem(key);
-        }
-
-        private _removeFromArray(key:string, method:string,opt?:StorageOptions):void {
-            var _info = this.get(key, opt);
-
-            if (!(_info instanceof Array)) return;
-
-            _info[method]();
-
-            this.save(key, _info, opt);
-        }
-
-        removeFirst(key:string, opt?:StorageOptions):void {
-            this._removeFromArray(key, "shift", opt);
-        }
-
-        removeLast(key:string, opt?:StorageOptions):void {
-            this._removeFromArray(key, "pop", opt);
-        }
-
-        removeAll(opt?:StorageOptions):void {
-            var _opt = this._parseOptions(opt);
-
-            window[_opt.storage].clear();
-        }
-    }
-//}
+    window[_opt.storage].clear();
+  }
+}
