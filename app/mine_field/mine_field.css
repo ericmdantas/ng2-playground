@@ -1,0 +1,15 @@
+.mine-field-container {
+  display: inline-flex;
+}
+
+.mine-field {
+  height: 70px;
+  width: 70px;
+  background-color: #ddd;
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.mine-field:hover {
+  background-color: #aaa;
+}

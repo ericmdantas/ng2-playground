@@ -3,7 +3,7 @@
 import {Component, View} from 'angular2/angular2';
 
 @Component({
-  selector: 'footer'
+  selector: 'ffooter'
 })
 @View({
   templateUrl: 'app/footer/footer.html',
@@ -11,5 +11,5 @@ import {Component, View} from 'angular2/angular2';
 })
 
 export class FooterCmp {
-  
+
 }
