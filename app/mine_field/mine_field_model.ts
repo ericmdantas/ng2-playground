@@ -6,6 +6,6 @@ export class MineFieldModel {
     }
 
     private _rollDiceBomb() {
-      return Math.floor(Math.random() * 10) === 7; // all have bombs
+      return Math.floor(Math.random() * 10) === 7;
     }
 }

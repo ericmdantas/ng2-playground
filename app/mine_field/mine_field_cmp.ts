@@ -1,7 +1,7 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
 import {Component, View} from 'angular2/angular2';
-import {MineFieldModel} from 'app/mine_field/./mine_field_model.js';
+import {MineFieldModel} from 'app/mine_field/mine_field_model.js';
 import {Inject} from 'angular2/di';
 
 @Component({

@@ -12,7 +12,6 @@ import {FooterCmp} from 'app/footer/footer_cmp.js';
   template: `
     <hheader></hheader>
     <main>
-      <h1>app</h1>
       <world></world>
     </main>
     <ffooter></ffooter>

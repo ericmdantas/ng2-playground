@@ -2,7 +2,7 @@ import {PlayerModel} from 'app/player/player.js';
 import {MineFieldModel} from 'app/mine_field/mine_field.js';
 
 export class WorldModel {
-  player: PlayerModel;
+  player: PlayerModel = new PlayerModel();
   mineFields: MineFieldModel[] = [];
 
   constructor() {
