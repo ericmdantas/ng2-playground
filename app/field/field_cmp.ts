@@ -3,16 +3,15 @@
 import {Component, View, LifecycleEvent} from 'angular2/angular2';
 
 @Component({
-  selector: 'world',
+  selector: 'field',
   lifecycle: [LifecycleEvent.onInit]
 })
 @View({
-  templateUrl: 'app/world/world.html',
-  styleUrls: ['app/world/world.css']
+  templateUrl: 'app/field/field.html'
 })
 
-export class WorldCmp {
-    onInit() {
-      console.log('world_cmp init');
-    }
+export class FieldCmp {
+  onInit() {
+    console.log('field_cmp init')
+  }
 }

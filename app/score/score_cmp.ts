@@ -3,13 +3,12 @@
 import {Component, View} from 'angular2/angular2';
 
 @Component({
-  selector: 'hheader'
+  selector: 'score'
 })
 @View({
-  templateUrl: 'app/header/header.html',
-  styleUrls: ['app/header/header.css']
+  templateUrl: 'app/score/score.html',
+  styles: ['app/score/score.css']
 })
 
-export class HeaderCmp {
-
+export class SnakeCmp {
 }

@@ -3,16 +3,16 @@
 import {Component, View, LifecycleEvent} from 'angular2/angular2';
 
 @Component({
-  selector: 'world',
+  selector: 'food',
   lifecycle: [LifecycleEvent.onInit]
 })
 @View({
-  templateUrl: 'app/world/world.html',
-  styleUrls: ['app/world/world.css']
+  templateUrl: 'app/food/food.html',
+  styleUrls: ['app/food/food.css']
 })
 
-export class WorldCmp {
-    onInit() {
-      console.log('world_cmp init');
-    }
+export class FoodCmp {
+  onInit() {
+    console.log('food init')
+  }
 }

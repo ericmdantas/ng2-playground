@@ -1,9 +1,7 @@
 body {
-  color: #333;
   font-family: "Roboto";
-  margin: 0;
 }
 
 main {
-  padding: 0 10px;
+  max-width: 500px;
 }
