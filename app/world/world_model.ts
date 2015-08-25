@@ -1,12 +1,14 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
 import {Inject} from 'angular2/di';
-import {Snake} from 'app/snake/snake.js';
 import {FieldCmp} from 'app/field/field.js';
+import {Snake} from 'app/snake/snake.js';
 
 export class World {
+  static AMOUNT:number = 3538;
+
   _fields: any[] = [];
-  _snake: Snake;
+  _snake: Snake = new Snake();
 
   set fields(f: any[]) {
     this._fields = f;
@@ -20,18 +22,16 @@ export class World {
     this._snake = s;
   }
 
-  get snake():Snake {
+  get snake() {
     return this._snake;
   }
 
-  constructor(@Inject(Snake) s: Snake) {
-    this._snake = s;
-
+  constructor() {
     this._fillFields();
   }
 
   private _fillFields() {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < World.AMOUNT; i++) {
       this._fields.push(1);
     }
   }

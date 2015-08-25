@@ -3,7 +3,7 @@
 import {Component, View, LifecycleEvent, NgFor, bootstrap} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {World} from 'app/world/world.js';
-import {FieldCmp} from 'app/field/field.ts';
+import {FieldCmp} from 'app/field/field.js';
 
 @Component({
   selector: 'world',

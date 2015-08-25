@@ -3,10 +3,3 @@
   flex-wrap: wrap;
   margin: 0 auto;
 }
-
-#world div {
-  width: 10px;
-  height: 10px;
-  background-color: #ddd;
-  margin: 1px;
-}
