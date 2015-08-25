@@ -32,7 +32,7 @@ export class World {
 
   private _fillFields() {
     for (let i = 0; i < World.AMOUNT; i++) {
-      this._fields.push(1);
+      this._fields.push({id: i});
     }
   }
 }

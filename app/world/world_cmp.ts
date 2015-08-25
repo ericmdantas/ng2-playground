@@ -4,6 +4,7 @@ import {Component, View, LifecycleEvent, NgFor, bootstrap} from 'angular2/angula
 import {Inject} from 'angular2/di';
 import {World} from 'app/world/world.js';
 import {FieldCmp} from 'app/field/field.js';
+import {SnakeCmp} from 'app/snake/snake.js';
 
 @Component({
   selector: 'world',
@@ -13,7 +14,7 @@ import {FieldCmp} from 'app/field/field.js';
 @View({
   templateUrl: 'app/world/world.html',
   styleUrls: ['app/world/world.css'],
-  directives: [FieldCmp, NgFor]
+  directives: [FieldCmp, SnakeCmp, NgFor]
 })
 
 export class WorldCmp {
@@ -28,6 +29,6 @@ export class WorldCmp {
     }
 }
 
-Promise.all([bootstrap(FieldCmp)])
+Promise.all([bootstrap(FieldCmp), bootstrap(SnakeCmp)])
        .then(() => console.log('world boot ok'))
        .catch((error) => console.log(`world boot with error ${error}`));
