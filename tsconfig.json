@@ -13,10 +13,12 @@
     "files": [
         "index.ts",
         "app/app_cmp.ts",
-        "app/bus/main_bus.ts",
-        "app/bus/worker_bus.ts",
+        "app/bus/bus.ts",
         "app/footer/footer_cmp.ts",
         "app/header/header_cmp.ts",
-        "app/main/main_cmp.ts"
+        "app/main/main_cmp.ts",
+        "app/simple_events/simple_event_cmp.ts",
+        "app/something_that_uses_web_worker/something_that_uses_web_worker_cmp.ts",
+        "app/worker/worker.ts"
     ]
 }
