@@ -1,10 +1,22 @@
 {
-  "compilerOptions":
-  {
-    "module": "commonjs",
-    "watch": true,
-    "target": "es5",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true
-  }
+    "compilerOptions": {
+        "module": "commonjs",
+        "watch": true,
+        "target": "es5",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true
+    },
+    "filesGlob": [
+        "index.ts",
+        "app/**/*.ts"
+    ],
+    "files": [
+        "index.ts",
+        "app/app_cmp.ts",
+        "app/bus/main_bus.ts",
+        "app/bus/worker_bus.ts",
+        "app/footer/footer_cmp.ts",
+        "app/header/header_cmp.ts",
+        "app/main/main_cmp.ts"
+    ]
 }

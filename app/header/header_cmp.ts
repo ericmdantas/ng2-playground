@@ -3,16 +3,19 @@
 import {Component, View, LifecycleEvent} from 'angular2/angular2';
 
 @Component({
-  selector: 'food',
+  selector: 'hheader',
   lifecycle: [LifecycleEvent.onInit]
 })
 @View({
-  templateUrl: 'app/food/food.html',
-  styleUrls: ['app/food/food.css']
+  template: `
+    <header>
+      <h2>header</h2>
+    </header>
+  `
 })
 
-export class FoodCmp {
+export class HeaderCmp {
   onInit() {
-    console.log('food init')
+    console.log('header init');
   }
 }

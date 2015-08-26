@@ -1,27 +1,31 @@
 /// <reference path="../typings/tsd.d.ts"/>
 
-import {Component, View, bootstrap} from 'angular2/angular2';
-import {WorldCmp} from 'app/world/world.js';
-import {SnakeCmp} from 'app/snake/snake.js';
-import {FoodCmp} from 'app/food/food.js';
+import {Component, View, LifecycleEvent, bootstrap} from 'angular2/angular2';
+import {HeaderCmp} from 'app/header/header_cmp.js';
+import {FooterCmp} from 'app/footer/footer_cmp.js';
+import {MainCmp} from 'app/main/main_cmp.js';
 
 @Component({
-  selector: 'app'
+  selector: 'app',
+  lifecycle: [LifecycleEvent.onInit]
 })
 @View({
   template: `
-    <main>
-      <world></world>
-    </main>
+    <hheader></hheader>
+    <mmain>
+      <h1>app</h1>
+    </mmain>
+    <ffooter></ffooter>
   `,
-  styleUrls: ['app/app.css'],
-  directives: [WorldCmp, SnakeCmp, FoodCmp]
+  directives: [HeaderCmp, MainCmp, FooterCmp]
 })
 
 export class AppCmp {
-
+  onInit() {
+      console.log('app init');
+  }
 }
 
-Promise.all([bootstrap(WorldCmp), bootstrap(SnakeCmp), bootstrap(FoodCmp)])
-       .then(() => console.log('app boot correctly'))
+Promise.all([bootstrap(HeaderCmp), bootstrap(MainCmp), bootstrap(FooterCmp)])
+       .then(() => console.log('app boot ok'))
        .catch((error) => console.log(`app boot error: ${error}`));
