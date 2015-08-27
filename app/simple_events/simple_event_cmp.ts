@@ -23,7 +23,7 @@ class X9Directive {
   }
 
   inputHandler() {
-    console.log(this.el.nativeElement.getElementsByTagName('input')[0].value);
+    document.getElementById('something').innerText = 'he said: ' + this.el.nativeElement.getElementsByTagName('input')[0].value;
   }
 }
 
@@ -35,6 +35,8 @@ class X9Directive {
     <div id="simple-events" x9>
       <h3>x9</h3>
       <input type="text" />
+      <br/>
+      <small id="something"></small>
     </div>
   `,
   styles: [

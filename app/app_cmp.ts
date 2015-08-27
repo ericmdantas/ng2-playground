@@ -9,6 +9,9 @@ import {MainBus, IBus} from 'app/bus/bus.js';
 import {SomethingThatUsesWebWorkerCmp} from 'app/something_that_uses_web_worker/something_that_uses_web_worker_cmp.js';
 import {SimpleEventsCmp} from 'app/simple_events/simple_event_cmp.js';
 import {X9Directive} from 'app/simple_events/simple_event_cmp.js';
+import {OldestCmp} from 'app/hierarchy_cmps/oldest_cmp.js';
+import {HalfWayThereCmp} from 'app/hierarchy_cmps/half_way_there_cmp.js';
+import {YoungestCmp} from 'app/hierarchy_cmps/youngest_cmp.js';
 
 @Component({
   selector: 'app',
@@ -17,13 +20,23 @@ import {X9Directive} from 'app/simple_events/simple_event_cmp.js';
 @View({
   template: `
     <hheader></hheader>
+
     <mmain>
       <something-that-uses-web-worker></something-that-uses-web-worker>
+
       <simple-events></simple-events>
+
+      <oldest>
+        <half-way-there>
+          <youngest></youngest>
+        </half-way-there>
+      </oldest>
+
     </mmain>
+
     <ffooter></ffooter>
   `,
-  directives: [HeaderCmp, MainCmp, FooterCmp, SimpleEventsCmp, SomethingThatUsesWebWorkerCmp, SimpleEventsCmp]
+  directives: [HeaderCmp, MainCmp, FooterCmp, SimpleEventsCmp, SomethingThatUsesWebWorkerCmp, SimpleEventsCmp, OldestCmp, HalfWayThereCmp, YoungestCmp]
 })
 
 export class AppCmp {
@@ -44,6 +57,7 @@ Promise.all([
               bootstrap(MainCmp, bind(MainBus).toFactory(() => MainBus.getInstance())),
               bootstrap(FooterCmp, bind(MainBus).toFactory(() => MainBus.getInstance())),
               bootstrap(SomethingThatUsesWebWorkerCmp, bind(MainBus).toFactory(() => MainBus.getInstance())),
-              bootstrap(SimpleEventsCmp, bind(MainBus).toFactory(() => MainBus.getInstance()))  ])
+              bootstrap(SimpleEventsCmp, bind(MainBus).toFactory(() => MainBus.getInstance())),
+              bootstrap(OldestCmp), bootstrap(HalfWayThereCmp), bootstrap(YoungestCmp) ])
        .then(() => console.log('app boot ok'))
        .catch((error) => console.log(`app boot error: ${error}`));
