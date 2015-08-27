@@ -10,7 +10,7 @@ import {OldestCmp} from 'app/hierarchy_cmps/oldest_cmp.js';
 @View({
   template: `
     <div id="half-way-there">
-      <span>half way there</span>
+      <h4>half way there</h4>
       <ng-content></ng-content>
     </div>
   `,
@@ -19,7 +19,7 @@ import {OldestCmp} from 'app/hierarchy_cmps/oldest_cmp.js';
         border: 1px solid brown;
         padding: 10px;
         width: 150px;
-        height: 150px;
+        height: 250px;
       }
     `]
 })

@@ -10,7 +10,7 @@ import {HalfWayThereCmp} from 'app/hierarchy_cmps/half_way_there_cmp.js';
 @View({
   template: `
     <div id="youngest">
-      <span>youngest</span>
+      <h4>youngest</h4>
     </div>
   `,
   styles: [`

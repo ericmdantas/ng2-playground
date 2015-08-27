@@ -19,8 +19,9 @@
         "app/hierarchy_cmps/half_way_there_cmp.ts",
         "app/hierarchy_cmps/oldest_cmp.ts",
         "app/hierarchy_cmps/youngest_cmp.ts",
-        "app/hierarquy_cmps/half_way_there_cmp.ts",
         "app/main/main_cmp.ts",
+        "app/not_yet_defined/not_yet_defined_problem_cmp.ts",
+        "app/not_yet_defined/not_yet_defined_service.ts",
         "app/simple_events/simple_event_cmp.ts",
         "app/something_that_uses_web_worker/something_that_uses_web_worker_cmp.ts",
         "app/worker/worker.ts"

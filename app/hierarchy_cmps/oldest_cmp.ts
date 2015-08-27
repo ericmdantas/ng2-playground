@@ -9,7 +9,7 @@ import {Component, View, LifecycleEvent} from 'angular2/angular2';
 @View({
   template: `
     <div id="oldest">
-      <span>oldest</span>
+      <h4>oldest</h4>
       <ng-content></ng-content>
     </div>
   `,
@@ -19,7 +19,7 @@ import {Component, View, LifecycleEvent} from 'angular2/angular2';
         margin-top: 10px;
         padding: 10px;
         width: 200px;
-        height: 200px;
+        height: 400px;
       }
     `]
 })
