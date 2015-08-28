@@ -13,6 +13,7 @@ import {OldestCmp} from 'app/hierarchy_cmps/oldest_cmp.js';
 import {HalfWayThereCmp} from 'app/hierarchy_cmps/half_way_there_cmp.js';
 import {YoungestCmp} from 'app/hierarchy_cmps/youngest_cmp.js';
 import {NotYetDefinedProblemCmp} from 'app/not_yet_defined/not_yet_defined_problem_cmp.js';
+import {NyCmp} from 'app/not_yet_defined_cmp_stuff/ny_cmp.js';
 
 @Component({
   selector: 'app',
@@ -35,11 +36,13 @@ import {NotYetDefinedProblemCmp} from 'app/not_yet_defined/not_yet_defined_probl
 
       <not-yet-defined-problem></not-yet-defined-problem>
 
+      <ny></ny>
+
     </mmain>
 
     <ffooter></ffooter>
   `,
-  directives: [HeaderCmp, MainCmp, FooterCmp, SimpleEventsCmp, SomethingThatUsesWebWorkerCmp, SimpleEventsCmp, OldestCmp, HalfWayThereCmp, YoungestCmp, NotYetDefinedProblemCmp]
+  directives: [HeaderCmp, MainCmp, FooterCmp, SimpleEventsCmp, SomethingThatUsesWebWorkerCmp, SimpleEventsCmp, OldestCmp, HalfWayThereCmp, YoungestCmp, NotYetDefinedProblemCmp, NyCmp]
 })
 
 export class AppCmp {
@@ -62,6 +65,7 @@ Promise.all([
               bootstrap(SomethingThatUsesWebWorkerCmp, bind(MainBus).toFactory(() => MainBus.getInstance())),
               bootstrap(SimpleEventsCmp, bind(MainBus).toFactory(() => MainBus.getInstance())),
               bootstrap(OldestCmp), bootstrap(HalfWayThereCmp), bootstrap(YoungestCmp),
-              bootstrap(NotYetDefinedProblemCmp) ])
+              bootstrap(NotYetDefinedProblemCmp),
+              bootstrap(NyCmp) ])
        .then(() => console.log('app boot ok'))
        .catch((error) => console.log(`app boot error: ${error}`));
