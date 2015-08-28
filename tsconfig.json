@@ -13,6 +13,7 @@
     "files": [
         "index.ts",
         "app/app_cmp.ts",
+        "app/bindings/view_bindings_cmp.ts",
         "app/bus/bus.ts",
         "app/footer/footer_cmp.ts",
         "app/header/header_cmp.ts",
@@ -20,6 +21,7 @@
         "app/hierarchy_cmps/oldest_cmp.ts",
         "app/hierarchy_cmps/youngest_cmp.ts",
         "app/main/main_cmp.ts",
+        "app/modal/modal_cmp.ts",
         "app/not_yet_defined/not_yet_defined_problem_cmp.ts",
         "app/not_yet_defined/not_yet_defined_service.ts",
         "app/not_yet_defined_cmp_stuff/ny_cmp.ts",

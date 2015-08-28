@@ -5,7 +5,8 @@ import {Inject, forwardRef} from 'angular2/di';
 
 @Component({
   selector: 'ny',
-  lifecycle: [LifecycleEvent.onInit]
+  lifecycle: [LifecycleEvent.onInit],
+  viewBindings: [forwardRef(() => Ny)]
 })
 @View({
   template: `
