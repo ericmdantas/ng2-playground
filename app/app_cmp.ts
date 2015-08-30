@@ -55,7 +55,8 @@ import {DiCmp} from 'app/di/di_cmp.js';
               SimpleEventsCmp, SomethingThatUsesWebWorkerCmp,
               SimpleEventsCmp, OldestCmp, HalfWayThereCmp,
               YoungestCmp, NotYetDefinedProblemCmp,
-              NyCmp, QueryCmp, ModalWrapperCmp, DiCmp]
+              NyCmp, QueryCmp, ModalWrapperCmp,
+              DiCmp]
 })
 
 export class AppCmp {
