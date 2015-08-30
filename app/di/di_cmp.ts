@@ -1,4 +1,4 @@
-/// <reference path=",./../typings/tsd.d.ts" />
+/// <reference path="../../typings/tsd.d.ts" />
 
 import {Component, View, LifecycleEvent, bootstrap} from 'angular2/angular2';
 import {DiChildCmp} from 'app/di/di_child_cmp.js';

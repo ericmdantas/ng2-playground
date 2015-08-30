@@ -25,6 +25,7 @@ export class DiChildCmp {
   }
 
   onInit() {
+    console.log('di-child init');
     console.log(this._sm);
   }
 }

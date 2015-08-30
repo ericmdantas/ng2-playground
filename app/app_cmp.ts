@@ -17,6 +17,9 @@ import {NyCmp} from 'app/not_yet_defined_cmp_stuff/ny_cmp.js';
 import {ModalWrapperCmp} from 'app/modal/modal_cmp.js';
 import {QueryCmp} from 'app/query/query_cmp.js';
 import {DiCmp} from 'app/di/di_cmp.js';
+import {HostOfStuffCmp} from 'app/host/host_of_stuff_cmp.js';
+import {HosKidCmp} from 'app/host/host_of_stuff_cmp.js';
+import {HostWithoutNgContentParentCmp} from 'app/host_without_ng_content/host_without_ng_content_cmp.js';
 
 @Component({
   selector: 'app',
@@ -39,7 +42,13 @@ import {DiCmp} from 'app/di/di_cmp.js';
 
       <not-yet-defined-problem></not-yet-defined-problem>
 
+      <host-of-stuff>
+        <hos-kid></hos-kid>
+      </host-of-stuff>
+
       <query-cmp></query-cmp>
+
+      <hwonc-parent></hwonc-parent>
 
       <di></di>
 
@@ -56,7 +65,8 @@ import {DiCmp} from 'app/di/di_cmp.js';
               SimpleEventsCmp, OldestCmp, HalfWayThereCmp,
               YoungestCmp, NotYetDefinedProblemCmp,
               NyCmp, QueryCmp, ModalWrapperCmp,
-              DiCmp]
+              DiCmp, HostOfStuffCmp, HosKidCmp,
+              HostWithoutNgContentParentCmp]
 })
 
 export class AppCmp {
@@ -80,9 +90,12 @@ Promise.all([
               bootstrap(SimpleEventsCmp, bind(MainBus).toFactory(() => MainBus.getInstance())),
               bootstrap(OldestCmp), bootstrap(HalfWayThereCmp), bootstrap(YoungestCmp),
               bootstrap(NotYetDefinedProblemCmp),
+              bootstrap(HostOfStuffCmp),
+              bootstrap(HosKidCmp),
               bootstrap(NyCmp),
               bootstrap(ModalWrapperCmp),
               bootstrap(DiCmp),
-              bootstrap(QueryCmp) ])
+              bootstrap(HostWithoutNgContentParentCmp),
+              bootstrap(QueryCmp)])
        .then(() => console.log('app boot ok'))
        .catch((error) => console.log(`app boot error: ${error}`));
