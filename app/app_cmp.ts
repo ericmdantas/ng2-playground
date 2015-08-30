@@ -16,6 +16,7 @@ import {NotYetDefinedProblemCmp} from 'app/not_yet_defined/not_yet_defined_probl
 import {NyCmp} from 'app/not_yet_defined_cmp_stuff/ny_cmp.js';
 import {ModalWrapperCmp} from 'app/modal/modal_cmp.js';
 import {QueryCmp} from 'app/query/query_cmp.js';
+import {DiCmp} from 'app/di/di_cmp.js';
 
 @Component({
   selector: 'app',
@@ -40,6 +41,8 @@ import {QueryCmp} from 'app/query/query_cmp.js';
 
       <query-cmp></query-cmp>
 
+      <di></di>
+
       <ny></ny>
 
       <modal-wrapper><modal-wrapper>
@@ -52,7 +55,7 @@ import {QueryCmp} from 'app/query/query_cmp.js';
               SimpleEventsCmp, SomethingThatUsesWebWorkerCmp,
               SimpleEventsCmp, OldestCmp, HalfWayThereCmp,
               YoungestCmp, NotYetDefinedProblemCmp,
-              NyCmp, QueryCmp, ModalWrapperCmp]
+              NyCmp, QueryCmp, ModalWrapperCmp, DiCmp]
 })
 
 export class AppCmp {
@@ -78,6 +81,7 @@ Promise.all([
               bootstrap(NotYetDefinedProblemCmp),
               bootstrap(NyCmp),
               bootstrap(ModalWrapperCmp),
+              bootstrap(DiCmp),
               bootstrap(QueryCmp) ])
        .then(() => console.log('app boot ok'))
        .catch((error) => console.log(`app boot error: ${error}`));
