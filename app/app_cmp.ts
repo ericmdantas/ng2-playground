@@ -20,6 +20,7 @@ import {DiCmp} from 'app/di/di_cmp.js';
 import {HostOfStuffCmp} from 'app/host/host_of_stuff_cmp.js';
 import {HosKidCmp} from 'app/host/host_of_stuff_cmp.js';
 import {HostWithoutNgContentParentCmp} from 'app/host_without_ng_content/host_without_ng_content_cmp.js';
+import {HttpCmp} from 'app/http/http_cmp.js'
 
 @Component({
   selector: 'app',
@@ -48,8 +49,10 @@ import {HostWithoutNgContentParentCmp} from 'app/host_without_ng_content/host_wi
 
       <query-cmp></query-cmp>
 
-      <hwonc-parent></hwonc-parent>
+      <mah-http></mah-http>
 
+      <hwonc-parent></hwonc-parent>
+      i
       <di></di>
 
       <ny></ny>
@@ -66,7 +69,7 @@ import {HostWithoutNgContentParentCmp} from 'app/host_without_ng_content/host_wi
               YoungestCmp, NotYetDefinedProblemCmp,
               NyCmp, QueryCmp, ModalWrapperCmp,
               DiCmp, HostOfStuffCmp, HosKidCmp,
-              HostWithoutNgContentParentCmp]
+              HostWithoutNgContentParentCmp, HttpCmp]
 })
 
 export class AppCmp {
@@ -96,6 +99,7 @@ Promise.all([
               bootstrap(ModalWrapperCmp),
               bootstrap(DiCmp),
               bootstrap(HostWithoutNgContentParentCmp),
+              bootstrap(HttpCmp),
               bootstrap(QueryCmp)])
        .then(() => console.log('app boot ok'))
        .catch((error) => console.log(`app boot error: ${error}`));
