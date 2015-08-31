@@ -11,7 +11,10 @@ class SomeService {
   }
 
   rs():Rx.Observable<any> {
-    return this._http.get('/api').toRx();
+    return this._http.get('/api').toRx().map((info) => {
+      info.abc = 'abc';
+      return info;
+    });
   }
 }
 

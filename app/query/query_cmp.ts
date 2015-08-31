@@ -20,6 +20,7 @@ class SomeChildDirective {
     <div>
       <h2>query-cmp<h2>
       <div something></div>
+      <button type="button" (click)="clickHandler()">click</button>
     </div>
   `,
   directives: [SomeChildDirective]
@@ -27,6 +28,9 @@ class SomeChildDirective {
 
 export class QueryCmp {
   constructor(@Query(SomeChildDirective) private _someChild: QueryList<SomeChildDirective>) {
+  }
+
+  clickHandler() {
     console.log(this._someChild);
   }
 
