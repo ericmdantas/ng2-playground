@@ -4,31 +4,34 @@ import {Component, View, Directive, ElementRef} from 'angular2/angular2';
 import {Inject, forwardRef} from 'angular2/di';
 
 @Component({
-  selector: 'dirwprop-wrapper'
+  selector: 'dw'
 })
 @View({
   template: `
+    <h2>driwprop-wrapper</h2>
     <div>
-      <button type="button" dirwprop [innerProp]="something"
-              (click)="doSomethingAboutIt()">botao</button>
+      <button type="button" dwp [ppp]="something">btn button</button>
     </div>
   `,
-  directives: [forwardRef(() => DirwpropWrapperCmp)]
+  directives: [forwardRef(() => DwDirective)]
 })
 
-export class DirwpropWrapperCmp {
-  something: string = 'abc';
+export class DwCmp {
+  something: {a: boolean} = {a: true};
 }
 
 @Directive({
-  selector: '[dirwprop]',
-  properties: ['innerProp: p']
+  selector: '[dwp]',
+  properties: ['innerSomething: ppp'],
+  host: {
+    '(click)': 'doSomethingAboutIt()'
+  }
 })
 
-class DirwpropDirective {
-  innerProp: any;
+class DwDirective {
+  innerSomething: any;
 
   doSomethingAboutIt() {
-    console.log(this.innerProp);
+    console.log(this.innerSomething);
   }
 }

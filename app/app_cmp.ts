@@ -22,7 +22,7 @@ import {HosKidCmp} from 'app/host/host_of_stuff_cmp.js';
 import {HostWithoutNgContentParentCmp} from 'app/host_without_ng_content/host_without_ng_content_cmp.js';
 import {HttpCmp} from 'app/http/http_cmp.js'
 import {DirectivesCmp} from 'app/directives/directives_cmp.js';
-import {DirwpropWrapperCmp} from 'app/directives/directives_with_prop_cmp';
+import {DwCmp} from 'app/directives/directives_with_prop_cmp.js';
 
 @Component({
   selector: 'app',
@@ -55,7 +55,7 @@ import {DirwpropWrapperCmp} from 'app/directives/directives_with_prop_cmp';
 
       <dir-cmp></dir-cmp>
 
-      <dirwprop-wrapper></dirwprop-wrapper>
+      <dw></dw>
 
       <hwonc-parent></hwonc-parent>
 
@@ -63,7 +63,7 @@ import {DirwpropWrapperCmp} from 'app/directives/directives_with_prop_cmp';
 
       <ny></ny>
 
-      <modal-wrapper><modal-wrapper>
+      <!--<modal-wrapper><modal-wrapper>-->
 
     </mmain>
 
@@ -75,7 +75,7 @@ import {DirwpropWrapperCmp} from 'app/directives/directives_with_prop_cmp';
               YoungestCmp, NotYetDefinedProblemCmp,
               NyCmp, QueryCmp, ModalWrapperCmp,
               DiCmp, HostOfStuffCmp, HosKidCmp,
-              HostWithoutNgContentParentCmp, HttpCmp, DirectivesCmp, DirwpropWrapperCmp]
+              HostWithoutNgContentParentCmp, HttpCmp, DirectivesCmp, DwCmp]
 })
 
 export class AppCmp {
@@ -107,7 +107,7 @@ Promise.all([
               bootstrap(HostWithoutNgContentParentCmp),
               bootstrap(HttpCmp),
               bootstrap(DirectivesCmp),
-              bootstrap(DirwpropWrapperCmp),
+              bootstrap(DwCmp),
               bootstrap(QueryCmp)])
        .then(() => console.log('app boot ok'))
        .catch((error) => console.log(`app boot error: ${error}`));

@@ -7,8 +7,7 @@ import {Component, View, Directive} from 'angular2/angular2';
   host: {
     '(click)': 'clickHandler()',
     'class': 'brand-new-class',
-    'banana': 'hey hye hey',
-    '@action': 'actionSomething()'
+    'banana': 'hey hye hey'
   }
 })
 
