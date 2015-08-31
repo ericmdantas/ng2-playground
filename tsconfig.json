@@ -19,6 +19,7 @@
         "app/di/di_cmp.ts",
         "app/di/di_stuff.ts",
         "app/directives/directives_cmp.ts",
+        "app/directives/directives_with_prop_cmp.ts",
         "app/footer/footer_cmp.ts",
         "app/header/header_cmp.ts",
         "app/hierarchy_cmps/half_way_there_cmp.ts",
