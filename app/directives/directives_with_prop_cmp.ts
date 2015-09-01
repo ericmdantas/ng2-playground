@@ -18,7 +18,7 @@ import {Inject, forwardRef} from 'angular2/di';
 
 export class DwCmp {
   something: {a: boolean} = {a: true};
-}
+  }
 
 @Directive({
   selector: '[dwp]',
