@@ -1,5 +1,4 @@
 /// <reference path="../../typings/tsd.d.ts" />
-/// <reference path="../../node_modules/angular2/bundles/typings/angular2/http.d.ts" />
 
 import {Component, View, NgFor} from 'angular2/angular2';
 import {Inject, forwardRef} from 'angular2/di';
