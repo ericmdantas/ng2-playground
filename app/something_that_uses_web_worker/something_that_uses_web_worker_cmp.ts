@@ -11,8 +11,16 @@ import {IBus, WorkerBus} from 'app/bus/bus.js';
   template: `
     <div id="something-that-uses-web-worker">
       <h3>something that uses a web worker</h3>
+      <input type="text" #info />
       <button type="button"
-              (click)="callWorker()">call worker</button>
+              (click)="callWorker(info.value)">call worker</button>
+
+      <p>
+        result:
+
+        <span [text-content]="workerInfo.id"></span>...
+        <span [text-content]="workerInfo.info"></span>
+      </p>
     </div>
   `,
   styles: [`
@@ -26,15 +34,18 @@ import {IBus, WorkerBus} from 'app/bus/bus.js';
 
 export class SomethingThatUsesWebWorkerCmp {
   _workerBus: IBus = WorkerBus.getInstance();
+  workerInfo: {info: any, id: number};
 
-  callWorker() {
+  onInit() {
     this
       ._workerBus
       .listen()
-      .subscribe(i => {
-        console.log(i);
+      .subscribe(inf => {
+        this.workerInfo = inf;
       });
+  }
 
-    this._workerBus.dispatch();
+  callWorker(info:string):void {
+    this._workerBus.dispatch(info);
   }
 }

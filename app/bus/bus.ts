@@ -3,7 +3,7 @@
 import {EventEmitter} from 'angular2/angular2';
 
 export interface IBus {
-  listen(): EventEmitter;
+  listen():Rx.Observable<any>;
   dispatch(info: any):void;
 }
 
@@ -29,45 +29,23 @@ export class MainBus implements IBus {
         this._eventEmitter.next(info);
     }
 
-    listen(): EventEmitter {
-      return this._eventEmitter;
+    listen():Rx.Observable<any> {
+      return this._eventEmitter.toRx();
     }
 }
 
 export class WorkerBus implements IBus {
   private _eventEmitter: EventEmitter = new EventEmitter();
-  private _worker: Worker;
-  private static _instance: WorkerBus;
-  private static _canCreate: boolean = false;
+  private _worker: Worker = new Worker(WorkerBus.PATH);
   private static PATH: string = 'app/worker/worker.js';
-  private _workerMessage: any = {};
 
-  constructor() {
-    if (!WorkerBus._canCreate) {
-         throw new Error("Can't create Main Bus. Use WorkerBus.getInstance instead.");
-    }
-
-    this._worker = new Worker(WorkerBus.PATH);
-  }
-
-  static getInstance():WorkerBus {
-      WorkerBus._canCreate = true;
-      WorkerBus._instance = WorkerBus._instance || new WorkerBus();
-      WorkerBus._canCreate = false;
-
-      return WorkerBus._instance;
-  }
-
-  dispatch():void {
-    this._worker.postMessage('go');
-
-    this._worker = new Worker(WorkerBus.PATH);
+  dispatch(info:any):void {
+    this._worker.postMessage(info);
   }
 
   listen():Rx.Observable<any> {
     this._worker.onmessage = ({data}) => {
       this._eventEmitter.next(data);
-      this._eventEmitter = new EventEmitter();
     };
 
     return this._eventEmitter.toRx();

@@ -37,7 +37,6 @@
         "app/query/query_cmp.ts",
         "app/simple_events/simple_event_cmp.ts",
         "app/something_that_uses_web_worker/something_that_uses_web_worker_cmp.ts",
-        "app/something_that_uses_web_worker/worker.ts",
         "app/worker/worker.ts"
     ]
 }
