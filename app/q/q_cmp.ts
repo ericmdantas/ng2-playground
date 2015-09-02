@@ -32,8 +32,6 @@ export class QCmp {
         .getStuff()
         .subscribe(r => {
           this.qs = r;
-
-          console.log(this.qs);
         })
         .dispose();
   }

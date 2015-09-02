@@ -39,6 +39,7 @@ export class WorkerBus implements IBus {
   private _worker: Worker;
   private static _instance: WorkerBus;
   private static _canCreate: boolean = false;
+  private static PATH: string = 'app/worker/worker.js';
   private _workerMessage: any = {};
 
   constructor() {
@@ -46,7 +47,7 @@ export class WorkerBus implements IBus {
          throw new Error("Can't create Main Bus. Use WorkerBus.getInstance instead.");
     }
 
-    this._worker = new Worker('app/worker/worker.js');
+    this._worker = new Worker(WorkerBus.PATH);
   }
 
   static getInstance():WorkerBus {
@@ -58,16 +59,17 @@ export class WorkerBus implements IBus {
   }
 
   dispatch():void {
-    this._eventEmitter.next(this._workerMessage);
+    this._worker.postMessage('go');
+
+    this._worker = new Worker(WorkerBus.PATH);
   }
 
-  listen(): EventEmitter {
-    return this._eventEmitter;
-  }
+  listen():Rx.Observable<any> {
+    this._worker.onmessage = ({data}) => {
+      this._eventEmitter.next(data);
+      this._eventEmitter = new EventEmitter();
+    };
 
-  private _listenWorker() {
-    window.onmessage = (event) => {
-      this._workerMessage = event.data;
-    }
+    return this._eventEmitter.toRx();
   }
 }

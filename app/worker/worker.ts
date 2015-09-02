@@ -1,1 +1,4 @@
-self.postMessage({message: 'worker talking'});
+self.onmessage = () => {
+  postMessage({message: 'worker talking'});
+  close();
+};
