@@ -7,4 +7,4 @@ import {AppCmp} from 'app/app_cmp.js';
 
 bootstrap(AppCmp, [HTTP_BINDINGS])
   .then(() => console.log('index ok'))
-  .catch((error) => console.log(`error bootstraping ${error}`));
+  .catch((error) => console.log(`error bootstraping index ${error}`));

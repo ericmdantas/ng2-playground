@@ -13,30 +13,7 @@
     "files": [
         "index.ts",
         "app/app_cmp.ts",
-        "app/bindings/view_bindings_cmp.ts",
-        "app/bus/bus.ts",
-        "app/di/di_child_cmp.ts",
-        "app/di/di_cmp.ts",
-        "app/di/di_stuff.ts",
-        "app/directives/directives_cmp.ts",
-        "app/directives/directives_with_prop_cmp.ts",
-        "app/footer/footer_cmp.ts",
-        "app/header/header_cmp.ts",
-        "app/hierarchy_cmps/half_way_there_cmp.ts",
-        "app/hierarchy_cmps/oldest_cmp.ts",
-        "app/hierarchy_cmps/youngest_cmp.ts",
-        "app/host/host_of_stuff_cmp.ts",
-        "app/host_without_ng_content/host_without_ng_content_cmp.ts",
-        "app/http/http_cmp.ts",
-        "app/main/main_cmp.ts",
-        "app/modal/modal_cmp.ts",
-        "app/not_yet_defined/not_yet_defined_problem_cmp.ts",
-        "app/not_yet_defined/not_yet_defined_service.ts",
-        "app/not_yet_defined_cmp_stuff/ny_cmp.ts",
-        "app/q/q_cmp.ts",
-        "app/query/query_cmp.ts",
-        "app/simple_events/simple_event_cmp.ts",
-        "app/something_that_uses_web_worker/something_that_uses_web_worker_cmp.ts",
-        "app/worker/worker.ts"
+        "app/wk/wk.ts",
+        "app/wk/wk_cmp.ts"
     ]
 }
