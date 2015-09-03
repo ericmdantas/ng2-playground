@@ -1,3 +1,3 @@
 self.onmessage = (event) => {
-  postMessage(event.data);
+  postMessage({msg: event.data, id: Date.now()});
 }

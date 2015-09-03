@@ -11,12 +11,17 @@ import {Inject, forwardRef} from 'angular2/di';
 @View({
   template: `
     <div>
-      <button type="button" (click)="callWorker()">call worker</button>
+      <input type="text" #info />
+      <button type="button" (click)="callWorker(info.value)">call worker</button>
+      <p>The Message is: <span [text-content]="wInfo.msg"></span></p>
+      <p>Sent at: <span [text-content]="wInfo.id"></span></p>
     </div>
   `
 })
 
 export class WkCmp {
+  wInfo: {info?:string, id?: number} = {};
+
   constructor(@Inject(forwardRef(() => WkBus)) private _wkBus: WkBus) {
 
   }
@@ -25,12 +30,12 @@ export class WkCmp {
     this._wkBus
         .listen()
         .subscribe(info => {
-          console.log(info);
+          this.wInfo = info;
         });
   }
 
-  callWorker() {
-    this._wkBus.dispatch('a');
+  callWorker(info:any) {
+    this._wkBus.dispatch(info);
   }
 }
 
@@ -50,5 +55,3 @@ class WkBus {
       this._worker.postMessage(info);
   }
 }
-
-bootstrap(WkCmp);

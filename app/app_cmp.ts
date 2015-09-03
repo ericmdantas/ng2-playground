@@ -16,7 +16,9 @@ import {WkCmp} from 'app/wk/wk_cmp.js';
 })
 
 export class AppCmp {
-
+  onInit() {
+    console.log('app init');
+  }
 }
 
 Promise.all([bootstrap(WkCmp)])
