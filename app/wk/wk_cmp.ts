@@ -44,8 +44,8 @@ class WkBus {
   private _ee: EventEmitter = new EventEmitter();
 
   listen():Rx.Observable<any> {
-      this._worker.onmessage = (event) => {
-        this._ee.next(event.data);
+      this._worker.onmessage = ({data}) => {
+        this._ee.next(data);
       }
 
       return this._ee.toRx();

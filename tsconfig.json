@@ -13,7 +13,15 @@
     "files": [
         "index.ts",
         "app/app_cmp.ts",
+        "app/container/container_cmp.ts",
+        "app/di/di_hierarchy_cmp.ts",
+        "app/di/di_ng_content_cmp.ts",
+        "app/host/host_cmp.ts",
+        "app/not_instantiated_yet/niy_cmp.ts",
+        "app/query/query_cmp.ts",
         "app/wk/wk.ts",
-        "app/wk/wk_cmp.ts"
+        "app/wk/wk_cmp.ts",
+        "app/xhr/xhr.ts",
+        "app/xhr/xhr_cmp.ts"
     ]
 }
