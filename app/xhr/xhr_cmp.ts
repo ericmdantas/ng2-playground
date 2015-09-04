@@ -26,7 +26,7 @@ import {XhrService} from 'app/xhr/xhr.js';
 })
 
 export class XhrCmp {
-    public xhrInfo: Object = <any>{};
+    public xhrInfo: Object[] = [{title: '', body: ''}];
 
     constructor(@Inject(XhrService) private _xhrService: XhrService) {
 

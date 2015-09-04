@@ -15,29 +15,31 @@ import {XhrCmp} from 'app/xhr/xhr_cmp.js';
 })
 @View({
   template: `
-  <container [tit]="'wk'">
-    <wk></wk>
-  </container>
+  <main>
+    <container [tit]="'wk'">
+      <wk></wk>
+    </container>
 
-  <container [tit]="'host'">
-    <main-host></main-host>
-  </container>
+    <container [tit]="'host'">
+      <main-host></main-host>
+    </container>
 
-  <container [tit]="'query'">
-    <main-query></main-query>
-  </container>
+    <container [tit]="'query'">
+      <main-query></main-query>
+    </container>
 
-  <container [tit]="'niy'">
-    <niy-cmp></niy-cmp>
-  </container>
+    <container [tit]="'niy'">
+      <niy-cmp></niy-cmp>
+    </container>
 
-  <container [tit]="'di-hierarchy'">
-    <cmp1></cmp1>
-  </container>
+    <container [tit]="'di-hierarchy'">
+      <cmp1></cmp1>
+    </container>
 
-  <container [tit]="'xhr'">
-    <xhr-cmp></xhr-cmp>
-  </container>
+    <container [tit]="'xhr'">
+      <xhr-cmp></xhr-cmp>
+    </container>
+  </main> 
   `,
   directives: [WkCmp, ContainerCmp, MainHostCmp,
                MainQueryCmp, MainQueryCmp, NiyCmp,
