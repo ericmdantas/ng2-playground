@@ -16,6 +16,7 @@
         "app/container/container_cmp.ts",
         "app/di/di_hierarchy_cmp.ts",
         "app/di/di_ng_content_cmp.ts",
+        "app/form/form_cmp.ts",
         "app/host/host_cmp.ts",
         "app/not_instantiated_yet/niy_cmp.ts",
         "app/query/query_cmp.ts",
