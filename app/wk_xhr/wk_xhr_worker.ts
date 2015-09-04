@@ -1,12 +1,11 @@
-const url: string = 'http://jsonplaceholder.typicode.com/posts';
-var xhr: XMLHttpRequest = new XMLHttpRequest();
+const url: string = 'http://jsonplaceholder.typicode.com/posts/1';
 
 self.onmessage = () => {
+  let xhr: XMLHttpRequest = new XMLHttpRequest();
 
   xhr.onreadystatechange = () => {
-    console.log(this.responseText);
-    postMessage("done");
-  }
+    postMessage(JSON.parse(this.responseText));
+  };
 
   xhr.open("GET", url, true);
   xhr.send();

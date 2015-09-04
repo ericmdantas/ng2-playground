@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, LifecycleEvent, EventEmitter} from 'angular2/angular2';
+import {Component, View, LifecycleEvent, EventEmitter, ViewEncapsulation} from 'angular2/angular2';
 import {Inject, forwardRef} from 'angular2/di';
 
 @Component({
@@ -13,10 +13,22 @@ import {Inject, forwardRef} from 'angular2/di';
     <h2>wk-xhr</h2>
     <button type="button"
             (click)="fetchStuff()">wk-xhr-button</button>
+
+    <p>
+      <span>title</span>
+      <span [text-content]="wkXhrInfo.title"></span>
+
+      <br>
+
+      <span>body</span>
+      <span [text-content]="wkXhrInfo.body"></span>
+    </p>
   `
 })
 
 export class WkXhrCmp {
+    public wkXhrInfo: Object = <any>{};
+
     constructor(@Inject(WkXhrService) private _wk: WkXhrService) {
 
     }
@@ -27,7 +39,7 @@ export class WkXhrCmp {
       this._wk
           .listen()
           .subscribe(info => {
-            console.log(info);
+            this.wkXhrInfo = info;
           });
     }
 
@@ -42,7 +54,6 @@ class WkXhrService {
 
   listen():Rx.Observable<any> {
     this.wk.onmessage = (event) => {
-      debugger;
       this._ee.next(event.data);
     };
 
