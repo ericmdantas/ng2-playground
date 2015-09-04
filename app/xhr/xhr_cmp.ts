@@ -14,7 +14,13 @@ import {XhrService} from 'app/xhr/xhr.js';
     <h2>xhr</h2>
     <button type="button" (click)="goGetInfo()">go get info</button>
     <p>
-      <span>result</span>
+
+      <strong>title: </strong>
+      <span [text-content]="xhrInfo[0].title"></span>
+      <br><br>
+
+      <strong>body: </strong>
+      <span [text-content]="xhrInfo[0].body"></span>
     </p>
   `
 })
@@ -33,7 +39,8 @@ export class XhrCmp {
     goGetInfo():void {
         this._xhrService
             .get()
-            .subscribe(result => this.xhrInfo = result)
-            .dispose();
+            .subscribe(result => {
+              this.xhrInfo = result;
+            });
     }
 }

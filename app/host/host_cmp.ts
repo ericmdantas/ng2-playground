@@ -16,6 +16,8 @@ import {forwardRef} from 'angular2/di';
 })
 
 export class MainHostCmp {
+  hostName: string = 'main-host-name-something'
+
   constructor() {
 
   }

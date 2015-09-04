@@ -4,8 +4,8 @@ import {Component, View, Directive, ElementRef, EventEmitter, LifecycleEvent} fr
 import {Inject, forwardRef} from 'angular2/di';
 
 @Component({
-  selector: 'niy',
-  viewBindings: [forwardRef(() => NiyService)],
+  selector: 'niy-cmp',
+  bindings: [forwardRef(() => NiyService)],
   lifecycle: [LifecycleEvent.onInit]
 })
 @View({
@@ -27,7 +27,9 @@ export class NiyCmp {
     }
 
     callService():void {
-      this._niyService.doSomething();
+      this._niyService
+          .doSomething()
+          .subscribe(info => console.log(info));
     }
 }
 

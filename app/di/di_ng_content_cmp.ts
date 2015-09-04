@@ -19,7 +19,7 @@ class ChildModel extends BaseModel {
 }
 
 @Component({
-  selector: 'cmp1',
+  selector: 'cmp1-content',
   lifecycle: [LifecycleEvent.onInit]
 })
 @View({
@@ -29,7 +29,7 @@ class ChildModel extends BaseModel {
   `
 })
 
-export class Cmp1Cmp {
+export class Cmp1ContentCmp {
   constructor(@Inject(ChildModel) private _cm: ChildModel) {
 
   }
@@ -41,7 +41,7 @@ export class Cmp1Cmp {
 }
 
 @Component({
-  selector: 'cmp2',
+  selector: 'cmp2-content',
   lifecycle: [LifecycleEvent.onInit]
 })
 @View({
@@ -51,7 +51,7 @@ export class Cmp1Cmp {
   `
 })
 
-class Cmp2Cmp {
+class Cmp2ContentCmp {
   constructor(@Inject(ChildModel) private _cm: ChildModel) {
 
   }
@@ -63,7 +63,7 @@ class Cmp2Cmp {
 }
 
 @Component({
-  selector: 'cmp3'
+  selector: 'cmp3-content'
 })
 @View({
   template: `
@@ -71,7 +71,7 @@ class Cmp2Cmp {
   `
 })
 
-class Cmp3Cmp {
+class Cmp3ContentCmp {
   constructor(@Inject(ChildModel) private _cm: ChildModel) {
 
   }

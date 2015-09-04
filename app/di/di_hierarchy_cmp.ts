@@ -44,7 +44,8 @@ export class Cmp1Cmp {
 
 @Component({
   selector: 'cmp2',
-  lifecycle: [LifecycleEvent.onInit]
+  lifecycle: [LifecycleEvent.onInit],
+  bindings: [ChildModel]
 })
 @View({
   template: `
@@ -66,7 +67,8 @@ class Cmp2Cmp {
 }
 
 @Component({
-  selector: 'cmp3'
+  selector: 'cmp3',
+  bindings: [ChildModel]
 })
 @View({
   template: `

@@ -11,15 +11,18 @@ import {Inject} from 'angular2/di';
 @View({
   template: `
     <div class="container">
-      <span class="tit" [text-content]="tit"></span>
+      <span class="tit" [text-content]="innerTit"></span>
       <ng-content></ng-content>
     </div>
   `,
   styles: [`
       .container {
         position: relative;
-        padding: 10px;
+        padding: 20px 10px 10px;
         max-width: 400px;
+        min-width: 250px;
+        float: left;
+        margin-left: 20px;
       }
 
       .tit {
@@ -27,14 +30,14 @@ import {Inject} from 'angular2/di';
         padding: 5px;
         font-size: 15px;
         position: absolute;
-        top: 0;
-        left: 0;
+        top: -15px;
+        left: -2px;
       }
   `]
 })
 
 export class ContainerCmp {
-    static BORDER_COLORS: string[] = ["red", "blue", "brown", "black", "yellow", "orange", "green", "steelblue", "pink"];
+    static BORDER_COLORS: string[] = ["red", "blue", "brown", "black", "tomato", "salmon", "orange", "green", "steelblue", "pink"];
     innerTit: string;
 
     constructor(@Inject(ElementRef) private _el: ElementRef) {
@@ -47,6 +50,6 @@ export class ContainerCmp {
     }
 
     private _paintContainer():void {
-        this._el.nativeElement.style.borderColor = ContainerCmp[Math.floor(Math.random() * ContainerCmp.BORDER_COLORS.length)];
+        document.getElementsByClassName('container')[0].style.border = `1px solid ${ContainerCmp.BORDER_COLORS[Math.floor(Math.random() * ContainerCmp.BORDER_COLORS.length)]}`;
     }
 }

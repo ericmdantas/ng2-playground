@@ -5,13 +5,13 @@ import {Http} from 'http/http';
 import {Inject} from 'angular2/di';
 
 export class XhrService {
-  static URL: string = '/api/somewhere';
+  static URL: string = 'http://jsonplaceholder.typicode.com/posts';
 
   constructor(@Inject(Http) private _http:Http) {
 
   }
 
   get():Rx.Observable<any> {
-    return this._http.get(XhrService.URL).toRx();
+    return this._http.get(XhrService.URL).toRx().map(r => r.json());
   }
 }
