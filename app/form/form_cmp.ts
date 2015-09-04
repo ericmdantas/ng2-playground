@@ -26,7 +26,8 @@ import {Inject, forwardRef} from 'angular2/di';
               <button type="submit"
                       [disabled]="!someForm.valid">do it</button>
     </form>
-  `
+  `,
+  directives: [FORM_DIRECTIVES]
 })
 
 export class FormCmp {

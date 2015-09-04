@@ -22,6 +22,8 @@
         "app/query/query_cmp.ts",
         "app/wk/wk.ts",
         "app/wk/wk_cmp.ts",
+        "app/wk_xhr/wk_xhr_cmp.ts",
+        "app/wk_xhr/wk_xhr_worker.ts",
         "app/xhr/xhr.ts",
         "app/xhr/xhr_cmp.ts"
     ]
