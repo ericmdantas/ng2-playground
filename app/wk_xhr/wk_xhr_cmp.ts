@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, LifecycleEvent, EventEmitter, ViewEncapsulation} from 'angular2/angular2';
+import {Component, View, LifecycleEvent, EventEmitter, ViewEncapsulation, CORE_DIRECTIVES} from 'angular2/angular2';
 import {Inject, forwardRef} from 'angular2/di';
 
 @Component({
@@ -14,22 +14,32 @@ import {Inject, forwardRef} from 'angular2/di';
     <button type="button"
             (click)="fetchStuff()">wk-xhr-button</button>
 
-    <p>
-      <span>title</span>
+    <p *ng-if="loading">loading...</p>
+    <p *ng-if="notSearched && !loading">do the search, bro</p>
+    <p *ng-if="errored">error happened</p>
+
+    <p [hidden]="loading || errored || notSearched">
+
+
+      <strong>title:</strong>
       <span [text-content]="wkXhrInfo.title"></span>
 
       <br>
 
-      <span>body</span>
+      <strong>body:</strong>
       <span [text-content]="wkXhrInfo.body"></span>
     </p>
-  `
+  `,
+  directives: [CORE_DIRECTIVES]
 })
 
 export class WkXhrCmp {
     public wkXhrInfo: Object = <any>{};
+    public loading: boolean = false;
+    public notSearched: boolean = true;
+    public errored: boolean = false;
 
-    constructor(@Inject(WkXhrService) private _wk: WkXhrService) {
+    constructor(@Inject(forwardRef(() => WkXhrService)) private _wk: WkXhrService) {
 
     }
 
@@ -40,11 +50,20 @@ export class WkXhrCmp {
           .listen()
           .subscribe(info => {
             this.wkXhrInfo = info;
+            this.loading = false;
+            this.errored = false;
+            this.notSearched = false;
+          },
+          err => {
+            this.errored = true;
+            this.notSearched = false;
+            this.loading = false;
           });
     }
 
     fetchStuff() {
-      this._wk.dispatch("something");
+      this.loading = true;
+      this._wk.dispatch(99);
     }
 }
 
