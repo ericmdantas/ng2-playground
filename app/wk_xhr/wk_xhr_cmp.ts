@@ -6,8 +6,7 @@ import {Inject, forwardRef} from 'angular2/di';
 @Component({
   selector: 'wk-xhr-cmp',
   lifecycle: [LifecycleEvent.onInit],
-  bindings: [forwardRef(() => WkXhrService)],
-  encapsulation: ViewEncapsulation.NATIVE
+  bindings: [forwardRef(() => WkXhrService)]
 })
 @View({
   template: `
@@ -31,6 +30,7 @@ import {Inject, forwardRef} from 'angular2/di';
       <span [text-content]="wkXhrInfo.body"></span>
     </p>
   `,
+  encapsulation: ViewEncapsulation.NATIVE,
   directives: [CORE_DIRECTIVES]
 })
 

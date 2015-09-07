@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, ElementRef, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, ElementRef, LifecycleEvent, ViewEncapsulation} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 
 @Component({
@@ -15,6 +15,7 @@ import {Inject} from 'angular2/di';
       <ng-content></ng-content>
     </div>
   `,
+  encapsulation: ViewEncapsulation.NATIVE,
   styles: [`
       .container {
         position: relative;
