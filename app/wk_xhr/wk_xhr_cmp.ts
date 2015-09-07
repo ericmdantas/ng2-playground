@@ -6,7 +6,8 @@ import {Inject, forwardRef} from 'angular2/di';
 @Component({
   selector: 'wk-xhr-cmp',
   lifecycle: [LifecycleEvent.onInit],
-  bindings: [forwardRef(() => WkXhrService)]
+  bindings: [forwardRef(() => WkXhrService)],
+  encapsulation: ViewEncapsulation.NATIVE
 })
 @View({
   template: `
