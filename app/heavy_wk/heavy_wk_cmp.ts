@@ -6,7 +6,8 @@ import {HeavyWkBus} from 'app/heavy_wk/heavy_wk_bus.js';
 
 @Component({
   selector: 'heavy-wk-cmp',
-  lifecycle: [LifecycleEvent.onInit]
+  lifecycle: [LifecycleEvent.onInit],
+  bindings: [HeavyWkBus]
 })
 @View({
   template: `
@@ -17,8 +18,8 @@ import {HeavyWkBus} from 'app/heavy_wk/heavy_wk_bus.js';
 })
 
 export class HeavyWkCmp {
-  public static NUM: number = 100;
-  public result: any = <any>{};
+  public static NUM: number = 1000;
+  public result: string = 'click the button';
 
   constructor(@Inject(HeavyWkBus) private _heavyWkBus: HeavyWkBus) {
 
@@ -27,12 +28,13 @@ export class HeavyWkCmp {
   onInit() {
     this._heavyWkBus
         .listen()
-        .subscribe((event) => {
-          this.result = event.data;
+        .subscribe((info) => {
+          this.result = info;
         });
   }
 
   doHeavyWorkHandler() {
+    this.result = 'loading...';
     this._heavyWkBus.dispatch(HeavyWkCmp.NUM);
   }
 }

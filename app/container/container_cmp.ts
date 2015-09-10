@@ -15,7 +15,7 @@ import {Inject} from 'angular2/di';
       <ng-content></ng-content>
     </div>
   `,
-  encapsulation: ViewEncapsulation.NATIVE,
+  encapsulation: ViewEncapsulation.EMULATED,
   styles: [`
       .container {
         position: relative;

@@ -10,6 +10,7 @@ import {Cmp1Cmp} from 'app/di/di_hierarchy_cmp.js';
 import {XhrCmp} from 'app/xhr/xhr_cmp.js';
 import {WkXhrCmp} from 'app/wk_xhr/wk_xhr_cmp.js';
 import {FormCmp} from 'app/form/form_cmp.js'
+import {HeavyWkCmp} from 'app/heavy_wk/heavy_wk_cmp.js';
 
 @Component({
   selector: 'app',
@@ -49,11 +50,15 @@ import {FormCmp} from 'app/form/form_cmp.js'
     <container [tit]="'form'">
       <form-cmp></form-cmp>
     </container>
+
+    <container [tit]="'heavy_wk'">
+      <heavy-wk-cmp></heavy-wk-cmp>
+    </container>
   </main>
   `,
   directives: [WkCmp, ContainerCmp, MainHostCmp,
                MainQueryCmp, MainQueryCmp, NiyCmp,
-               Cmp1Cmp, XhrCmp, WkXhrCmp, FormCmp]
+               Cmp1Cmp, XhrCmp, WkXhrCmp, FormCmp, HeavyWkCmp]
 })
 
 export class AppCmp {
@@ -64,6 +69,7 @@ export class AppCmp {
 
 Promise.all([bootstrap(ContainerCmp), bootstrap(WkCmp), bootstrap(MainHostCmp),
              bootstrap(MainQueryCmp), bootstrap(NiyCmp), bootstrap(Cmp1Cmp),
-             bootstrap(XhrCmp), bootstrap(WkXhrCmp), bootstrap(FormCmp) ])
+             bootstrap(XhrCmp), bootstrap(WkXhrCmp), bootstrap(FormCmp),
+             bootstrap(HeavyWkCmp) ])
        .then(() => console.log('app boot'))
        .catch((error) => console.log(`error on app boot: ${error}`));
