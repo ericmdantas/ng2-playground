@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, LifecycleEvent, Query, QueryList} from 'angular2/angular2';
+import {Component, View, LifecycleEvent, ViewQuery, QueryList} from 'angular2/angular2';
 import {forwardRef} from 'angular2/di';
 
 @Component({
@@ -16,7 +16,7 @@ import {forwardRef} from 'angular2/di';
 })
 
 export class MainQueryCmp {
-    constructor(@Query(SubQueryCmp) private _subQuery: QueryList<SubQueryCmp>) {
+    constructor(@ViewQuery(SubQueryCmp) private _subQuery: QueryList<SubQueryCmp>) {
 
     }
 
