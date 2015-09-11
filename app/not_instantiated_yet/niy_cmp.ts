@@ -1,12 +1,11 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, Directive, ElementRef, EventEmitter, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, Directive, ElementRef, EventEmitter, OnInit} from 'angular2/angular2';
 import {Inject, forwardRef} from 'angular2/di';
 
 @Component({
   selector: 'niy-cmp',
-  bindings: [forwardRef(() => NiyService)],
-  lifecycle: [LifecycleEvent.onInit]
+  bindings: [forwardRef(() => NiyService)]
 })
 @View({
   template: `
@@ -17,7 +16,7 @@ import {Inject, forwardRef} from 'angular2/di';
   directives: [forwardRef(() => NiyDirective)]
 })
 
-export class NiyCmp {
+export class NiyCmp implements OnInit {
     constructor(@Inject(forwardRef(() => NiyService)) private _niyService: NiyService) {
 
     }

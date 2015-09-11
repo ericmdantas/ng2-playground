@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, LifecycleEvent} from 'angular2/angular2'
+import {Component, View, OnInit} from 'angular2/angular2'
 import {Inject, forwardRef} from 'angular2/di';
 
 class BaseModel {
@@ -19,8 +19,7 @@ class ChildModel extends BaseModel {
 }
 
 @Component({
-  selector: 'cmp1-content',
-  lifecycle: [LifecycleEvent.onInit]
+  selector: 'cmp1-content'
 })
 @View({
   template: `
@@ -29,7 +28,7 @@ class ChildModel extends BaseModel {
   `
 })
 
-export class Cmp1ContentCmp {
+export class Cmp1ContentCmp implements OnInit {
   constructor(@Inject(ChildModel) private _cm: ChildModel) {
 
   }
@@ -41,8 +40,7 @@ export class Cmp1ContentCmp {
 }
 
 @Component({
-  selector: 'cmp2-content',
-  lifecycle: [LifecycleEvent.onInit]
+  selector: 'cmp2-content'
 })
 @View({
   template: `
@@ -51,7 +49,7 @@ export class Cmp1ContentCmp {
   `
 })
 
-class Cmp2ContentCmp {
+class Cmp2ContentCmp implements OnInit {
   constructor(@Inject(ChildModel) private _cm: ChildModel) {
 
   }
@@ -71,7 +69,7 @@ class Cmp2ContentCmp {
   `
 })
 
-class Cmp3ContentCmp {
+class Cmp3ContentCmp implements OnInit {
   constructor(@Inject(ChildModel) private _cm: ChildModel) {
 
   }

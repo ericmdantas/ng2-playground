@@ -1,11 +1,10 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, LifecycleEvent, EventEmitter, bootstrap} from 'angular2/angular2';
+import {Component, View, OnInit, EventEmitter, bootstrap} from 'angular2/angular2';
 import {Inject, forwardRef} from 'angular2/di';
 
 @Component({
   selector: 'wk',
-  lifecycle: [LifecycleEvent.onInit],
   viewBindings: [forwardRef(() => WkBus)]
 })
 @View({
@@ -19,7 +18,7 @@ import {Inject, forwardRef} from 'angular2/di';
   `
 })
 
-export class WkCmp {
+export class WkCmp implements OnInit {
   wInfo: {info?:string, id?: number} = {};
 
   constructor(@Inject(forwardRef(() => WkBus)) private _wkBus: WkBus) {

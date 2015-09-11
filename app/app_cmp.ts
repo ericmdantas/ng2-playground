@@ -1,6 +1,6 @@
 /// <reference path="../typings/tsd.d.ts" />
 
-import {Component, View, LifecycleEvent, bootstrap} from 'angular2/angular2';
+import {Component, View, OnInit, bootstrap} from 'angular2/angular2';
 import {ContainerCmp} from 'app/container/container_cmp.js';
 import {WkCmp} from 'app/wk/wk_cmp.js';
 import {MainHostCmp} from 'app/host/host_cmp.js';
@@ -13,8 +13,7 @@ import {FormCmp} from 'app/form/form_cmp.js'
 import {HeavyWkCmp} from 'app/heavy_wk/heavy_wk_cmp.js';
 
 @Component({
-  selector: 'app',
-  lifecycle: [LifecycleEvent.onInit]
+  selector: 'app'
 })
 @View({
   template: `
@@ -61,7 +60,7 @@ import {HeavyWkCmp} from 'app/heavy_wk/heavy_wk_cmp.js';
                Cmp1Cmp, XhrCmp, WkXhrCmp, FormCmp, HeavyWkCmp]
 })
 
-export class AppCmp {
+export class AppCmp implements OnInit {
   onInit() {
     console.log('app init');
   }

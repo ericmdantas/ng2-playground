@@ -1,12 +1,11 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, OnInit} from 'angular2/angular2';
 import {Inject} from 'angular2/angular2';
 import {XhrService} from 'app/xhr/xhr.js';
 
 @Component({
   selector: 'xhr-cmp',
-  lifecycle: [LifecycleEvent.onInit],
   viewBindings: [XhrService]
 })
 @View({
@@ -25,7 +24,7 @@ import {XhrService} from 'app/xhr/xhr.js';
   `
 })
 
-export class XhrCmp {
+export class XhrCmp implements OnInit {
     public xhrInfo: Object[] = [{title: '', body: ''}];
 
     constructor(@Inject(XhrService) private _xhrService: XhrService) {

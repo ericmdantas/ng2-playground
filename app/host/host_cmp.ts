@@ -1,11 +1,10 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, Host, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, Host, OnInit} from 'angular2/angular2';
 import {forwardRef} from 'angular2/di';
 
 @Component({
-  selector: 'main-host',
-  lifecycle: [LifecycleEvent.onInit]
+  selector: 'main-host'
 })
 @View({
   template: `
@@ -15,7 +14,7 @@ import {forwardRef} from 'angular2/di';
   directives: [forwardRef(() => SubHostCmp)]
 })
 
-export class MainHostCmp {
+export class MainHostCmp implements OnInit {
   hostName: string = 'main-host-name-something'
 
   constructor() {

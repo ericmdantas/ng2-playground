@@ -1,12 +1,11 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, ElementRef, LifecycleEvent, ViewEncapsulation} from 'angular2/angular2';
+import {Component, View, ElementRef, OnInit, ViewEncapsulation} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 
 @Component({
   selector: 'container',
-  properties: ['innerTit: tit'],
-  lifecycle: [LifecycleEvent.onInit]
+  properties: ['innerTit: tit']
 })
 @View({
   template: `
@@ -15,7 +14,7 @@ import {Inject} from 'angular2/di';
       <ng-content></ng-content>
     </div>
   `,
-  encapsulation: ViewEncapsulation.EMULATED,
+  encapsulation: ViewEncapsulation.Emulated,
   styles: [`
       .container {
         position: relative;
@@ -47,7 +46,7 @@ import {Inject} from 'angular2/di';
   `]
 })
 
-export class ContainerCmp {
+export class ContainerCmp implements OnInit {
     static BORDER_COLORS: string[] = ["red", "blue", "brown", "black", "tomato", "salmon", "orange", "green", "steelblue", "pink"];
     private _container: HTMLElement;
     innerTit: string;

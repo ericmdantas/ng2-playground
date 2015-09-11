@@ -1,11 +1,10 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, LifecycleEvent, EventEmitter, ViewEncapsulation, CORE_DIRECTIVES} from 'angular2/angular2';
+import {Component, View, OnInit, EventEmitter, ViewEncapsulation, CORE_DIRECTIVES} from 'angular2/angular2';
 import {Inject, forwardRef} from 'angular2/di';
 
 @Component({
   selector: 'wk-xhr-cmp',
-  lifecycle: [LifecycleEvent.onInit],
   bindings: [forwardRef(() => WkXhrService)]
 })
 @View({
@@ -34,7 +33,7 @@ import {Inject, forwardRef} from 'angular2/di';
   directives: [CORE_DIRECTIVES]
 })
 
-export class WkXhrCmp {
+export class WkXhrCmp implements OnInit {
     public wkXhrInfo: Object = <any>{};
     public loading: boolean = false;
     public notSearched: boolean = true;

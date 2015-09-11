@@ -1,12 +1,11 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, OnInit} from 'angular2/angular2';
 import {Inject} from 'angular2/di';
 import {HeavyWkBus} from 'app/heavy_wk/heavy_wk_bus.js';
 
 @Component({
   selector: 'heavy-wk-cmp',
-  lifecycle: [LifecycleEvent.onInit],
   bindings: [HeavyWkBus]
 })
 @View({
@@ -17,7 +16,7 @@ import {HeavyWkBus} from 'app/heavy_wk/heavy_wk_bus.js';
   `
 })
 
-export class HeavyWkCmp {
+export class HeavyWkCmp implements OnInit {
   public static NUM: number = 1000;
   public result: string = 'click the button';
 

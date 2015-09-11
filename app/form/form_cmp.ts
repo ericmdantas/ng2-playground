@@ -1,11 +1,10 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, FormBuilder, FORM_DIRECTIVES, Validators, ControlGroup, LifecycleEvent} from 'angular2/angular2';
+import {Component, View, FormBuilder, FORM_DIRECTIVES, Validators, ControlGroup, OnInit} from 'angular2/angular2';
 import {Inject, forwardRef} from 'angular2/di';
 
 @Component({
   selector: 'form-cmp',
-  lifecycle: [LifecycleEvent.onInit],
   bindings: [FormBuilder, forwardRef(() => SomeModel)]
 })
 @View({
@@ -35,7 +34,7 @@ import {Inject, forwardRef} from 'angular2/di';
   directives: [FORM_DIRECTIVES]
 })
 
-export class FormCmp {
+export class FormCmp implements OnInit{
     someForm: ControlGroup;
 
     constructor(@Inject(forwardRef(() => SomeModel)) public sm: SomeModel, @Inject(FormBuilder) fb: FormBuilder) {

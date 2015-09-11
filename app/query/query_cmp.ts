@@ -1,11 +1,10 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Component, View, LifecycleEvent, ViewQuery, QueryList} from 'angular2/angular2';
+import {Component, View, OnInit, ViewQuery, QueryList} from 'angular2/angular2';
 import {forwardRef} from 'angular2/di';
 
 @Component({
-  selector: 'main-query',
-  lifecycle: [LifecycleEvent.onInit]
+  selector: 'main-query'
 })
 @View({
   template: `
@@ -15,7 +14,7 @@ import {forwardRef} from 'angular2/di';
   directives: [forwardRef(() => SubQueryCmp)]
 })
 
-export class MainQueryCmp {
+export class MainQueryCmp implements OnInit {
     constructor(@ViewQuery(SubQueryCmp) private _subQuery: QueryList<SubQueryCmp>) {
 
     }

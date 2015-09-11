@@ -6,7 +6,7 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "angular2/angular2.d.ts": {
-      "commit": "d9fea91e842c2cf5bd0f7d861ac378e571d2ad7c"
+      "commit": "a461a243e2e09b213bc49d12650f80d81047576d"
     },
     "rx/rx-lite.d.ts": {
       "commit": "286c198898978cb6045076c3e47f823a02217b41"
