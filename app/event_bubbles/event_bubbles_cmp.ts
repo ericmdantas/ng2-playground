@@ -11,7 +11,8 @@ import {forwardRef} from 'angular2/di';
     <h2>p-cmp</h2>
     <c-cmp (click)="parentClickHandler()"
            (something-random)="parentSomethingRandomHappened($event)"></c-cmp>
-  `
+  `,
+  directives: [forwardRef(() => CCmp)]
 })
 
 export class PCmp implements OnInit {
