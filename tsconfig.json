@@ -16,6 +16,7 @@
         "app/container/container_cmp.ts",
         "app/di/di_hierarchy_cmp.ts",
         "app/di/di_ng_content_cmp.ts",
+        "app/event_bubbles/event_bubbles_cmp.ts",
         "app/form/form_cmp.ts",
         "app/heavy_wk/heavy_wk_bus.ts",
         "app/heavy_wk/heavy_wk_cmp.ts",
