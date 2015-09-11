@@ -56,9 +56,9 @@ export class ContainerCmp {
 
     }
 
-    onInit():void {
+    onInit() {
         console.log('container init');
-        this._container = this._el.nativeElement.getElementsByClassName('container')[0];
+        this._container = this._el.nativeElement.getElementsByTagName('container')[0];
         this._paintContainer();
     }
 
