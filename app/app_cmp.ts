@@ -11,6 +11,7 @@ import {XhrCmp} from 'app/xhr/xhr_cmp.js';
 import {WkXhrCmp} from 'app/wk_xhr/wk_xhr_cmp.js';
 import {FormCmp} from 'app/form/form_cmp.js'
 import {HeavyWkCmp} from 'app/heavy_wk/heavy_wk_cmp.js';
+import {PCmp} from 'app/event_bubbles/event_bubbles_cmp.js';
 
 @Component({
   selector: 'app'
@@ -53,11 +54,16 @@ import {HeavyWkCmp} from 'app/heavy_wk/heavy_wk_cmp.js';
     <container [tit]="'heavy_wk'">
       <heavy-wk-cmp></heavy-wk-cmp>
     </container>
+
+    <container [tit]="'event-bubbles'">
+      <p-cmp></p-cmp>
+    </container>
   </main>
   `,
   directives: [WkCmp, ContainerCmp, MainHostCmp,
                MainQueryCmp, MainQueryCmp, NiyCmp,
-               Cmp1Cmp, XhrCmp, WkXhrCmp, FormCmp, HeavyWkCmp]
+               Cmp1Cmp, XhrCmp, WkXhrCmp, FormCmp,
+               HeavyWkCmp, PCmp]
 })
 
 export class AppCmp implements OnInit {
@@ -69,6 +75,6 @@ export class AppCmp implements OnInit {
 Promise.all([bootstrap(ContainerCmp), bootstrap(WkCmp), bootstrap(MainHostCmp),
              bootstrap(MainQueryCmp), bootstrap(NiyCmp), bootstrap(Cmp1Cmp),
              bootstrap(XhrCmp), bootstrap(WkXhrCmp), bootstrap(FormCmp),
-             bootstrap(HeavyWkCmp) ])
+             bootstrap(HeavyWkCmp), bootstrap(PCmp) ])
        .then(() => console.log('app boot'))
        .catch((error) => console.log(`error on app boot: ${error}`));
