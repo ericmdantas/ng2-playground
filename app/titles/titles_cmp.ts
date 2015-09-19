@@ -27,7 +27,7 @@ import {ToggleDirective} from 'app/toggle/toggle_directive.js';
       div {
         overflow: hidden;
         padding-left: 30px;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
       }
     `
   ],
