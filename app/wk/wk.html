@@ -1,0 +1,8 @@
+<div>
+  <label>wk</label>
+  <br>
+  <input type="number" #v (keyup.enter)="doHeavyTaskHandler(v.value)"/>
+  <br>
+  <button type="button" (click)="doHeavyTaskHandler(v.value)">go, worker, go!</button>
+  <p [text-content]="r"></p>
+</div>

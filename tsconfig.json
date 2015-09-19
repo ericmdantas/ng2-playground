@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "watch": true,
         "target": "es5",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true
@@ -13,12 +12,17 @@
     "files": [
         "index.ts",
         "app/app_cmp.ts",
+        "app/bind/bind_cmp.ts",
         "app/form/form_cmp.ts",
         "app/observables/observables_cmp.ts",
+        "app/route/route_cmp.ts",
+        "app/titles/titles_cmp.ts",
         "app/toggle/toggle_directive.ts",
+        "app/wk/wk.ts",
         "app/wk/wk_cmp.ts",
         "app/wrapper_components/cmp1_cmp.ts",
         "app/wrapper_components/cmp2_cmp.ts",
-        "app/xhr/xhr.ts"
+        "app/wrapper_components/wrapper_cmp.ts",
+        "app/xhr/xhr_cmp.ts"
     ]
 }
