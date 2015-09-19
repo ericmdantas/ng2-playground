@@ -13,22 +13,12 @@
     "files": [
         "index.ts",
         "app/app_cmp.ts",
-        "app/container/container_cmp.ts",
-        "app/di/di_hierarchy_cmp.ts",
-        "app/di/di_ng_content_cmp.ts",
-        "app/event_bubbles/event_bubbles_cmp.ts",
         "app/form/form_cmp.ts",
-        "app/heavy_wk/heavy_wk_bus.ts",
-        "app/heavy_wk/heavy_wk_cmp.ts",
-        "app/heavy_wk/heavy_wk_worker.ts",
-        "app/host/host_cmp.ts",
-        "app/not_instantiated_yet/niy_cmp.ts",
-        "app/query/query_cmp.ts",
-        "app/wk/wk.ts",
+        "app/observables/observables_cmp.ts",
+        "app/toggle/toggle_directive.ts",
         "app/wk/wk_cmp.ts",
-        "app/wk_xhr/wk_xhr_cmp.ts",
-        "app/wk_xhr/wk_xhr_worker.ts",
-        "app/xhr/xhr.ts",
-        "app/xhr/xhr_cmp.ts"
+        "app/wrapper_components/cmp1_cmp.ts",
+        "app/wrapper_components/cmp2_cmp.ts",
+        "app/xhr/xhr.ts"
     ]
 }
