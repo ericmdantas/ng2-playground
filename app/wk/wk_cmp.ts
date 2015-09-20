@@ -39,8 +39,8 @@ export class WkCmp implements OnInit {
 
     this._wkBus
         .listen()
-        .subscribe((info) => {
-          this.r = info;
+        .subscribe(({message}) => {
+          this.r = message;
         });
   }
 

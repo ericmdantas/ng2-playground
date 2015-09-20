@@ -6,5 +6,5 @@ self.onmessage = (event) => {
     _x+=i;
   }
 
-  postMessage(`Looping through ${_loop} stuff. X is: ${_x}!`);
+  postMessage({message: `Looping through ${_loop} stuff. X is: ${_x}!`});
 }

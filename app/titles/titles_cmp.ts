@@ -20,11 +20,18 @@ import {ToggleDirective} from 'app/toggle/toggle_directive.js';
     `
       h2 {
         margin-top: 0;
-        padding-bottom 10px;
+        padding: 5px 5px 10px 5px;
         border-bottom: 1px solid steelblue;
+        transition: all .2s;
+        user-select: none;
       }
 
-      div {
+      h2:active {
+        background-color: steelblue;
+        color: #fff;
+      }
+
+      .toggle-this {
         overflow: hidden;
         padding-left: 30px;
         margin-bottom: 20px;
