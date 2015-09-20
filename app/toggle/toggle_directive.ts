@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
 
-import {Directive, Inject, ElementRef} from 'angular2/angular2';
+import {Directive, Inject, ElementRef, OnInit} from 'angular2/angular2';
 
 @Directive({
   selector: '[toggle]',
@@ -8,16 +8,21 @@ import {Directive, Inject, ElementRef} from 'angular2/angular2';
     '(click)': 'clickHandler()'
   }
 })
-export class ToggleDirective {
+export class ToggleDirective implements OnInit {
   toggleWho: string;
+  toggableElement: HTMLElement;
 
   constructor(@Inject(ElementRef) private _el: ElementRef) {
 
   }
 
-  clickHandler():void {
-    let _height = this._el.nativeElement.parentNode.querySelectorAll('.toggle-this')[0].style.height;
+  onInit() {
+    this.toggableElement = this._el.nativeElement.parentNode.querySelectorAll('.toggle-this')[0];
+    this.toggableElement.style.height = "0px";
+  }
 
-    this._el.nativeElement.parentNode.querySelectorAll('.toggle-this')[0].style.height = (_height === "0px") ? 'auto' : "0px";
+  clickHandler():void {
+    let _height = this.toggableElement.style.height;
+    this.toggableElement.style.height = (_height === "0px") ? 'auto' : "0px";
   }
 }

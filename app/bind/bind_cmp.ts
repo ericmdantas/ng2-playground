@@ -28,8 +28,8 @@ class F2 {
 })
 @View({
   template: `
-    <p [text-content]="clazz1.info"></p>
-    <p [text-content]="f2.info"></p>
+    <p>injected clazz1, but got: <span  [text-content]="clazz1.info"></span></p>
+    <p>injected f2, but got: <span [text-content]="f2.info"></span></p>
   `
 })
 export class BindCmp implements OnInit {

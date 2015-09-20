@@ -23,6 +23,7 @@ import {ToggleDirective} from 'app/toggle/toggle_directive.js';
         padding: 5px 5px 10px 5px;
         border-bottom: 1px solid steelblue;
         transition: all .2s;
+        -webkit-user-select: none;        
         user-select: none;
       }
 
