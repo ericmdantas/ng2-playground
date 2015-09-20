@@ -7,8 +7,8 @@ class WkBus {
   private _ee: EventEmitter = new EventEmitter();
 
   listen():Rx.Observable<any> {
-    this._wk.onmessage = (event) => {
-      this._ee.next(event.data);
+    this._wk.addEventListener('message', {data}) => {
+      this._ee.next(data);
     };
 
     return this._ee.toRx();
