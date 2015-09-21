@@ -20,7 +20,7 @@ import {Observable} from 'angular2/angular2';
 })
 export class DefaultPipesCmp implements OnInit {
   d: Date = new Date();
-  p: string | Promise = 'x';
+  p: string | Promise<string> = 'x';
   r: string | Rx.Observable<any> = 'x';
 
   onInit() {
