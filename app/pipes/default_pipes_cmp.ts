@@ -13,7 +13,7 @@ import {Observable} from 'angular2/angular2';
     <h2 [text-content]="999 | number:'.2'"></h2>
     <h2 [text-content]="{a: 1} | json"></h2>
     <h2 [text-content]="123 | currency"></h2>
-    <h2 [text-content]="d | date"></h2>
+    <h2 [text-content]="d | date:'shortTime'"></h2>
     <h2 [text-content]="p | async"></h2>
     <h2 [text-content]="r | async"></h2>
   `

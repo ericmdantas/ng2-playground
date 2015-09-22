@@ -25,6 +25,7 @@
         "app/wk/wk_cmp.ts",
         "app/wrapper_components/cmp1_cmp.ts",
         "app/wrapper_components/cmp2_cmp.ts",
+        "app/wrapper_components/cmp3_cmp.ts",
         "app/wrapper_components/wrapper_cmp.ts",
         "app/xhr/xhr_cmp.ts"
     ]
