@@ -13,6 +13,8 @@
         "index.ts",
         "app/app_cmp.ts",
         "app/bind/bind_cmp.ts",
+        "app/events_components/events_components_cmp.ts",
+        "app/events_components/evs_cmp.ts",
         "app/filter/filter_cmp.ts",
         "app/form/form_cmp.ts",
         "app/observables/observables_cmp.ts",
