@@ -11,6 +11,7 @@ import {DefaultPipesCmp} from 'app/pipes/default_pipes_cmp.js';
 import {CustomPipeCmp} from 'app/pipes/custom_pipes_cmp.js';
 import {ObservableWrapperCmp} from 'app/observables/observables_cmp.js';
 import {EventsComponentsCmp} from 'app/events_components/events_components_cmp.js';
+import {ForwardRefCmp} from 'app/forward_ref/forward_ref_cmp.js';
 
 @Component({
   selector: 'app'
@@ -21,7 +22,7 @@ import {EventsComponentsCmp} from 'app/events_components/events_components_cmp.j
   directives: [TitlesCmp, WrapperOfComponentsCmp, WkCmp,
                XhrCmp, BindCmp, FormCmp,
                DefaultPipesCmp, CustomPipeCmp, ObservableWrapperCmp,
-               EventsComponentsCmp]
+               EventsComponentsCmp, ForwardRefCmp]
 })
 export class AppCmp implements OnInit {
   onInit() {

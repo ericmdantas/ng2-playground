@@ -17,6 +17,7 @@
         "app/events_components/evs_cmp.ts",
         "app/filter/filter_cmp.ts",
         "app/form/form_cmp.ts",
+        "app/forward_ref/forward_ref_cmp.ts",
         "app/observables/observables_cmp.ts",
         "app/pipes/custom_pipes_cmp.ts",
         "app/pipes/default_pipes_cmp.ts",
