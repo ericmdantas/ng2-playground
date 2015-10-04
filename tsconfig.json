@@ -11,6 +11,12 @@
     ],
     "files": [
         "index.ts",
-        "app/app.ts"
+        "app/app.ts",
+        "app/container_cmp/container_cmp.ts",
+        "app/form_cmp/form_cmp.ts",
+        "app/http_cmp/http_cmp.ts",
+        "app/toggable/toggable_directive.ts",
+        "app/wk_cmp/wk.ts",
+        "app/wk_cmp/wk_cmp.ts"
     ]
 }
