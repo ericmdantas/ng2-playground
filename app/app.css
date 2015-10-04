@@ -1,12 +1,11 @@
-.hand {
-  cursor: pointer;
+#app-title {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid steelblue;
 }
 
 body {
   font-family: "Roboto";
-}
-
-main {
   max-width: 700px;
   margin: 0 auto;
 }
