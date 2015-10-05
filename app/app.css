@@ -1,7 +1,8 @@
 #app-title {
   text-align: center;
   padding-bottom: 10px;
-  border-bottom: 1px solid steelblue;
+  color: #fff;
+  background-color: steelblue;
 }
 
 body {

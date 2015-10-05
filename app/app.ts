@@ -13,15 +13,15 @@ import {WkCmp} from 'app/wk_cmp/wk_cmp.js';
   template: `
     <h2 id="app-title">app</h2>
 
-    <container-cmp [t]="form-cmp">
+    <container-cmp [t]="'form-cmp'">
       <form-cmp></form-cmp>
     </container-cmp>
 
-    <container-cmp [t]="http-cmp">
+    <container-cmp [t]="'http-cmp'">
       <http-cmp></http-cmp>
     </container-cmp>
 
-    <container-cmp [t]="wk-cmp">
+    <container-cmp [t]="'wk-cmp'">
       <wk-cmp></wk-cmp>
     </container-cmp>
   `,
