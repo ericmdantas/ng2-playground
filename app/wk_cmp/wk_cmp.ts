@@ -48,7 +48,7 @@ class WkBus {
       this._ee.next(data);
     });
 
-    return this._ee._subject;
+    return this._ee.toRx();
   }
 
   dispatch(info: any):void {

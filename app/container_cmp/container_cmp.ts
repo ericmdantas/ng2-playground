@@ -33,7 +33,7 @@ import {ToggableDirective} from 'app/toggable/toggable_directive.js';
     directives: [ToggableDirective]
 })
 export class ContainerCmp implements OnInit {
-  @Input() t: string = '';
+  t: string;
 
   onInit() {
     console.log('container-cmp init');
