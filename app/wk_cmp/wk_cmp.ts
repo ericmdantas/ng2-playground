@@ -4,7 +4,7 @@ import {Component, View, EventEmitter, forwardRef, Inject, OnInit} from 'angular
 
 @Component({
   selector: 'wk-cmp',
-  bindings: [forwardRef(() => WkBus)]
+  providers: [forwardRef(() => WkBus)]
 })
 @View({
   template: `

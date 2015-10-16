@@ -24,7 +24,7 @@ class CustomEECmp implements OnInit {
     <custom-ee-cmp (whatever-event)="doWhatever($event)"></custom-ee-cmp>
     <p [text-content]="r | date:'hh:mm:ss H'"></p>
   `,
-  bindings: [CustomEEService],
+  providers: [CustomEEService],
   directives: [CustomEECmp]
 })
 export class CustomEECmpWrapper implements OnInit {
