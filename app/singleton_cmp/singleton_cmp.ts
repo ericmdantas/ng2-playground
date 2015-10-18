@@ -10,7 +10,7 @@ class SingletonModel {
 @Component({
   selector: 's1-cmp',
   template: `
-    <h3>s1</h3>
+    <h5>s1</h5>
   `
 })
 class S1Cmp implements OnInit {
@@ -26,7 +26,7 @@ class S1Cmp implements OnInit {
 @Component({
   selector: 's2-cmp',
   template: `
-    <h3>s2</h3>
+    <h5>s2</h5>
   `
 })
 class S2Cmp implements OnInit {

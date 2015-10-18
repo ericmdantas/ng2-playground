@@ -5,7 +5,8 @@ import {Directive, ElementRef, OnInit, Inject} from 'angular2/angular2';
 @Directive({
   selector: '[toggable]',
   host: {
-    '(click)': 'clickHandler()'
+    '(click)': 'clickHandler()',
+    'class': 'toggle-hidden'
   }
 })
 export class ToggableDirective implements OnInit {

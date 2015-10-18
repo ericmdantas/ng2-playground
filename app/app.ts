@@ -7,6 +7,7 @@ import {HttpCmp} from 'app/http_cmp/http_cmp.js';
 import {WkCmp} from 'app/wk_cmp/wk_cmp.js';
 import {CustomEECmpWrapper} from 'app/custom_ee_cmp/custom_ee_cmp.js';
 import {SingletonCmp} from 'app/singleton_cmp/singleton_cmp.js';
+import {ProviderCmp} from 'app/provider_cmp/provider_cmp.js';
 
 @Component({
   selector: 'app'
@@ -34,8 +35,14 @@ import {SingletonCmp} from 'app/singleton_cmp/singleton_cmp.js';
     <container-cmp [t]="'singleton-cmp'">
       <singleton-cmp></singleton-cmp>
     </container-cmp>
+
+    <container-cmp [t]="'provider-cmp'">
+      <provider-cmp></provider-cmp>
+    </container-cmp>
   `,
-  directives: [ContainerCmp, FormCmp, HttpCmp, WkCmp, SingletonCmp, CustomEECmpWrapper]
+  directives: [ContainerCmp, FormCmp, HttpCmp,
+               WkCmp, SingletonCmp, CustomEECmpWrapper,
+               ProviderCmp]
 })
 export class AppCmp implements OnInit {
   onInit() {
