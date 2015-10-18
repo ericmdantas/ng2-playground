@@ -1,6 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts"/>
 
-import {Directive, ElementRef, Inject} from 'angular2/angular2';
+import {Directive, ElementRef, OnInit, Inject} from 'angular2/angular2';
 
 @Directive({
   selector: '[toggable]',
@@ -8,12 +8,17 @@ import {Directive, ElementRef, Inject} from 'angular2/angular2';
     '(click)': 'clickHandler()'
   }
 })
-export class ToggableDirective {
+export class ToggableDirective implements OnInit {
     constructor(@Inject(ElementRef) private _el: ElementRef) {
 
     }
 
+    onInit() {
+      this._el.nativeElement.parentNode.getElementsByClassName('toggle-container')[0].style.display = 'none';
+    }
+
     clickHandler() {
-      console.log('clicked');
+      let _display = this._el.nativeElement.parentNode.getElementsByClassName('toggle-container')[0].style.display;
+      this._el.nativeElement.parentNode.getElementsByClassName('toggle-container')[0].style.display = _display === "none" ? 'block' : 'none';
     }
 }
