@@ -17,6 +17,9 @@
         "app/custom_ee_service/custom_ee_service.ts",
         "app/form_cmp/form_cmp.ts",
         "app/http_cmp/http_cmp.ts",
+        "app/pipe_cmp/pipe_cmp.ts",
+        "app/provider_cmp/provider_cmp.ts",
+        "app/singleton_cmp/singleton_cmp.ts",
         "app/toggable/toggable_directive.ts",
         "app/wk_cmp/wk.ts",
         "app/wk_cmp/wk_cmp.ts"

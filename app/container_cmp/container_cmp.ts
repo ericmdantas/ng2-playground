@@ -10,7 +10,9 @@ import {ToggableDirective} from 'app/toggable/toggable_directive.js';
 @View({
   template: `
     <div>
-      <h2>{{t}}</h2>
+      <div toggable>
+        <h2>{{t}}</h2>
+      </div>
       <div class="toggle-container">
         <ng-content></ng-content>
       </div>
