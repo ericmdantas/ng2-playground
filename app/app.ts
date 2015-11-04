@@ -9,6 +9,7 @@ import {CustomEECmpWrapper} from 'app/custom_ee_cmp/custom_ee_cmp.js';
 import {SingletonCmp} from 'app/singleton_cmp/singleton_cmp.js';
 import {ProviderCmp} from 'app/provider_cmp/provider_cmp.js';
 import {PipeCmp} from 'app/pipe_cmp/pipe_cmp.js';
+import {ModalWrapperCmp} from 'app/modal_cmp/modal_cmp.js';
 
 @Component({
   selector: 'app'
@@ -44,10 +45,14 @@ import {PipeCmp} from 'app/pipe_cmp/pipe_cmp.js';
     <container-cmp [t]="'pipe-cmp'">
       <pipe-cmp></pipe-cmp>
     </container-cmp>
+
+    <container-cmp [t]="'modal-cmp'">
+      <modal-wrapper-cmp></modal-wrapper-cmp>
+    </container-cmp>
   `,
   directives: [ContainerCmp, FormCmp, HttpCmp,
                WkCmp, SingletonCmp, CustomEECmpWrapper,
-               ProviderCmp, PipeCmp]
+               ProviderCmp, PipeCmp, ModalWrapperCmp]
 })
 export class AppCmp implements OnInit {
   onInit() {
