@@ -9,7 +9,6 @@ import {CustomEEService} from 'app/custom_ee_service/custom_ee_service.js';
     <p>custom-ee-cmp</p>
   `
 })
-
 class CustomEECmp implements OnInit {
   @Output('wtf') whateverEvent: EventEmitter = new EventEmitter();
 

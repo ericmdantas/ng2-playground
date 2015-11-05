@@ -1,9 +1,9 @@
 /// <reference path="typings/tsd.d.ts" />
 
 import {bootstrap} from 'angular2/angular2';
-import {HTTP_BINDINGS} from 'angular2/http';
+import {HTTP_PROVIDERS} from 'angular2/http';
 import {AppCmp} from 'app/app.js';
 
-bootstrap(AppCmp, [HTTP_BINDINGS])
+bootstrap(AppCmp, [HTTP_PROVIDERS])
   .then(() => console.log('index ok'))
   .catch((error) => console.log(`error bootstraping index ${error}`));

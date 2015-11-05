@@ -5,9 +5,7 @@ import {ToggableDirective} from 'app/toggable/toggable_directive.js';
 
 @Component({
   selector: 'container-cmp',
-  inputs: ['t']
-})
-@View({
+  inputs: ['t'],
   template: `
     <div>
       <div toggable>

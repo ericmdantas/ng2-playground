@@ -6,9 +6,7 @@ import {Http} from 'angular2/http';
 
 @Component({
   selector: 'http-cmp',
-  providers: [forwardRef(() => HttpService)]
-})
-@View({
+  providers: [forwardRef(() => HttpService)],
   template: `
     <p>http</p>
 

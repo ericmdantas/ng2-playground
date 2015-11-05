@@ -3,9 +3,7 @@
 import {Component, View, Inject, OnInit, Validators, FormBuilder, ControlGroup, FORM_DIRECTIVES} from 'angular2/angular2';
 
 @Component({
-  selector: 'form-cmp'
-})
-@View({
+  selector: 'form-cmp',
   template: `
     <form [ng-form-model]="myForm"
           (submit)="submitHandler(something)">
