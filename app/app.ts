@@ -10,6 +10,7 @@ import {SingletonCmp} from 'app/singleton_cmp/singleton_cmp.js';
 import {ProviderCmp} from 'app/provider_cmp/provider_cmp.js';
 import {PipeCmp} from 'app/pipe_cmp/pipe_cmp.js';
 import {ModalWrapperCmp} from 'app/modal_cmp/modal_cmp.js';
+import {InOutWrapperCmp} from 'app/in_out_cmp/in_out_cmp.js';
 
 @Component({
   selector: 'app'
@@ -49,10 +50,14 @@ import {ModalWrapperCmp} from 'app/modal_cmp/modal_cmp.js';
     <container-cmp [t]="'modal-cmp'">
       <modal-wrapper-cmp></modal-wrapper-cmp>
     </container-cmp>
+
+    <container-cmp [t]="'in-out-cmp'">
+      <in-out-wrapper-cmp></in-out-wrappercmp>
+    </container-cmp>
   `,
   directives: [ContainerCmp, FormCmp, HttpCmp,
                WkCmp, SingletonCmp, CustomEECmpWrapper,
-               ProviderCmp, PipeCmp, ModalWrapperCmp]
+               ProviderCmp, PipeCmp, ModalWrapperCmp, InOutWrapperCmp]
 })
 export class AppCmp implements OnInit {
   onInit() {
