@@ -15,8 +15,8 @@ import {
   `
 })
 export class InOutCmp implements OnInit {
-    @Output() goOut: EventEmitter = new EventEmitter();
-    @Input() comeIn: string = '';
+    @Output('out') goOut: EventEmitter = new EventEmitter();
+    @Input('alo2') comeIn: string = '';
 
     onInit() {
       console.log('in-out-cmp init');
@@ -30,7 +30,7 @@ export class InOutCmp implements OnInit {
 @Component({
   selector: 'in-out-wrapper-cmp',
   template: `
-    <in-out-cmp (go-out)="doSomething($event)" [come-in]="message"></in-out-cmp>
+    <in-out-cmp (out)="doSomething($event)" [alo2]="message"></in-out-cmp>
     <p [text-content]="r"></p>
   `,
   directives: [InOutCmp]
