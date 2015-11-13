@@ -1,13 +1,11 @@
-/// <reference path="../,,/typings/tsd.d.ts" />
-
-import {EventEmitter} from 'angular2/angular2';
+import * as Rx from '@reactivex/rxjs/dist/cjs/Rx';
 
 export class CustomEEService {
-  _ee: EventEmitter = new EventEmitter();
-
   do() {
-    setInterval(() => this._ee.next(Date.now()), 1234);
-
-    return this._ee.toRx();
+    return Rx.Observable.create((o) => {
+      setInterval(() => {
+        o.next(Date.now());
+      }, 1234);
+    });
   }
 }

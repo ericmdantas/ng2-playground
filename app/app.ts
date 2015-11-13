@@ -1,5 +1,3 @@
-/// <reference path="../typings/tsd.d.ts" />
-
 import {Component, View, OnInit} from 'angular2/angular2';
 import {FormCmp} from 'app/form_cmp/form_cmp.js';
 import {ContainerCmp} from 'app/container_cmp/container_cmp.js';

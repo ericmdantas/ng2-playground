@@ -1,5 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts" />
-
 import {Component, View, Input, OnInit} from 'angular2/angular2';
 import {ToggableDirective} from 'app/toggable/toggable_directive.js';
 

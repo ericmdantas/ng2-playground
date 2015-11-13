@@ -1,5 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts" />
-
 import {Component, View, Inject, OnInit, Validators, FormBuilder, ControlGroup, FORM_DIRECTIVES} from 'angular2/angular2';
 
 @Component({

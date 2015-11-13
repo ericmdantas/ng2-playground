@@ -1,5 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts"/>
-
 import {Directive, ElementRef, OnInit, Inject} from 'angular2/angular2';
 
 @Directive({

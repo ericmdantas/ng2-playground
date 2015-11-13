@@ -1,5 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts" />
-
 import {Component, View, EventEmitter, forwardRef, Inject, OnInit} from 'angular2/angular2';
 
 @Component({

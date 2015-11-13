@@ -1,5 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts" />
-
 import {Component, EventEmitter, Inject, Output, OnInit} from 'angular2/angular2';
 import {CustomEEService} from 'app/custom_ee_service/custom_ee_service.js';
 

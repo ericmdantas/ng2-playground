@@ -1,5 +1,3 @@
-/// <reference path="../../typings/tsd.d.ts" />
-
 import {Component, provide, OnInit} from 'angular2/angular2';
 
 class SingletonModel {
