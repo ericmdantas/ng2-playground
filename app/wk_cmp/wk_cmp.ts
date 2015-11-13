@@ -1,4 +1,12 @@
-import {Component, View, EventEmitter, forwardRef, Inject, OnInit} from 'angular2/angular2';
+import {
+  Component,
+  View,
+  forwardRef,
+  Inject,
+  OnInit
+} from 'angular2/angular2';
+
+import * as Rx from '@reactivex/rxjs/dist/cjs/Rx';
 
 @Component({
   selector: 'wk-cmp',
@@ -37,14 +45,13 @@ export class WkCmp implements OnInit {
 class WkBus {
   private static WK_URL: string = 'app/wk_cmp/wk.js';
   private _wk: Worker = new Worker(WkBus.WK_URL);
-  private _ee: EventEmitter = new EventEmitter();
 
   listen():Rx.Observable<any> {
-    this._wk.addEventListener('message', ({data}) => {
-      this._ee.next(data);
+    return Rx.Observable.create((o) => {
+      this._wk.addEventListener('message', ({data}) => {
+        o.next(data);
+      });
     });
-
-    return this._ee.toRx();
   }
 
   dispatch(info: any):void {
