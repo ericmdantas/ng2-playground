@@ -1,8 +1,8 @@
-import * as Rx from '@reactivex/rxjs/dist/cjs/Rx';
+import {Observable} from 'angular2/angular2';
 
 export class CustomEEService {
   do() {
-    return Rx.Observable.create((o) => {
+    return Observable.create((o) => {
       setInterval(() => {
         o.next(Date.now());
       }, 1234);

@@ -2,11 +2,10 @@ import {
   Component,
   View,
   forwardRef,
+  Observable,
   Inject,
   OnInit
 } from 'angular2/angular2';
-
-import * as Rx from '@reactivex/rxjs/dist/cjs/Rx';
 
 @Component({
   selector: 'wk-cmp',
@@ -46,8 +45,8 @@ class WkBus {
   private static WK_URL: string = 'app/wk_cmp/wk.js';
   private _wk: Worker = new Worker(WkBus.WK_URL);
 
-  listen():Rx.Observable<any> {
-    return Rx.Observable.create((o) => {
+  listen():Observable<any> {
+    return Observable.create((o) => {
       this._wk.addEventListener('message', ({data}) => {
         o.next(data);
       });
