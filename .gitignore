@@ -1,5 +1,3 @@
-.idea
 node_modules
-index.js
-server.js
-app/**/*.js
+**/*.js
+**/*.map

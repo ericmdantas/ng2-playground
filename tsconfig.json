@@ -1,29 +1,15 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
+        "module": "system",
+        "moduleResolution": "node",
         "target": "es5",
+        "sourceMap": true,
         "emitDecoratorMetadata": true,
-        "experimentalDecorators": true
+        "experimentalDecorators": true,
+        "noImplicitAny": false
     },
-    "filesGlob": [
-        "index.ts",
-        "app/**/*.ts"
-    ],
-    "files": [
-        "index.ts",
-        "app/app.ts",
-        "app/container_cmp/container_cmp.ts",
-        "app/custom_ee_cmp/custom_ee_cmp.ts",
-        "app/custom_ee_service/custom_ee_service.ts",
-        "app/form_cmp/form_cmp.ts",
-        "app/http_cmp/http_cmp.ts",
-        "app/in_out_cmp/in_out_cmp.ts",
-        "app/modal_cmp/modal_cmp.ts",
-        "app/pipe_cmp/pipe_cmp.ts",
-        "app/provider_cmp/provider_cmp.ts",
-        "app/singleton_cmp/singleton_cmp.ts",
-        "app/toggable/toggable_directive.ts",
-        "app/wk_cmp/wk_cmp.ts",
-        "app/wk_cmp/wk.ts"
+    "exclude": [
+      "node_modules",
+      "typings"
     ]
 }

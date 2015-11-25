@@ -1,17 +1,25 @@
 {
-  "name": "ng2-tsc",
-  "version": "0.0.1",
+  "name": "ng2-playground",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc"
+    "start": "live-server",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Eric Mendes Dantas",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericmdantas/ng2-playground.git"
+  },
+  "author": "Eric Mendes Dantas <ericdantas0@gmail.com> (https://github.com/ericmdantas)",
   "license": "ISC",
-  "devDependencies": {},
+  "bugs": {
+    "url": "https://github.com/ericmdantas/ng2-playground/issues"
+  },
+  "homepage": "https://github.com/ericmdantas/ng2-playground#readme",
   "dependencies": {
     "angular2": "^2.0.0-alpha.46",
-    "reflect-metadata": "^0.1.0",
-    "systemjs": "^0.18.9"
+    "reflect-metadata": "^0.1.2",
+    "systemjs": "^0.19.6"
   }
 }
