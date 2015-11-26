@@ -14,6 +14,7 @@ import {
     `
       .main-container {
         border: 1px solid red;
+        padding: 15px;
       }
     `
   ]
