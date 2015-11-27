@@ -12,11 +12,11 @@ function dec() {
 
 @dec()
 @Component({
-  selector: 'custom-annoation-cmp',
+  selector: 'custom-annotation-cmp',
   template: `
     <p>{{info()}}</p>
   `
 })
-export class CustomAnnoationCmp {
+export class CustomAnnotationCmp {
 
 }
