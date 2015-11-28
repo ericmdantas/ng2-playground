@@ -3,8 +3,7 @@ import {
   NgFor,
   provide,
   OnInit,
-  Inject,
-  OnInit
+  Inject
 } from 'angular2/angular2';
 
 import {
