@@ -51,7 +51,7 @@ class MyHttp {
     <hr />
 
     <pre>
-      <p *ng-for="#i of rs;">{{i | json}}</p>
+      <p *ng-for="#i of rs | slice:0:3;">{{i | json}}</p>
     </pre>
 
   `,
