@@ -9,11 +9,20 @@ import {CustomFormCmp} from './custom_form_cmp/custom_form_cmp.js';
 import {CustomHttpCmp} from './custom_http_cmp/custom_http_cmp.js';
 import {CustomAnnotationCmp} from './custom_annotation_cmp/custom_annotation_cmp.js';
 import {CustomAnnotationMethodCmp} from './custom_annotation_cmp/custom_annotation_method_cmp.js';
+import {MainBubbleEventsCmp} from './bubble_events_cmp/bubble_events_cmp.js';
 
 @Component({
   selector: 'app',
   template: `
     <main-container>
+      <sub-container-cmp>
+        <main-bubble-event></main-bubble-event>
+      </sub-container-cmp>
+
+      <sub-container-cmp>
+        <custom-http-cmp></custom-http-cmp>
+      </sub-container-cmp
+
       <sub-container-cmp>
         <custom-annotation-cmp></custom-annotation-cmp>
       </sub-container-cmp>
@@ -29,10 +38,12 @@ import {CustomAnnotationMethodCmp} from './custom_annotation_cmp/custom_annotati
       <sub-container-cmp>
         <custom-http-cmp></custom-http-cmp>
       </sub-container-cmp>
+>
     </main-container>
   `,
   directives: [MainContainerCmp, CustomFormCmp, CustomHttpCmp,
-               CustomAnnotationCmp, CustomAnnotationMethodCmp, SubContainerCmp]
+               CustomAnnotationCmp, CustomAnnotationMethodCmp, SubContainerCmp,
+               MainBubbleEventsCmp]
 })
 export class AppCmp {
 

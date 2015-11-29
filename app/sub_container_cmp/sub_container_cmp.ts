@@ -23,5 +23,7 @@ import {
   }
 })
 export class SubContainerCmp {
-  
+    toggle() {
+      console.log('toggling');
+    }
 }
