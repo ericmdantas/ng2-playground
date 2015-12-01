@@ -26,7 +26,7 @@ import {FormHttpCmp} from './form_http_cmp/form_http_cmp.js';
 
       <sub-container-cmp>
         <custom-http-cmp></custom-http-cmp>
-      </sub-container-cmp
+      </sub-container-cmp>
 
       <sub-container-cmp>
         <custom-annotation-cmp></custom-annotation-cmp>
@@ -43,7 +43,7 @@ import {FormHttpCmp} from './form_http_cmp/form_http_cmp.js';
       <sub-container-cmp>
         <custom-http-cmp></custom-http-cmp>
       </sub-container-cmp>
->
+
     </main-container>
   `,
   directives: [MainContainerCmp, CustomFormCmp, CustomHttpCmp,
