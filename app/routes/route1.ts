@@ -1,5 +1,6 @@
 import {
-  Component
+  Component,
+  OnDestroy
 } from 'angular2/angular2';
 
 @Component({
@@ -8,6 +9,8 @@ import {
     <h1>router 1</h1>
   `
 })
-export class Router1Cmp {
-
+export class Router1Cmp implements OnDestroy {
+  ngOnDestroy() {
+    console.log('destroying route1');
+  }
 }
