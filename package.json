@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/ericmdantas/ng2-playground#readme",
   "dependencies": {
-    "angular2": "^2.0.0-alpha.47",
+    "angular2": "^2.0.0-alpha.48",
     "reflect-metadata": "^0.1.2",
     "systemjs": "^0.19.6"
   }
