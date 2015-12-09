@@ -9,6 +9,8 @@ import {
   Http
 } from 'angular2/http';
 
+import 'rxjs/operators/map';
+
 function saver() {
   return (target) => {
     target.prototype.save = function(url: string) {
@@ -54,8 +56,7 @@ class MyHttp {
     </pre>
 
   `,
-  providers: [MyHttp],
-  directives: [NgFor]
+  providers: [MyHttp]
 })
 export class CustomHttpCmp implements OnInit {
   static URL: string = 'http://jsonplaceholder.typicode.com/posts';
@@ -83,7 +84,7 @@ export class CustomHttpCmp implements OnInit {
         });
   }
 
-  onInit() {
+  ngOnInit() {
     this.getIt();
   }
 }

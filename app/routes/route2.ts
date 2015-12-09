@@ -14,7 +14,7 @@ import {
   `
 })
 @CanActivate(() => {
-  return Promise.resolve('a');
+  return true;
 })
 export class Router2Cmp implements OnDestroy {
   ngOnDestroy() {

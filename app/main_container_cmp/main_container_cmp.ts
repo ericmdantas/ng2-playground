@@ -20,7 +20,7 @@ import {
   ]
 })
 export class MainContainerCmp implements OnInit {
-  onInit() {
+  ngOnInit() {
     console.log('main-container init');
   }
 }
