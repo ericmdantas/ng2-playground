@@ -2,7 +2,7 @@ import {
   Component,
   OnInit,
   OnDestroy
-} from 'angular2/angular2';
+} from 'angular2/core';
 
 @Component({
   selector: 'router3',

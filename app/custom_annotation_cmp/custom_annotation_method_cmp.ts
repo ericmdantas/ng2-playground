@@ -2,7 +2,7 @@ import {
   Component,
   OnInit,
   Observable
-} from 'angular2/angular2';
+} from 'angular2/core';
 
 function someObs() {
   return Observable.create((o) => {

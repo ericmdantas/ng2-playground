@@ -1,7 +1,7 @@
 import {
   Directive,
   Component
-} from 'angular2/angular2';
+} from 'angular2/core';
 
 @Directive({
   selector: '[simple-directive]',

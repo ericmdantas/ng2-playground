@@ -1,10 +1,9 @@
 import {
   Component,
-  NgFor,
   provide,
   OnInit,
   Inject
-} from 'angular2/angular2';
+} from 'angular2/core';
 
 import {
   Http

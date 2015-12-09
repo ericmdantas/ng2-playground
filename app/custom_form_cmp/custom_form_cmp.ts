@@ -2,12 +2,14 @@ import {
   Component,
   OnInit,
   Inject,
-  Input,
+  Input
+} from 'angular2/core';
+
+import {
   FormBuilder,
-  FORM_DIRECTIVES,
   Validators,
   ControlGroup
-} from 'angular2/angular2';
+} from 'angular2/common';
 
 @Component({
   selector: 'custom-form-cmp',
