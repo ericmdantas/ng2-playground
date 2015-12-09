@@ -1,7 +1,7 @@
 import {
   Component,
   OnInit
-} from 'angular2/angular2';
+} from 'angular2/core';
 
 import {MainContainerCmp} from './main_container_cmp/main_container_cmp.js';
 import {SubContainerCmp} from './sub_container_cmp/sub_container_cmp.js';
