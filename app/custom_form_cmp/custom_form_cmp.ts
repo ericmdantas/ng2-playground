@@ -14,9 +14,9 @@ import {
 @Component({
   selector: 'custom-form-cmp',
   template: `
-    <form [ng-form-model]="cForm">
-      <input type="text" ng-control="input1" />
-      <input type="text" ng-control="input2" />
+    <form [ngFormModel]="cForm">
+      <input type="text" ngControl="input1" />
+      <input type="text" ngControl="input2" />
 
       <button type="button" [disabled]>{{btnName}}</button>
     </form>

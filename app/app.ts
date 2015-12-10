@@ -28,11 +28,7 @@ import {SimpleCmp} from './simple_directive/simple_directive.js';
       </sub-container-cmp>
 
       <sub-container-cmp>
-        <custom-form-cmp [btn-name]=" 'btn!' "></custom-form-cmp>
-      </sub-container-cmp>
-
-      <sub-container-cmp>
-        <custom-http-cmp></custom-http-cmp>
+        <custom-form-cmp [btnName]=" 'btn!' "></custom-form-cmp>
       </sub-container-cmp>
 
       <sub-container-cmp>

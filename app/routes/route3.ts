@@ -9,7 +9,7 @@ import {
   template: `
     <h1>router 3</h1>
     <ol>
-      <li *ng-for="#i of info;">{{i}}</li>
+      <li *ngFor="#i of info;">{{i}}</li>
     </ol>
   `
 })

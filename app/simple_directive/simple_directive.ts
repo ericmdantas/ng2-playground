@@ -4,7 +4,7 @@ import {
 } from 'angular2/core';
 
 @Directive({
-  selector: '[simple-directive]',
+  selector: '[simpleDirective]',
   host: {
     '(click)': 'clk()'
   }
@@ -18,7 +18,7 @@ export class SimpleDirective {
 @Component({
   selector: 'simple-cmp',
   template: `
-    <button type="button" simple-directive>abc</button>
+    <button type="button" simpleDirective>abc</button>
   `,
   directives: [SimpleDirective]
 })

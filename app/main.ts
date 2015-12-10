@@ -17,10 +17,10 @@ import {Router3Cmp} from 'app/routes/route3.js';
 @Component({
   selector: 'main-cmp',
   template: `
-    <a [router-link]="['/App']">app</a>
-    <a [router-link]="['/Router1', {id: r1.id, something: r1.something}]">route1</a>
-    <a [router-link]="['/Router2', {yo: r2.yo}]">route2</a>
-    <a [router-link]="['/Router3', {yo: r2.yo, whatever: 'si'}]">route3</a>
+    <a [routerLink]="['/App']">app</a>
+    <a [routerLink]="['/Router1', {id: r1.id, something: r1.something}]">route1</a>
+    <a [routerLink]="['/Router2', {yo: r2.yo}]">route2</a>
+    <a [routerLink]="['/Router3', {yo: r2.yo, whatever: 'si'}]">route3</a>
     <router-outlet></router-outlet>
   `,
   directives: [ROUTER_DIRECTIVES]

@@ -23,7 +23,7 @@ export class CustomAnnotationMethodCmp implements OnInit {
     someObs().subscribe((i) => this.s = i);
   }
 
-  onInit() {
+  ngOnInit() {
     this._upt();
   }
 }
