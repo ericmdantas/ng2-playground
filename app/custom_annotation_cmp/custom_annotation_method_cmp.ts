@@ -1,11 +1,14 @@
 import {
   Component,
-  OnInit,
-  Observable
+  OnInit
 } from 'angular2/core';
 
+import {
+  Observable
+} from 'rxjs/Observable';
+
 function someObs() {
-  return Observable.create((o) => {
+  return new Observable((o) => {
     o.next({a: true});
   });
 }
@@ -17,7 +20,7 @@ function someObs() {
   `
 })
 export class CustomAnnotationMethodCmp implements OnInit {
-  s: Observable<any>;
+  s: {a: boolean};
 
   _upt = () => {
     someObs().subscribe((i) => this.s = i);
