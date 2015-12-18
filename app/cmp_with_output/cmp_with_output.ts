@@ -7,7 +7,7 @@ import {
 @Component({
   selector: 'inner-output-cmp',
   template: `
-    <button type="button" (click)="onClickHandler()">click me</button>
+    <button type="button" (click)="onClickHandler ()">click me</button>
   `
 })
 class InnerOutputCmp {
