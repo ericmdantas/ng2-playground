@@ -1,12 +1,13 @@
 import {
   Component,
-  Pipe
+  Pipe,
+  PipeTransform
 } from 'angular2/core';
 
 @Pipe({
   name: 'myPipe'
 })
-class MyPipe {
+class MyPipe implements PipeTransform {
   transform(value: any, args: string[]):string {
     return `${value}-${Date.now()} --- added by the pipe`;
   }
