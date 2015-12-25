@@ -7,6 +7,7 @@ import {FormCmp} from './form_cmp/form_cmp.js';
 import {CmpWithOutput} from './cmp_with_output/cmp_with_output.js';
 import {CmpWithInput} from './cmp_with_input/cmp_with_input.js';
 import {CmpWithHttp} from './cmp_with_http/cmp_with_http.js';
+import {CmpWithCustomPipe} from './cmp_with_custom_pipe/cmp_with_custom_pipe.js';
 
 @Component({
   selector: 'app-cmp',
@@ -26,8 +27,12 @@ import {CmpWithHttp} from './cmp_with_http/cmp_with_http.js';
     <container-cmp>
       <cmp-with-http></cmp-with-http>
     </container-cmp>
+
+    <container-cmp>
+      <cmp-with-custom-pipe></cmp-with-custom-pipe>
+    </container-cmp>
   `,
-  directives: [ContainerCmp, FormCmp, CmpWithOutput, CmpWithInput, CmpWithHttp]
+  directives: [ContainerCmp, FormCmp, CmpWithOutput, CmpWithInput, CmpWithHttp, CmpWithCustomPipe]
 })
 export class AppCmp {
   name: string = 'app';
