@@ -1,15 +1,21 @@
 {
     "compilerOptions": {
+        "target": "es5",
         "module": "system",
         "moduleResolution": "node",
-        "target": "es5",
-        "sourceMap": true,
-        "emitDecoratorMetadata": true,
+        "isolatedModules": false,
+        "jsx": "react",
         "experimentalDecorators": true,
-        "noImplicitAny": false
+        "emitDecoratorMetadata": true,
+        "declaration": false,
+        "noImplicitAny": false,
+        "removeComments": true,
+        "noLib": false,
+        "preserveConstEnums": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "sourceMap": true
     },
     "exclude": [
-      "node_modules",
-      "typings"
+      "node_modules"
     ]
 }

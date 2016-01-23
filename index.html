@@ -1,23 +1,22 @@
 <!doctype html>
 <html>
   <head>
-    <title>play!</title>
-    <base href="/" />
+    <title>ng2 play!</title>
   </head>
 
   <body>
+      <my-app></my-app>
 
-    <main-cmp></main-cmp>
+      <script src="node_modules/systemjs/dist/system.js"></script>
+      <script src="node_modules/rxjs/bundles/Rx.js"></script>
+      <script src="node_modules/reflect-metadata/Reflect.js"></script>
+      <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+      <script src="node_modules/angular2/bundles/angular2.js"></script>
+      <script src="node_modules/angular2/bundles/http.js"></script>
+      <script src="node_modules/angular2/bundles/router.js"></script>
 
-    <script type="text/javascript" src="node_modules/systemjs/dist/system.js"></script>
-    <script type="text/javascript" src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    <script type="text/javascript" src="node_modules/rxjs/bundles/Rx.js"></script>
-    <script type="text/javascript" src="node_modules/angular2/bundles/http.js"></script>
-    <script type="text/javascript" src="node_modules/angular2/bundles/router.js"></script>
-    <script type="text/javascript" src="node_modules/angular2/bundles/angular2.js"></script>
-
-    <script>
-      System.import('index.js');
-    </script>
+      <script>
+        System.import('index.js');
+      </script>
   </body>
 </html>
