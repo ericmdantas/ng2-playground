@@ -5,14 +5,16 @@ import {
 @Component({
   selector: 'global-key-listener',
   template: `
-    <label>global-key-listener</label>
-    <p>{{enter}}</p>
+    <div>
+      <label>global-key-listener</label>
+      <p>{{enter}}</p>
+    </div>
   `,
   host: {
     '(window:keyup)': 'enterPressed($event)'
   }
 })
-export class GlobalKeyListener {
+export class GlobalKeyListenerCmp {
   enter: string;
 
   enterPressed(ev) {

@@ -6,9 +6,11 @@ import {
 @Component({
   selector: 'local-key-listener',
   template: `
-    <label>local-key-listener</label>
-    <input type="text" [(ngModel)]="inp" (input)="inputHappened(inp)"/>
-    <p>{{called}}</p>
+    <div>
+      <label>local-key-listener</label>
+      <input type="text" [(ngModel)]="inp" (input)="inputHappened(inp)"/>
+      <p>{{called}}</p>
+    </div>
   `
 })
 export class LocalKeyListenerCmp {
