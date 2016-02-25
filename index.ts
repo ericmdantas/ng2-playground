@@ -1,4 +1,4 @@
 import {bootstrap} from 'angular2/platform/browser';
-import {App} from './app/app_cmp.js';
+import {App} from './src/app.js';
 
 bootstrap(App);
